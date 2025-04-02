@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadAllTransaction } from "../../redux/rtk/features/transaction/transactionSlice";
+import { loadAllTransaction } from "../../../redux/rtk/features/transaction/transactionSlice";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { CsvLinkBtn } from "../UI/CsvLinkBtn";
 import "./transaction.css";

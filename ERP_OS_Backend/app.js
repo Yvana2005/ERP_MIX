@@ -11,9 +11,9 @@ const paymentSaleInvoiceRoutes = require("./routes/Distribution/sale/paymentSale
 const returnSaleInvoiceRoutes = require("./routes/Distribution/sale/returnSaleInvoice/returnSaleInvoice.routes");
 const purchaseInvoiceRoutes = require("./routes/Distribution/purchase/purchaseInvoice/purchaseInvoice.routes");
 const returnPurchaseInvoiceRoutes = require("./routes/Distribution/purchase/returnPurchaseInvoice/returnPurchaseInvoice.routes");
-const rolePermissionRoutes = require("./routes/Distribution/hr/rolePermission/rolePermission.routes");
+const rolePermissionRoutes = require("./routes/hr/rolePermission/rolePermission.routes");
 const saleInvoiceRoutes = require("./routes/Distribution/sale/saleInvoice/saleInvoice.routes");
-const transactionRoutes = require("./routes/Distribution/accounting/transaction/transaction.routes");
+const transactionRoutes = require("./routes/accounting/transaction/transaction.routes");
 const permissionRoutes = require("./routes/hr/permission/permission.routes");
 const dashboardRoutes = require("./routes/dashboard/dashboard.routes");
 const customerRoutes = require("./routes/Distribution/sale/customer/customer.routes");
@@ -145,7 +145,7 @@ app.use("/v1/lot-product", lotProductRoute);
 app.use("/v1/dashboardRH", dashboardRHRoutes);
 app.use("/v1/dashboardSMS", dashboardSMSRoutes);
 app.use("/v1/designation", require("./routes/RH/hr/designation/designation.routes"));
-app.use("/v1/email", require("./routes/email/RH/email.routes"));
+app.use("/v1/email", require("./routes/RH/email/email.routes"));
 app.use("/v1/department", require("./routes/RH/hr/department/department.routes"));
 app.use(
   "/v1/employment-status",

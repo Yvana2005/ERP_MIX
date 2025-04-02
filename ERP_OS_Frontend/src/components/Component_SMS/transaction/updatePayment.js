@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from "react";
 
 import { Button, Form, Input, Typography, Row, Col, Alert, Card } from "antd";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import { toast } from "react-toastify";
 import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
-import Main from "../layouts/Main";
+import Main from "../../layouts/Main";
 
 //Update Supplier API REQ
 const updateSupplier = async (id, values) => {

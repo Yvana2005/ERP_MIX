@@ -7,9 +7,9 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate, useParams } from "react-router-dom";
-import PageTitle from "../page-header/PageHeader";
-import Loader from "../loader/loader";
-import { clearProject, loadAllProject, loadSingleProject, updateProject } from "../../redux/rtk/features/projectManagement/project/project/project";
+import PageTitle from "../../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import { clearProject, loadAllProject, loadSingleProject, updateProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
 
 const UpdateStatus = () => {
 	const [loader, setLoader] = useState(false);

@@ -4,7 +4,7 @@ import styles from "./AddProdCat.module.css";
 import { Fragment, useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { addProductCategory } from "../../redux/actions/productCategory/addProductCategoryAciton";
+import { addProductCategory } from "../../../redux/actions/productCategory/addProductCategoryAciton";
 import UploadMany from "../Card/UploadMany";
 
 const AddProductCategory = () => {

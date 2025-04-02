@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addSingleLeavePolicy,
 	loadAllLeavePolicy,
-} from "../../redux/rtk/features/leavePolicy/leavePolicySlice";
+} from "../../../redux/rtk/features/leavePolicy/leavePolicySlice";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 function CustomTable({ list, loading }) {

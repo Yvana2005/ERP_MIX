@@ -2,7 +2,7 @@ import { Button, Card, Col, Select, Form, Input, Row, Typography } from "antd";
 
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addCustomer } from "../../redux/actions/customer/addCustomerAciton";
+import { addCustomer } from "../../../redux/actions/customer/addCustomerAciton";
 import UploadMany from "../Card/UploadMany";
 import styles from "./AddCust.module.css";
 

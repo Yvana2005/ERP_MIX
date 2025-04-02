@@ -16,9 +16,9 @@ import styles from "./AddTransaction.module.css";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import getAllAccount from "../../api/getAllApis/getAllAccounts";
-import { addTransaction } from "../../redux/actions/transaction/addTransactionAction";
-import PageTitle from "../page-header/PageHeader";
+import getAllAccount from "../../../api/getAllApis/getAllAccounts";
+import { addTransaction } from "../../../redux/actions/transaction/addTransactionAction";
+import PageTitle from "../../page-header/PageHeader";
 
 const AddTransaction = () => {
   const navigate = useNavigate();

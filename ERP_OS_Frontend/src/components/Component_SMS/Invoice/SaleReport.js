@@ -4,7 +4,7 @@ import React, { forwardRef, Fragment, useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
-import getSetting from "../../api/getSettings";
+import getSetting from "../../../api/getSettings";
 
 import "./saleReport.module.css";
 

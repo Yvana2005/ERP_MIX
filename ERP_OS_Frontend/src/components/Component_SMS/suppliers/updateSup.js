@@ -3,8 +3,8 @@ import axios from "axios";
 import React, { Fragment, useState } from "react";
 import { Navigate, useLocation, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Main from "../layouts/Main";
-import PageTitle from "../page-header/PageHeader";
+import Main from "../../layouts/Main";
+import PageTitle from "../../page-header/PageHeader";
 
 //Update Supplier API REQ
 const updateSupplier = async (id, values) => {

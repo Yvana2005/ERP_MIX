@@ -9,9 +9,9 @@ import {
 	deleteDesignation,
 	loadAllDesignationByEmployee,
 	loadSingleDesignation,
-} from "../../redux/rtk/features/designation/designationSlice";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+} from "../../../redux/rtk/features/designation/designationSlice";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import UserListCard from "./List/UserListCard";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 //PopUp

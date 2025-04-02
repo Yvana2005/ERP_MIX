@@ -1,6 +1,6 @@
 const { getPagination } = require("../../../../utils/query");
 const moment = require("moment");
-const prisma = require("../../../utils/prisma");
+const prisma = require("../../../../utils/prisma");
 
 //create a new employee
 const createAttendance = async (req, res) => {

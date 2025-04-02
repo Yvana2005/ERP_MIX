@@ -8,7 +8,7 @@ import {
 	loadAllLeavePolicy,
 	loadSingleLeavePolicy,
 	updateLeavePolicy,
-} from "../../../redux/rtk/features/leavePolicy/leavePolicySlice";
+} from "../../../../redux/rtk/features/leavePolicy/leavePolicySlice";
 
 const LeavePolicyEdit = ({ data }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);

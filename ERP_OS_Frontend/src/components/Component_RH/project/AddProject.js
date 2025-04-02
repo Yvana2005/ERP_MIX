@@ -15,9 +15,9 @@ import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addSingleProject } from "../../redux/rtk/features/projectManagement/project/project/project";
-import { loadAllStaff } from "../../redux/rtk/features/user/userSlice";
-import PageTitle from "../page-header/PageHeader";
+import { addSingleProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
+import { loadAllStaff } from "../../../redux/rtk/features/user/userSlice";
+import PageTitle from "../../page-header/PageHeader";
 
 const AddProject = ({ drawer }) => {
 	const [loader, setLoader] = useState(false);

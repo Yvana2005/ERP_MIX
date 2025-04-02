@@ -1,11 +1,11 @@
 import { Navigate } from "react-router-dom";
-import PageTitle from "../../page-header/PageHeader";
+import PageTitle from "../../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Table } from "antd";
 // import AddTask from "./Addtask";
 import UpdateBtn from "../../Buttons/UpdateBtn";
-import { loadAllProjectTasks } from "../../../redux/rtk/features/projectManagement/project/projectTask/projectTask";
+import { loadAllProjectTasks } from "../../../../redux/rtk/features/projectManagement/project/projectTask/projectTask";
 const columns = [
   {
     id: 1,

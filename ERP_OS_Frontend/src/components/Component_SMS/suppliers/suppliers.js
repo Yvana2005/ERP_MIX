@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import AddSup from "./addSup";
 import GetAllSup from "./getAllSup";
 

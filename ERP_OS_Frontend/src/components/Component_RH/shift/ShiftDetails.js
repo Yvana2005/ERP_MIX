@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { CsvLinkBtn } from "../UI/CsvLinkBtn";
@@ -16,7 +16,7 @@ import DepartmentEditPopup from "../UI/PopUp/DepartmentEditPopup";
 import {
 	deleteShift,
 	loadSingleShift,
-} from "../../redux/rtk/features/shift/shiftSlice";
+} from "../../../redux/rtk/features/shift/shiftSlice";
 import ShifDelete from "./shiftDelete";
 import ShiftEditPopup from "../UI/PopUp/ShiftEditPopup";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";

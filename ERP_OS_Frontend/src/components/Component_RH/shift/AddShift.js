@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addShift,
 	loadAllShift,
-} from "../../redux/rtk/features/shift/shiftSlice";
+} from "../../../redux/rtk/features/shift/shiftSlice";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 function CustomTable({ list }) {

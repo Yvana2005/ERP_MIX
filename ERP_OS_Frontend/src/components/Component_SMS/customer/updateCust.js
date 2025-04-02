@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Navigate, useLocation, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 
 //Update customer API REQ
 const updateCustomer = async (id, values) => {

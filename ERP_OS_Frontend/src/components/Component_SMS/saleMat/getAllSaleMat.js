@@ -17,9 +17,9 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllSale } from "../../redux/actions/sale/getSaleAction";
-import { loadAllStaff } from "../../redux/actions/user/getStaffAction";
-import PageTitle from "../page-header/PageHeader";
+import { loadAllSale } from "../../../redux/actions/sale/getSaleAction";
+import { loadAllStaff } from "../../../redux/actions/user/getStaffAction";
+import PageTitle from "../../page-header/PageHeader";
 
 function CustomTable({ list, total, startdate, enddate, count, user }) {
   const [columnItems, setColumnItems] = useState([]);

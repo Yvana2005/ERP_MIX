@@ -10,9 +10,9 @@ import { CsvLinkBtn } from "../UI/CsvLinkBtn";
 import dayjs from "dayjs";
 import BtnViewSvg from "../UI/Button/btnViewSvg";
 import ViewBtn from "../Buttons/ViewBtn";
-import { clearLeaveApplicationList, loadSingleLeaveHistory } from "../../redux/rtk/features/leave/leaveSlice";
+import { clearLeaveApplicationList, loadSingleLeaveHistory } from "../../../redux/rtk/features/leave/leaveSlice";
 import { useParams } from "react-router-dom";
-import Loader from "../loader/loader";
+import Loader from "../../loader/loader";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 function CustomTable({ list, loading }) {

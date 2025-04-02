@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addAnnouncement,
 	loadAllAnnouncement,
-} from "../../redux/rtk/features/announcement/announcementSlice";
+} from "../../../redux/rtk/features/announcement/announcementSlice";
 
 const AddAnnouncement = ({ drawer }) => {
 	const { loading } = useSelector((state) => state.announcement);

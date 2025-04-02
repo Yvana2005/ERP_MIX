@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {
 	addDesignation,
 	loadAllDesignation,
-} from "../../redux/rtk/features/designation/designationSlice";
+} from "../../../redux/rtk/features/designation/designationSlice";
 import UploadMany from "../Card/UploadMany";
 import styles from "./AddDesignation.module.css";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";

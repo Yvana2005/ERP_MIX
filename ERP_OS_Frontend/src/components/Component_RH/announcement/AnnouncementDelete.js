@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {
 	deleteAnnouncement,
 	loadAllAnnouncement,
-} from "../../redux/rtk/features/announcement/announcementSlice";
+} from "../../../redux/rtk/features/announcement/announcementSlice";
 
 const AnnouncementDelete = ({ id }) => {
 	const [loading, setLoading] = useState(false);

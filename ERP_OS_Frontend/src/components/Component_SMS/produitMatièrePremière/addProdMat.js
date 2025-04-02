@@ -15,9 +15,9 @@ import { toast } from "react-toastify";
 
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct } from "../../redux/actions/product/addProductAction";
-import { loadAllProductCategory } from "../../redux/actions/productCategory/getProductCategoryAction";
-import { loadSuppliers } from "../../redux/actions/supplier/getSuppliersAction";
+import { addProduct } from "../../../redux/actions/product/addProductAction";
+import { loadAllProductCategory } from "../../../redux/actions/productCategory/getProductCategoryAction";
+import { loadSuppliers } from "../../../redux/actions/supplier/getSuppliersAction";
 import UploadMany from "../Card/UploadMany";
 import styles from "../product/AddProd.module.css";
 

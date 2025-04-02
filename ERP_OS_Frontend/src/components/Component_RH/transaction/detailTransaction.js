@@ -3,8 +3,8 @@ import { Button, Card, Popover, Typography } from "antd";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
 import { toast } from "react-toastify";
 import "./transaction.css";
@@ -13,8 +13,8 @@ import dayjs from "dayjs";
 import {
   clearTransaction,
   loadTransaction
-} from "../../redux/rtk/features/transaction/transactionSlice.js";
-import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
+} from "../../../redux/rtk/features/transaction/transactionSlice.js";
+import UserPrivateComponent from "../../../PrivateRoutes/UserPrivateComponent";
 
 //PopUp
 

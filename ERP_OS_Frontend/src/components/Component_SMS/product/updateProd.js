@@ -4,7 +4,7 @@ import { Alert, Button, Card, Col, Form, Input, Row, Typography } from "antd";
 import axios from "axios";
 import { Navigate, useLocation, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 
 //Update Product API REQ
 const updateProduct = async (id, values) => {

@@ -12,19 +12,19 @@ import {
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getRoles } from "../../role/roleApis";
+import { getRoles } from "../../../role/roleApis";
 import BtnEditSvg from "../Button/btnEditSvg";
 import dayjs from "dayjs";
 import {
 	clearUser,
 	loadSingleStaff,
 	updateUser,
-} from "../../../redux/rtk/features/user/userSlice";
+} from "../../../../redux/rtk/features/user/userSlice";
 import { toast } from "react-toastify";
 import { getDepartments } from "../../department/departmentApis";
-import { loadAllShift } from "../../../redux/rtk/features/shift/shiftSlice";
-import { loadAllLeavePolicy } from "../../../redux/rtk/features/leavePolicy/leavePolicySlice";
-import { loadAllWeeklyHoliday } from "../../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
+import { loadAllShift } from "../../../../redux/rtk/features/shift/shiftSlice";
+import { loadAllLeavePolicy } from "../../../../redux/rtk/features/leavePolicy/leavePolicySlice";
+import { loadAllWeeklyHoliday } from "../../../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
 import { useParams } from "react-router-dom";
 
 const ProfileEditPopup = ({ data }) => {

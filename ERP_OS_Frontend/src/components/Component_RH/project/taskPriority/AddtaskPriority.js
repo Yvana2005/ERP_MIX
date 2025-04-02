@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addSingleTaskPriority,
 	loadAllTaskPriority,
-} from "../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
+} from "../../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
 
 const AddTaskPriority = (props) => {
 	const [loader, setLoader] = useState(false);

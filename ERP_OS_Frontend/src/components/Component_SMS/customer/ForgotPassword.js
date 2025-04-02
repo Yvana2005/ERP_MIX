@@ -1,8 +1,8 @@
 import { Button, Form, Input, Typography, Row, Col, Card } from "antd";
 import React, { useState } from "react";
 import axios from "axios";
-import styles from "../user/Login.module.css";
-import logo from "../../assets/images/sai-i-lama-logo.png";
+import styles from "../../user/Login.module.css";
+import logo from "../../../assets/images/sai-i-lama-logo.png";
 import { toast } from "react-toastify";
 
 const ForgotPassword = () => {

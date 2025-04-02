@@ -6,6 +6,7 @@ const getDashboardData = async (req, res) => {
   try {
     //==================================Ventes vs bénéfices===============================================
     // get all sale invoice by group
+    const totalUsers = await prisma.user.count();
     const allSaleInvoice = await prisma.saleInvoice.groupBy({
       orderBy: {
         date: "asc"
@@ -328,6 +329,34 @@ const getDashboardData = async (req, res) => {
         type_saleInvoice: "produit_fini"
       }
     });
+
+    const todayOnLeave = await prisma.leaveApplication.count({
+      where: {
+        AND: [
+          {
+            acceptLeaveFrom: {
+              lte: new Date(
+                `${today.getFullYear()}-${today.getMonth() + 1}-${
+                  today.getDate() + 1
+                }`
+              ),
+            },
+          },
+          {
+            acceptLeaveTo: {
+              gte: new Date(
+                `${today.getFullYear()}-${
+                  today.getMonth() + 1
+                }-${today.getDate()}`
+              ),
+            },
+          },
+          {
+            status: "ACCEPTED",
+          },
+        ],
+      },
+    });
     // format response data for data visualization chart in antd
     const formattedData8 = await Promise.all(
       allGenerateSaleInvoiceByGroup.map(async (item) => {
@@ -397,12 +426,14 @@ const getDashboardData = async (req, res) => {
     ].sort((a, b) => a.value - b.value);
 
     res.json({
+      totalUsers,
       saleProfitCount,
       SupplierVSCustomer,
       customerSaleProfit,
       cardInfo,
       userSaleProfit,
-      top4Products
+      top4Products,
+      todayOnLeave
     });
   } catch (error) {
     res.status(400).json(error.message);

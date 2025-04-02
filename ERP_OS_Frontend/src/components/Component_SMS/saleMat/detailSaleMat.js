@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import CardComponent from "../Card/card.components";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
-import { loadSingleSale } from "../../redux/actions/sale/detailSaleAction";
+import { loadSingleSale } from "../../../redux/actions/sale/detailSaleAction";
 
-import { deleteSale } from "../../redux/actions/sale/deleteSaleAction";
+import { deleteSale } from "../../../redux/actions/sale/deleteSaleAction";
 import ReturnSaleInvoiceList from "../Card/saleInvoice/ReturnSaleInvoiceList";
 import SaleProductListCard from "../Card/saleInvoice/SaleProductListCard";
 import TransactionSaleList from "../Card/saleInvoice/TransactionSaleList";

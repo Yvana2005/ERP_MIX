@@ -5,15 +5,15 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { deletePurchase } from "../../redux/actions/purchase/deletePurchaseAction";
-import { loadSinglePurchase } from "../../redux/actions/purchase/detailPurchaseAction";
+import { deletePurchase } from "../../../redux/actions/purchase/deletePurchaseAction";
+import { loadSinglePurchase } from "../../../redux/actions/purchase/detailPurchaseAction";
 import CardComponent from "../Card/card.components";
 import PurchaseProductListCard from "../Card/purchaseInvoice/PurchaseProductListCard";
 import ReturnPurchaseInvoiceList from "../Card/purchaseInvoice/ReturnPurchaseInvoiceList";
 import TransactionPurchaseList from "../Card/purchaseInvoice/TransactionPurchaseList";
 import PurchaseInvoice from "../Invoice/PurchaseInvoice";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
 const DetailsPurch = () => {
 	const { id } = useParams();

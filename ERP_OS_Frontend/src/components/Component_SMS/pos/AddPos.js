@@ -13,9 +13,9 @@ import {
 } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCustomer } from "../../redux/actions/customer/addCustomerAciton";
-import { loadAllCustomer } from "../../redux/actions/customer/getCustomerAction";
-import { addSale } from "../../redux/actions/sale/addSaleAction";
+import { addCustomer } from "../../../redux/actions/customer/addCustomerAciton";
+import { loadAllCustomer } from "../../../redux/actions/customer/getCustomerAction";
+import { addSale } from "../../../redux/actions/sale/addSaleAction";
 import Products from "./Products";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";

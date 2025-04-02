@@ -1,4 +1,4 @@
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 // import GetAllProd from "./getAllProd";
 
 import { Navigate } from "react-router-dom";

@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addClockIn,
 	getCurrentUserClockInStatus,
-} from "../../../redux/rtk/features/attendance/attendanceSlice";
+} from "../../../../redux/rtk/features/attendance/attendanceSlice";
 
 // import { useParams } from "react-router-dom";
 // import { toast } from "react-toastify";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import getUserFromToken from "../../../utils/getUserFromToken";
+import getUserFromToken from "../../../../utils/getUserFromToken";
 // publicIp
 const publicIp = require("react-public-ip");
 

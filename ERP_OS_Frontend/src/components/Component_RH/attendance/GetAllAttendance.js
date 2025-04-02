@@ -12,7 +12,7 @@ import { CsvLinkBtn, TableHeraderh2 } from "../UI/CsvLinkBtn";
 import {
 	loadAllAttendancePaginated,
 	clearAttendanceList,
-} from "../../redux/rtk/features/attendance/attendanceSlice";
+} from "../../../redux/rtk/features/attendance/attendanceSlice";
 import BtnSearchSvg from "../UI/Button/btnSearchSvg";
 import { VioletLinkBtn } from "../UI/AllLinkBtn";
 import AttendancePrint from "./AttendancePrint";

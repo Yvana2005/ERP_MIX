@@ -21,11 +21,11 @@ import {
 	loadAllMilestone,
 	loadSingleMilestone,
 	updateMilestone,
-} from "../../../redux/rtk/features/projectManagement/project/milestone/milestone";
-import { loadAllProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
+} from "../../../../redux/rtk/features/projectManagement/project/milestone/milestone";
+import { loadAllProject } from "../../../../redux/rtk/features/projectManagement/project/project/project";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
-import Loader from "../../loader/loader";
+import Loader from "../../../loader/loader";
 
 const UpdateMilestone = () => {
 	const [loader, setLoader] = useState(false);

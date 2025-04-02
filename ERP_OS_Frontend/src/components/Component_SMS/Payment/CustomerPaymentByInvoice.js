@@ -16,10 +16,10 @@ import { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { loadSingleSale } from "../../redux/actions/sale/detailSaleAction";
+import { loadSingleSale } from "../../../redux/actions/sale/detailSaleAction";
 import moment from "moment";
-import { addCustomerPayment } from "../../redux/actions/customerPayment/addCustomerPaymentAction";
-import PageTitle from "../page-header/PageHeader";
+import { addCustomerPayment } from "../../../redux/actions/customerPayment/addCustomerPaymentAction";
+import PageTitle from "../../page-header/PageHeader";
 import { toast } from "react-toastify";
 
 

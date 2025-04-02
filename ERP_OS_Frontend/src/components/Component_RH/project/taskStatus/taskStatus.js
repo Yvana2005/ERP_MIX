@@ -1,12 +1,12 @@
 import { Navigate, useParams } from "react-router-dom";
-import PageTitle from "../../page-header/PageHeader";
+import PageTitle from "../../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Button, Card, Table } from "antd";
 import {
 	deleteTaskStatus,
 	loadAllTaskStatusByProjectId,
-} from "../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
+} from "../../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
 import AddTaskStatus from "./AddtaskStatus";
 import UpdateBtn from "../../Buttons/UpdateBtn";
 import { DeleteFilled } from "@ant-design/icons";

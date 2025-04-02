@@ -4,10 +4,10 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { deleteSupplier } from "../../redux/actions/supplier/deleteSupplierAction";
-import { loadSupplier } from "../../redux/actions/supplier/detailSupplierAction";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import { deleteSupplier } from "../../../redux/actions/supplier/deleteSupplierAction";
+import { loadSupplier } from "../../../redux/actions/supplier/detailSupplierAction";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import "./suppliers.css";
 
 import { CSVLink } from "react-csv";

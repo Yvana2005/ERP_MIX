@@ -15,8 +15,8 @@ import moment from "moment";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addSupplierPayment } from "../../redux/actions/supplierPayment/addSupplierPaymentAction";
-import PageTitle from "../page-header/PageHeader";
+import { addSupplierPayment } from "../../../redux/actions/supplierPayment/addSupplierPaymentAction";
+import PageTitle from "../../page-header/PageHeader";
 
 const AddSupPaymentByInvoice = () => {
 	const navigate = useNavigate();

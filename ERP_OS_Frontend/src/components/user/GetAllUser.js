@@ -1,64 +1,113 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import "./user.css";
 
-import { Button, Dropdown, Menu, Segmented, Table } from "antd";
-import moment from "moment";
+import { Segmented, Table } from "antd";
+
 import { useEffect } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
-import GetTotalCustomers from "../../api/getTotalCustomers";
-import { loadAllStaff } from "../../redux/actions/user/getStaffAction";
+
+import { loadAllStaff } from "../../redux/rtk/features/user/userSlice";
+import ColVisibilityDropdown from "../Component_RH/Shared/ColVisibilityDropdown";
+import ViewBtn from "../Component_RH/Buttons/ViewBtn";
+import { CsvLinkBtn } from "../Component_RH/UI/CsvLinkBtn";
+import AttendBtn from "../Component_RH/Buttons/AttendBtn";
+import UserPrivateComponent from "../Component_RH/PrivateRoutes/UserPrivateComponent";
 
 function CustomTable({ list }) {
   const dispatch = useDispatch();
   const [status, setStatus] = useState("true");
-  const [columnItems, setColumnItems] = useState([]);
   const [columnsToShow, setColumnsToShow] = useState([]);
+
+  const { loading } = useSelector((state) => state.users);
 
   const columns = [
     {
+      id: 1,
       title: "ID",
+	  align: "center",
       dataIndex: "id",
-      key: "id",
-      sorter: (a, b) => a.id - b.id,
-      sortDirections: ["ascend", "descend"],
+      key: "id"
     },
     {
+      id: 2,
       title: "Nom",
-      dataIndex: "username",
-      key: "username",
-      sorter: (a, b) => a.username.localeCompare(b.username),
-      sortDirections: ["ascend", "descend"],
+	  align: "center",
+      key: "fullName",
+      render: ({ firstName, lastName }) =>
+        (firstName + " " + lastName).toUpperCase()
     },
     {
-      title: "Role",
-      dataIndex: "role",
-      key: "role",
-      sorter: (a, b) => a.role.localeCompare(b.role),
-      sortDirections: ["ascend", "descend"],
+      id: 3,
+	  align: "center",
+      title: "Nom d'utilisateur",
+      dataIndex: "userName",
+      key: "userName"
+    },
+
+    // {
+    // 	id: 4,
+    // 	title: "Role",
+    // 	dataIndex: "role",
+    // 	key: "role",
+    // 	render: (role) => role.name,
+    // },
+    {
+      id: 5,
+	  align: "center",
+      title: "Poste",
+      dataIndex: "designationHistory",
+      key: "designationHistory",
+      render: (record) =>
+        record.length > 0 ? record[0].designation.name : "N/A"
+    },
+
+    // TODO: fix this column to show the correct data
+
+    {
+      id: 6,
+	  align: "center",
+      title: "Statut de l'emploie",
+      dataIndex: "employmentStatus",
+      key: "employmentStatus",
+      render: (record) => (record?.name ? record?.name : "N/A")
     },
     {
-      title: "Créer le",
-      dataIndex: "createdAt",
-      key: "createdAt",
-      render: (createdAt) => moment(createdAt).format("DD/MM/YY HH:mm"),
-      sorter: (a, b) => moment(a.createdAt).unix() - moment(b.createdAt).unix(),
-      sortDirections: ["ascend", "descend"],
+      id: 8,
+	  align: "center",
+      title: "Departement",
+      dataIndex: "department",
+      key: "department",
+      render: (record) => (record?.name ? record?.name : "N/A")
     },
+
+    // {
+    //   id: 9,
+    //   title: "Statut de l'emploie",
+    //   dataIndex: "shift",
+    //   key: "shift",
+    //   render: (record) => (record?.name ? record?.name : "N/A")
+    // },
+
     {
+      id: 7,
       title: "Action",
       dataIndex: "id",
       key: "action",
       render: (id) => (
-        <Link to={`/hr/staffs/${id}/`}>
-          <button className="btn btn-dark btn-sm"> View</button>
-        </Link>
-      ),
-    },
+        <div className="flex justify-start">
+          <UserPrivateComponent permission={"readSingle-user"}>
+            <ViewBtn path={`/admin/hr/staffs/${id}/`} />
+          </UserPrivateComponent>
+          <UserPrivateComponent permission={"readSingle-attendance"}>
+            <AttendBtn path={`/admin/attendance/user/${id}`} />
+          </UserPrivateComponent>
+        </div>
+      )
+    }
   ];
-
   //make a onChange function
   const onChange = (value) => {
     setStatus(value);
@@ -66,57 +115,39 @@ function CustomTable({ list }) {
   };
 
   useEffect(() => {
-    setColumnItems(menuItems);
     setColumnsToShow(columns);
   }, []);
 
-  const colVisibilityClickHandler = (col) => {
-    const ifColFound = columnsToShow.find((item) => item.key === col.key);
-    if (ifColFound) {
-      const filteredColumnsToShow = columnsToShow.filter(
-        (item) => item.key !== col.key
-      );
-      setColumnsToShow(filteredColumnsToShow);
-    } else {
-      const foundIndex = columns.findIndex((item) => item.key === col.key);
-      const foundCol = columns.find((item) => item.key === col.key);
-      let updatedColumnsToShow = [...columnsToShow];
-      updatedColumnsToShow.splice(foundIndex, 0, foundCol);
-      setColumnsToShow(updatedColumnsToShow);
-    }
+  const columnsToShowHandler = (val) => {
+    setColumnsToShow(val);
   };
-
-  const menuItems = columns.map((item) => {
-    return {
-      key: item.key,
-      label: <span>{item.title}</span>,
-    };
-  });
 
   const addKeys = (arr) => arr.map((i) => ({ ...i, key: i.id }));
 
   return (
-    <div>
-      <div className="d-flex my-2">
+    <div className="ant-card p-4 rounded mt-5">
+      <div className="flex my-2 justify-between">
         <div className="w-50">
-          <h4>Liste du Personnel</h4>
+          <h4 className="text-2xl mb-2">Liste des employés</h4>
         </div>
         {list && (
-          <div className="text-center d-flex justify-content-end w-50">
-            <div className="me-2">
-              <CSVLink
-                data={list}
-                className="btn btn-dark btn-sm"
-                style={{ margin: "5px" }}
-                filename="staffs"
-              >
-                Télécharger .CSV
-              </CSVLink>
+          <div className="flex justify-end mr-4">
+            <div className="mt-0.5">
+              <CsvLinkBtn>
+                <CSVLink
+                  data={list}
+                  className="btn btn-dark btn-sm"
+                  style={{ marginTop: "5px" }}
+                  filename="staffs"
+                >
+                  Télécharger CSV
+                </CSVLink>
+              </CsvLinkBtn>
             </div>
 
             <div>
               <Segmented
-                className="text-center rounded danger"
+                className="text-center rounded text-red-500"
                 size="middle"
                 options={[
                   {
@@ -125,7 +156,7 @@ function CustomTable({ list }) {
                         <i className="bi bi-person-lines-fill"></i> Active
                       </span>
                     ),
-                    value: "true",
+                    value: "true"
                   },
                   {
                     label: (
@@ -133,8 +164,8 @@ function CustomTable({ list }) {
                         <i className="bi bi-person-dash-fill"></i> Inactive
                       </span>
                     ),
-                    value: "false",
-                  },
+                    value: "false"
+                  }
                 ]}
                 value={status}
                 onChange={onChange}
@@ -145,21 +176,18 @@ function CustomTable({ list }) {
       </div>
       {list && (
         <div style={{ marginBottom: "30px" }}>
-          <Dropdown
-            menu={
-              <Menu onClick={colVisibilityClickHandler} items={columnItems} />
-            }
-            placement="bottomLeft"
-          >
-            <Button className="column-visibility">Column Visibility</Button>
-          </Dropdown>
+          <ColVisibilityDropdown
+            options={columns}
+            columns={columns}
+            columnsToShowHandler={columnsToShowHandler}
+          />
         </div>
       )}
       <Table
         scroll={{ x: true }}
-        loading={!list}
+        loading={loading}
         pagination={{
-          defaultPageSize: 20,
+          defaultPageSize: 20
         }}
         columns={columnsToShow}
         dataSource={list ? addKeys(list) : []}
@@ -171,26 +199,23 @@ function CustomTable({ list }) {
 const GetAllCust = (props) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => state.users.list);
-  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     dispatch(loadAllStaff({ status: "true" }));
   }, []);
-
-  useEffect(() => {
-    GetTotalCustomers().then((res) => setTotal(res));
-  }, [list]);
 
   // useEffect(() => {
   //   deleteHandler(list, deletedId);
   // }, [deletedId, list]);
 
   return (
-    <div className="card card-custom">
-      <div className="card-body">
-        <CustomTable list={list} total={total} />
+    <UserPrivateComponent permission={"readAll-user"}>
+      <div className="card card-custom">
+        <div className="card-body">
+          <CustomTable list={list} />
+        </div>
       </div>
-    </div>
+    </UserPrivateComponent>
   );
 };
 

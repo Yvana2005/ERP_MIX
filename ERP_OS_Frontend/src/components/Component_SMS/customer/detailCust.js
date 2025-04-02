@@ -4,10 +4,10 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { deleteCustomer } from "../../redux/actions/customer/deleteCustomerAction";
-import { loadSingleCustomer } from "../../redux/actions/customer/detailCustomerAction";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import { deleteCustomer } from "../../../redux/actions/customer/deleteCustomerAction";
+import { loadSingleCustomer } from "../../../redux/actions/customer/detailCustomerAction";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
 import CustomerInvoiceList from "../Card/CustomerInvoiceList";
 

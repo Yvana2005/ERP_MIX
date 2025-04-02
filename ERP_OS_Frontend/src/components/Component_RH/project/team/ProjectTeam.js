@@ -1,4 +1,4 @@
-import PageTitle from "../../page-header/PageHeader";
+import PageTitle from "../../../page-header/PageHeader";
 import AddProjectTeam from "./AddProjectTeam";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -10,7 +10,7 @@ import ViewBtn from "../../Buttons/ViewBtn";
 import {
 	deleteProjectTeam,
 	loadAllProjectTeam,
-} from "../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
+} from "../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
 import UpdateBtn from "../../Buttons/UpdateBtn";
 import ProjectTeamStatusUpdatePopup from "../../UI/PopUp/ProjectManagemnet/ProjectTeamStatusUpdatePopup";
 

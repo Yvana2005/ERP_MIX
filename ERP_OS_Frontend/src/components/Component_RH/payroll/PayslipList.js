@@ -8,14 +8,14 @@ import { DollarCircleFilled, EyeFilled } from "@ant-design/icons";
 
 import dayjs from "dayjs";
 import { useState } from "react";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import {
   loadAllPayslipForPaymentMonthWise,
   loadAllPayslipForPayment,
   loadAllPayslip
-} from "../../redux/rtk/features/payroll/payrollSlice";
-import { addPayslipPayment } from "../../redux/rtk/features/payment/paymentSlice";
+} from "../../../redux/rtk/features/payroll/payrollSlice";
+import { addPayslipPayment } from "../../../redux/rtk/features/payment/paymentSlice";
 import { VioletLinkBtn } from "../UI/AllLinkBtn";
 import BtnSearchSvg from "../UI/Button/btnSearchSvg";
 import { Link } from "react-router-dom";

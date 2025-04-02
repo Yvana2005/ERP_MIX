@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	loadSingelLeaveApplication,
 	reviewLeaveApplication,
-} from "../../../redux/rtk/features/leave/leaveSlice";
-import getUserFromToken from "../../../utils/getUserFromToken";
+} from "../../../../redux/rtk/features/leave/leaveSlice";
+import getUserFromToken from "../../../../utils/getUserFromToken";
 import moment from "moment";
 
 const ReviewLeavePopup = () => {

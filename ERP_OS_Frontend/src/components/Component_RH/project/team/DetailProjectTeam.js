@@ -1,13 +1,13 @@
-import PageTitle from "../../page-header/PageHeader";
+import PageTitle from "../../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card, Table } from "antd";
-import { loadSingleProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
+import { loadSingleProject } from "../../../../redux/rtk/features/projectManagement/project/project/project";
 import ViewBtn from "../../Buttons/ViewBtn";
 import AddProjectTeamMember from "./AddProjectTeamMember";
-import { loadSingleProjectTeam } from "../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
-import Loader from "../../loader/loader";
+import { loadSingleProjectTeam } from "../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
+import Loader from "../../../loader/loader";
 const columns = [
 	{
 		id: 1,

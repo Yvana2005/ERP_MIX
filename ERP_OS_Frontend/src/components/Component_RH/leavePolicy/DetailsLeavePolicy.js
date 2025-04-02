@@ -3,8 +3,8 @@ import { Button, Card, Popover, Table } from "antd";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { CsvLinkBtn } from "../UI/CsvLinkBtn";
@@ -13,12 +13,12 @@ import ViewBtn from "../Buttons/ViewBtn";
 import dayjs from "dayjs";
 
 import AwardEditPopup from "../UI/PopUp/AwardEditPopup";
-import BtnLoader from "../loader/BtnLoader";
+import BtnLoader from "../../loader/BtnLoader";
 import {
 	clearLeavePolicy,
 	deleteLeavePolicy,
 	loadSingleLeavePolicy,
-} from "../../redux/rtk/features/leavePolicy/leavePolicySlice";
+} from "../../../redux/rtk/features/leavePolicy/leavePolicySlice";
 import LeavePolicyEdit from "../UI/PopUp/LeavePolicyEditPopup";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 

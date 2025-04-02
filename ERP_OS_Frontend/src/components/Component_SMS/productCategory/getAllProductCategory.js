@@ -7,7 +7,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllProductCategory } from "../../redux/actions/productCategory/getProductCategoryAction";
+import { loadAllProductCategory } from "../../../redux/actions/productCategory/getProductCategoryAction";
 
 function CustomTable({ list, total }) {
   const dispatch = useDispatch();

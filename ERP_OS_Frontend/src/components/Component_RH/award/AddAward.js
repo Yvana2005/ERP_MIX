@@ -11,9 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addSingleAward,
 	loadAllAward,
-} from "../../redux/rtk/features/award/awardSlice";
-import { addAward } from "../../redux/rtk/features/award/awardSlice";
-import PageTitle from "../page-header/PageHeader";
+} from "../../../redux/rtk/features/award/awardSlice";
+import { addAward } from "../../../redux/rtk/features/award/awardSlice";
+import PageTitle from "../../page-header/PageHeader";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 const AddAward = ({ drawer }) => {

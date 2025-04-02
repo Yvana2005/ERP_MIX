@@ -1,20 +1,20 @@
 import { Card } from "antd";
-import Loader from "../loader/loader";
+import Loader from "../../loader/loader";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
 	clearLeaveApplication,
 	loadSingelLeaveApplication,
-} from "../../redux/rtk/features/leave/leaveSlice";
+} from "../../../redux/rtk/features/leave/leaveSlice";
 import tw from "tailwind-styled-components";
 import { useParams } from "react-router-dom";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import dayjs from "dayjs";
 import ReviewLeavePopup from "../UI/PopUp/ReviewLeavePopup";
 import {
 	clearAttendance,
 	loadSingleAttendance,
-} from "../../redux/rtk/features/attendance/attendanceSlice";
+} from "../../../redux/rtk/features/attendance/attendanceSlice";
 
 const DetailAttendance = () => {
 	const { id } = useParams("id");

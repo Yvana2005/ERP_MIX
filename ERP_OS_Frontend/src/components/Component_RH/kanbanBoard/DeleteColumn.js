@@ -3,7 +3,7 @@ import "./styles.css";
 import {
 	deleteTaskStatus,
 	loadAllTaskStatusByProjectId,
-} from "../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
+} from "../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 

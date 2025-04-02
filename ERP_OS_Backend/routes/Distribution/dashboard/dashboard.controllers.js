@@ -1,4 +1,4 @@
-const { getPagination } = require("../../../../utils/query");
+const { getPagination } = require("../../../utils/query");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 

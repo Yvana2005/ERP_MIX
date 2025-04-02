@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import BtnEditSvg from "../Button/btnEditSvg";
-import { updateShift } from "../../../redux/rtk/features/shift/shiftSlice";
+import { updateShift } from "../../../../redux/rtk/features/shift/shiftSlice";
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";
 

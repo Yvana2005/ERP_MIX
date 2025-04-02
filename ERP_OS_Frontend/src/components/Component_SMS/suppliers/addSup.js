@@ -2,7 +2,7 @@ import { Button, Card, Col, Form, Input, Row, Typography } from "antd";
 
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addSupplier } from "../../redux/actions/supplier/addSupplierAction";
+import { addSupplier } from "../../../redux/actions/supplier/addSupplierAction";
 import UploadMany from "../Card/UploadMany";
 import styles from "./AddSup.module.css";
 

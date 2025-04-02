@@ -6,21 +6,19 @@ import { Navigate, useLocation, useParams } from "react-router-dom";
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import PageTitle from "../page-header/PageHeader";
-import getUserFromToken from "../../utils/getUserFromToken";
+import PageTitle from "../../page-header/PageHeader";
+import getUserFromToken from "../../../utils/getUserFromToken";
 import {
     clearLeaveApplicationList,
 	updateLeaveApplication,
 	loadSingelLeaveApplication,
-} from "../../redux/rtk/features/leave/leaveSlice";
+} from "../../../redux/rtk/features/leave/leaveSlice";
 import moment from "moment";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 
 
 //Update Designation API REQ
-
-
 
 
 const UpdateLeave = ( {drawer} ) => {

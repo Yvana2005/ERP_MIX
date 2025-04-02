@@ -16,11 +16,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { useDispatch, useSelector } from "react-redux";
-import { clearProject, loadAllProject, updateProject } from "../../redux/rtk/features/projectManagement/project/project/project";
-import { loadAllStaff } from "../../redux/rtk/features/user/userSlice";
-import { loadSingleProject } from "../../redux/rtk/features/projectManagement/project/project/project";
-import PageTitle from "../page-header/PageHeader";
-import Loader from "../loader/loader";
+import { clearProject, loadAllProject, updateProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
+import { loadAllStaff } from "../../../redux/rtk/features/user/userSlice";
+import { loadSingleProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
+import PageTitle from "../../page-header/PageHeader";
+import Loader from "../../loader/loader";
 import moment from "moment";
 
 const UpdateProject = ({ drawer }) => {

@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addSingleWeeklyHoliday,
 	loadAllWeeklyHoliday,
-} from "../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
+} from "../../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 function CustomTable({ list, loading }) {
 	const [columnsToShow, setColumnsToShow] = useState([]);

@@ -3,10 +3,10 @@ import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
 
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
-import { loadSingelEmploymentStatus } from "../../redux/rtk/features/employemntStatus/employmentStatusSlice";
+import { loadSingelEmploymentStatus } from "../../../redux/rtk/features/employemntStatus/employmentStatusSlice";
 
 const DetailAnnouncement = () => {
 	const { id } = useParams();

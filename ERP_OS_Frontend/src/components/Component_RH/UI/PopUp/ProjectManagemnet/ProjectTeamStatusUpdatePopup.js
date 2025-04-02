@@ -6,7 +6,7 @@ import {
 	loadSingleProjectTeam,
 	loadAllProjectTeam,
 	updateProjectTeamStatus,
-} from "../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
+} from "../../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
 import { useParams } from "react-router-dom";
 import { EditOutlined } from "@ant-design/icons";
 

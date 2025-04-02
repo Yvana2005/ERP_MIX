@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import {
 	loadSingleWeeklyHoliday,
 	updateWeeklyHoliday,
-} from "../../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
+} from "../../../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
 
 const WeeklyHolidayEdit = ({ data }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);

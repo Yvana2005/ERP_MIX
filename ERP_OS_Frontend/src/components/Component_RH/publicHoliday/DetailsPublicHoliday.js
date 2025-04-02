@@ -2,18 +2,18 @@ import { Card } from "antd";
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import dayjs from "dayjs";
-import BtnLoader from "../loader/BtnLoader";
+import BtnLoader from "../../loader/BtnLoader";
 import tw from "tailwind-styled-components";
 
 import {
 	clearPublicHoliday,
 	deletePublicHoliday,
 	loadSinglePublicHoliday,
-} from "../../redux/rtk/features/publicHoliday/publicHolidaySlice";
+} from "../../../redux/rtk/features/publicHoliday/publicHolidaySlice";
 import PublicHolidayEdit from "../UI/PopUp/PublicHolidayEditPopup";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 

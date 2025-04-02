@@ -6,10 +6,10 @@ import moment from "moment";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { loadSinglePurchase } from "../../redux/actions/purchase/detailPurchaseAction";
+import { loadSinglePurchase } from "../../../redux/actions/purchase/detailPurchaseAction";
 import PurchaseProductListCard from "../Card/purchaseInvoice/PurchaseProductListCard";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import { addReturnPurchase } from "./returnPurchase.api";
 
 const AddReturnPurchase = () => {

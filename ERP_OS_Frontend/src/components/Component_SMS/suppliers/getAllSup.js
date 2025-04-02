@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import GetTotalSuppliers from "../../api/getTotalSuppliers";
-import { loadSuppliers } from "../../redux/actions/supplier/getSuppliersAction";
+import GetTotalSuppliers from "../../../api/getTotalSuppliers";
+import { loadSuppliers } from "../../../redux/actions/supplier/getSuppliersAction";
 import "./suppliers.css";
 
 function CustomTable({ list, total, status }) {

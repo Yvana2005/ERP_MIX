@@ -3,12 +3,15 @@ import {
   MenuOutlined,
   MenuUnfoldOutlined
 } from "@ant-design/icons";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 import { Button, Col, Row, Typography } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-
+import 
+{ BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill  }
+ from 'react-icons/bs';
+ import { ModuleContext } from './ModuleContext';
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
@@ -25,24 +28,19 @@ const toggler = [
 ];
 
 function Header({ onPress, collapsed, handleCollapsed }) {
+  const { selectedModule, handleModuleClick } = useContext(ModuleContext);
   useEffect(() => window.scrollTo(0, 0));
-
+  
   const isLogged = localStorage.getItem("isLogged");
   const user = localStorage.getItem("user");
   const role = localStorage.getItem("role"); // Ajouté pour récupérer le rôle de l'utilisateur
-  const redirectToHome = () => {
-		window.location.href = "http://127.0.0.1:8000";
-	};
-  const redirectToHR = () => {
-		window.location.href = "http://127.0.0.1:3000";
-	};
-
 
   const [isDarkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = (checked) => {
     setDarkMode(checked);
   };
+
 
   useEffect(() => {
     let themeClass = isDarkMode ? "dark-theme" : "light-theme";
@@ -70,6 +68,31 @@ function Header({ onPress, collapsed, handleCollapsed }) {
               )}
           </div>
         </Col>
+
+        <Col span={24} md={5}>
+           {isLogged && (
+          <a href="/dashboardsms"><div className='topButton' onClick={() => handleModuleClick('MSC')}>
+                  <BsGrid1X2Fill className='card_icon'/>
+                  <h3 style={{fontSize : "120%"}}>SMS</h3>
+            </div></a>
+           )}
+        </Col>
+          {/* {isLogged && (
+        <Col span={24} md={5}>
+          <a href="/dashboardvente" ><div className='topButton2' onClick={() => handleModuleClick('MV')}>
+                  <BsFillArchiveFill className='card_icon'/>
+                  <h3 style={{fontSize : "120%"}}>MODULE DES VENTES</h3>
+            </div></a>
+        </Col>
+          )} */}
+         {isLogged && (
+        <Col span={24} md={5}>
+          <a href="/admin/dashboardrh"><div className='topButton3' onClick={() => handleModuleClick('MR')}>
+                  <BsFillGrid3X3GapFill className='card_icon'/>
+                  <h3 style={{fontSize : "120%"}}>RH</h3>
+            </div></a>
+        </Col>
+         )}
         <Col span={24} md={20} className={styles.headerControl}>
           <DarkModeSwitch
             style={{ margin: "1rem" }}
@@ -82,32 +105,7 @@ function Header({ onPress, collapsed, handleCollapsed }) {
               <UserOutlined style={{ fontSize: "16px" }} /> {user}
             </Typography.Title>
           )}
-          {isLogged && (
-              <div>
-                         {/* ... */}
-                            <Button
-                               type="primary"
-                               className={styles.footButton} // Ajoutez la classe CSS appropriée pour le style du bouton
-                               onClick={redirectToHome}
-                            >
-                              Module Gestion des soins
-                            </Button>
-                        {/* ... */}
-                        </div>
-          )}
-          {isLogged && (
-              <div>
-                         {/* ... */}
-                            <Button
-                               type="primary"
-                               className={styles.footButton1} // Ajoutez la classe CSS appropriée pour le style du bouton
-                               onClick={redirectToHR}
-                            >
-                              Module Gestion des RH
-                            </Button>
-                        {/* ... */}
-                        </div>
-          )}
+
           {isLogged ? (
             <Link to="/auth/logout" className={styles.logoutLink}>
               <LogoutOutlined className="text-danger" />

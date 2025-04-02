@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllCustomer } from "../../redux/actions/customer/getCustomerAction";
+import { loadAllCustomer } from "../../../redux/actions/customer/getCustomerAction";
 function DueClientNotification({ list }) {
   const dispatch = useDispatch();
   useEffect(() => {

@@ -8,9 +8,9 @@ import {
 	addSingleProjectTeam,
 	loadAllProjectTeam,
 	loadAllProjectTeamByProjectId,
-} from "../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
-import { loadAllStaff } from "../../../redux/rtk/features/user/userSlice";
-import { loadAllProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
+} from "../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
+import { loadAllStaff } from "../../../../redux/rtk/features/user/userSlice";
+import { loadAllProject } from "../../../../redux/rtk/features/projectManagement/project/project/project";
 
 const AddProjectTeam = ({ projectId }) => {
 	const [loader, setLoader] = useState(false);

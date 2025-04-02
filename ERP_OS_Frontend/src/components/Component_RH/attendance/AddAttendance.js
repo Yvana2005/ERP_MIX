@@ -14,11 +14,11 @@ import {
 } from "antd";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
-import { loadAllStaff } from "../../redux/rtk/features/user/userSlice";
+import { loadAllStaff } from "../../../redux/rtk/features/user/userSlice";
 import {
 	addManualAttendance,
 	loadAllAttendance,
-} from "../../redux/rtk/features/attendance/attendanceSlice";
+} from "../../../redux/rtk/features/attendance/attendanceSlice";
 import GetAllAttendance from "./GetAllAttendance";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 

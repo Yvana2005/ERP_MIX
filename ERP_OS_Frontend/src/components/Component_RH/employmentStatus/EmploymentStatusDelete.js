@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteEmploymentStatus } from "../../redux/rtk/features/employemntStatus/employmentStatusSlice";
+import { deleteEmploymentStatus } from "../../../redux/rtk/features/employemntStatus/employmentStatusSlice";
 
 const EmploymentStatusDelete = ({ id }) => {
 	const [confirmLoading, setConfirmLoading] = useState(false);

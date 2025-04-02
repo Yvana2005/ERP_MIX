@@ -8,8 +8,8 @@ import React, {
   useState,
 } from "react";
 import { useReactToPrint } from "react-to-print";
-import logo from "../../assets/images/sai-i-lama-logo.png";
-import getSetting from "../../api/getSettings";
+import logo from "../../../assets/images/sai-i-lama-logo.png";
+import getSetting from "../../../api/getSettings";
 import "./style.css";
 
 const PrintToPdf = forwardRef(({ data, invoiceData }, ref) => {

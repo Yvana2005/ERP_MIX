@@ -37,13 +37,13 @@ model user {
   Category          String?
   Birthday          DateTime?
   gender            String?
-
-  employmentStatus   employmentStatus? @relation(fields: [employmentStatusId], references: [id])
+  status             Boolean              @default(true)
   employmentStatusId Int?
-  department         department?       @relation(fields: [departmentId], references: [id])
   departmentId       Int?
-  role               role?             @relation(fields: [roleId], references: [id])
   roleId             Int?
+  employmentStatus   employmentStatus? @relation(fields: [employmentStatusId], references: [id])
+  department         department?       @relation(fields: [departmentId], references: [id])
+  role               role?             @relation(fields: [roleId], references: [id]) 
   attendance         attendance[]
   leaveApplication   leaveApplication[]
   payslip            payslip[]
@@ -51,10 +51,8 @@ model user {
   salaryHistory      salaryHistory[]
   designationHistory designationHistory[]
   awardHistory       awardHistory[]
-  status             Boolean              @default(true)
   project            project[]
-  projectTeamMember  projectTeamMember[]
-  status             Boolean        @default(true)
+  projectTeamMember  projectTeamMember[] 
   createdAt          DateTime       @default(now())
   updatedAt          DateTime       @updatedAt
   saleInvoice        saleInvoice[]  @relation(name: "UserSaleInvoice")
@@ -264,6 +262,7 @@ model role {
   name           String           @unique
   status         Boolean          @default(true)
   rolePermission rolePermission[]
+  user           user[]
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
 }
@@ -623,8 +622,8 @@ model projectTeamMember {
   projectTeam   projectTeam @relation(fields: [projectTeamId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   projectTeamId Int
   user          user        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  status            Boolean             @default(true)
   userId        Int
-  status        Boolean     @default(true)
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 }

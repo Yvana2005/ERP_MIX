@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import AddProject from "./AddProject";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import { Segmented, Table } from "antd";
 import {
 	loadAllProject,
 	loadAllProjectByStatus,
-} from "../../redux/rtk/features/projectManagement/project/project/project";
+} from "../../../redux/rtk/features/projectManagement/project/project/project";
 import ViewBtn from "../Buttons/ViewBtn";
 import UpdateBtn from "../Buttons/UpdateBtn";
 import KanbanBtn from "../Buttons/KanbanBtn";

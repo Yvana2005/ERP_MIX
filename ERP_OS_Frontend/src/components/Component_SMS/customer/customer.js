@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import AddCust from "./addCust";
 import GetAllCust from "./getAllCust";
 

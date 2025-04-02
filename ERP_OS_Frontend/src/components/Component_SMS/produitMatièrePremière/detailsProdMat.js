@@ -24,10 +24,10 @@ import {
   useParams
 } from "react-router-dom";
 import { toast } from "react-toastify";
-import { deleteProduct } from "../../redux/actions/product/deleteProductAction";
-import { loadSingleProduct } from "../../redux/actions/product/detailProductAction";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import { deleteProduct } from "../../../redux/actions/product/deleteProductAction";
+import { loadSingleProduct } from "../../../redux/actions/product/detailProductAction";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
 const DetailsProdMat = () => {
   const { id } = useParams();

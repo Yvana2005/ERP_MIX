@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import {
 	loadSinglePublicHoliday,
 	updatePublicHoliday,
-} from "../../../redux/rtk/features/publicHoliday/publicHolidaySlice";
+} from "../../../../redux/rtk/features/publicHoliday/publicHolidaySlice";
 import dayjs from "dayjs";
 import moment from "moment";
 

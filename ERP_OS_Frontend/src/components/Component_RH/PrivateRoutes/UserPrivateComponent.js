@@ -1,5 +1,5 @@
 import React from "react";
-import getPermissions from "../../utils/getPermissions";
+import getPermissions from "../../../utils/getPermissions";
 
 const UserPrivateComponent = ({ permission, children }) => {
 	const permissions = getPermissions();

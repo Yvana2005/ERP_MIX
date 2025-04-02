@@ -2,7 +2,7 @@ import { Avatar, List } from "antd";
 import dayjs from "dayjs";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllAnnouncement } from "../../../redux/rtk/features/announcement/announcementSlice";
+import { loadAllAnnouncement } from "../../../../redux/rtk/features/announcement/announcementSlice";
 import AnnounceIconSVG from "../../Icons/announceIconSVG";
 
 const AnnouncementBar = () => {

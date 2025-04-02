@@ -12,8 +12,8 @@ import {
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllCustomer } from "../../redux/actions/customer/getCustomerAction";
-import { addSale } from "../../redux/actions/sale/addSaleAction";
+import { loadAllCustomer } from "../../../redux/actions/customer/getCustomerAction";
+import { addSale } from "../../../redux/actions/sale/addSaleAction";
 import Products from "./ProductsMat";
 
 import moment from "moment";

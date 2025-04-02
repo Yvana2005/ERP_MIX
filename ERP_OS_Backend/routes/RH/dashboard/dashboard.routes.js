@@ -4,6 +4,6 @@ const authorize = require("../../../utils/authorize"); // authentication middlew
 
 const dashboardRoutes = express.Router();
 
-dashboardRoutes.get("/", authorize("readAll-dashboard"), getDashboardData);
+dashboardRoutes.get("/", authorize("ReadDashboardHR"), getDashboardData);
 
 module.exports = dashboardRoutes;

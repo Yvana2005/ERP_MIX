@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	loadAllDesignation,
 	loadAllDesignationByEmployee,
-} from "../../redux/rtk/features/designation/designationSlice";
+} from "../../../redux/rtk/features/designation/designationSlice";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import ViewBtn from "../Buttons/ViewBtn";
 import { CsvLinkBtn } from "../UI/CsvLinkBtn";

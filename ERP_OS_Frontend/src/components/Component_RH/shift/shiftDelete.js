@@ -2,7 +2,7 @@ import { Button, Popconfirm } from "antd";
 import React, { useState } from "react";
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteShift } from "../../redux/rtk/features/shift/shiftSlice";
+import { deleteShift } from "../../../redux/rtk/features/shift/shiftSlice";
 import { useNavigate } from "react-router-dom";
 const ShifDelete = ({ id }) => {
 	const [confirmLoading, setConfirmLoading] = useState(false);

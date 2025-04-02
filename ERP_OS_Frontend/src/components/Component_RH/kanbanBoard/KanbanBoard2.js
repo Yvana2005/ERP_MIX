@@ -7,16 +7,16 @@ import TaskAddSinglePopup from "../UI/PopUp/ProjectManagemnet/TaskAddSinglePopup
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import tw from "tailwind-styled-components";
-import Loader from "../loader/loader";
+import Loader from "../../loader/loader";
 
 import {
 	deleteProjectTasks,
 	updateProjectTaskStatus,
-} from "../../redux/rtk/features/projectManagement/project/projectTask/projectTask";
+} from "../../../redux/rtk/features/projectManagement/project/projectTask/projectTask";
 import taskStatus, {
 	clearTaskStatusList,
 	loadAllTaskStatusByProjectId,
-} from "../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
+} from "../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
 import { take } from "lodash";
 import AddColumn from "./AddColumn";
 import DeleteColumn from "./DeleteColumn";

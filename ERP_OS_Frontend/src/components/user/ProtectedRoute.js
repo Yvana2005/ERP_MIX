@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Redirect, Route } from "react-router-dom";
+import { Navigate, Route } from "react-router-dom";
 
 function ProtectedRoute({ component: Component, ...restOfProps }) {
   const isAuthenticated = localStorage.getItem("isLogged");
@@ -8,7 +8,7 @@ function ProtectedRoute({ component: Component, ...restOfProps }) {
     <Route
       {...restOfProps}
       render={(props) =>
-        isAuthenticated ? <Component {...props} /> : <Navigate to='/login' />
+        isAuthenticated ? <Component {...props} /> : <Navigate to='/auth/login' />
       }
     />
   );

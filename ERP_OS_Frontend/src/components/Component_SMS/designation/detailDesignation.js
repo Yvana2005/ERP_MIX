@@ -4,10 +4,10 @@ import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { deleteDesignation } from "../../redux/actions/designation/deleteDesignationAction";
-import { loadSingleDesignation } from "../../redux/actions/designation/detailDesignationAction";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import { deleteDesignation } from "../../../redux/actions/designation/deleteDesignationAction";
+import { loadSingleDesignation } from "../../../redux/actions/designation/detailDesignationAction";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import UserListCard from "./List/UserListCard";
 //PopUp
 

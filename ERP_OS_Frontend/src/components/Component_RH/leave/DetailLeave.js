@@ -1,16 +1,16 @@
 import { Button, Card, Popover } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import Loader from "../loader/loader";
+import Loader from "../../loader/loader";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
 	clearLeaveApplication,
 	deleteLeaveApplication,
 	loadSingelLeaveApplication,
-} from "../../redux/rtk/features/leave/leaveSlice";
+} from "../../../redux/rtk/features/leave/leaveSlice";
 import tw from "tailwind-styled-components";
 import { Navigate, useParams, useNavigate } from "react-router-dom";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import dayjs from "dayjs";
 import BtnViewSvg from "../UI/Button/btnViewSvg";
 import ViewBtn from "../Buttons/ViewBtn";

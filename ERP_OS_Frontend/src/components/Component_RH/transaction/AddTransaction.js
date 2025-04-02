@@ -17,14 +17,14 @@ import styles from "./AddTransaction.module.css";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import getAllAccount from "../../api/getAllApis/getAllAccounts";
+import getAllAccount from "../../../api/getAllApis/getAllAccounts";
 import {
 	addTransaction,
 	loadAllTransaction,
-} from "../../redux/rtk/features/transaction/transactionSlice";
-import PageTitle from "../page-header/PageHeader";
+} from "../../../redux/rtk/features/transaction/transactionSlice";
+import PageTitle from "../../page-header/PageHeader";
 import BigDrawer from "../Drawer/BigDrawer";
-import AddAccount from "../account/AddAccount";
+import AddAccount from "../../account/AddAccount";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 const AddTransaction = () => {

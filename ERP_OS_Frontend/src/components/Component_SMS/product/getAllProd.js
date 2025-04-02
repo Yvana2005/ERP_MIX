@@ -8,8 +8,8 @@ import { useEffect } from "react";
 
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
-import getTotalProduct from "../../api/getAllApis/getTotalProduct";
-import { loadProduct } from "../../redux/actions/product/getAllProductAction";
+import getTotalProduct from "../../../api/getAllApis/getTotalProduct";
+import { loadProduct } from "../../../redux/actions/product/getAllProductAction";
 import GenerateBarcodePopUp from "./generateBarcodePopUp";
 import NotificationIcon from "../notification/NotificationIcon";
 

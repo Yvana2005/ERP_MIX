@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadAllTransaction } from "../../redux/actions/transaction/getTransactionAction";
+import { loadAllTransaction } from "../../../redux/actions/transaction/getTransactionAction";
 import "./transaction.css";
 
 function CustomTable({ list, total, startdate, enddate }) {

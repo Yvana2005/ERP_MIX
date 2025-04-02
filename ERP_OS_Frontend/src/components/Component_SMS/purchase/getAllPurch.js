@@ -7,9 +7,9 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllPurchase } from "../../redux/actions/purchase/getPurchaseAction";
+import { loadAllPurchase } from "../../../redux/actions/purchase/getPurchaseAction";
 import DashboardCard from "../Card/DashboardCard";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 
 function CustomTable({ list, total, status, setStatus, startdate, enddate }) {
   const [columnItems, setColumnItems] = useState([]);

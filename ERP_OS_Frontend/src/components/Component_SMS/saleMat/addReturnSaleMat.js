@@ -3,10 +3,10 @@ import moment from "moment";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { loadSingleSale } from "../../redux/actions/sale/detailSaleAction";
+import { loadSingleSale } from "../../../redux/actions/sale/detailSaleAction";
 import SaleProductListCard from "../Card/saleInvoice/SaleProductListCard";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import { addReturnSale } from "./returnSaleMat.api";
 
 const AddReturnSaleMat = () => {

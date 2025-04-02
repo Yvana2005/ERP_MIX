@@ -13,12 +13,12 @@ import { toast } from "react-toastify";
 import {
 	addAwardHistory,
 	loadAllAwardHistory,
-} from "../../redux/rtk/features/awardHistory/awardHistorySlice";
+} from "../../../redux/rtk/features/awardHistory/awardHistorySlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-import { loadAllAward } from "../../redux/rtk/features/award/awardSlice";
-import { loadSingleStaff } from "../../redux/rtk/features/user/userSlice";
+import { loadAllAward } from "../../../redux/rtk/features/award/awardSlice";
+import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
 import { useParams } from "react-router-dom";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 

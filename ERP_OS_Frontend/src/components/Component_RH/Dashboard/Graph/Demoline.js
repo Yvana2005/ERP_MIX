@@ -6,8 +6,8 @@ import utc from "dayjs/plugin/utc";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NewDashboardCard from "../../Card/Dashboard/NewDashboardCard";
-import Loader from "../../loader/loader";
-import { loadDashboardData } from "../../../redux/rtk/features/dashboard/dashboardSlice";
+import Loader from "../../../loader/loader";
+import { loadDashboardData } from "../../../../redux/rtk/features/dashboard/dashboardSlice";
 import UserPrivateComponent from "../../PrivateRoutes/UserPrivateComponent";
 import AttendancePopup from "../..//UI/PopUp/AttendancePopup";
 

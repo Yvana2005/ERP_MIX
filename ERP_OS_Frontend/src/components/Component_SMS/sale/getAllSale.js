@@ -17,14 +17,14 @@ import moment from "moment";
 import { useEffect, useState, Fragment } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllSale } from "../../redux/actions/sale/getSaleAction";
-import { loadAllStaff } from "../../redux/actions/user/getStaffAction";
+import { loadAllSale } from "../../../redux/actions/sale/getSaleAction";
+import { loadAllStaff } from "../../../redux/actions/user/getStaffAction";
 import DashboardCard from "../Card/DashboardCard";
 import SaleReportPrint from "../Invoice/SaleReport";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import DueClientNotification from "../notification/DueClientNotification";
 import CustomerInvoiceList from "../Card/CustomerInvoiceList";
-import { loadSingleCustomer } from "../../redux/actions/customer/detailCustomerAction";
+import { loadSingleCustomer } from "../../../redux/actions/customer/detailCustomerAction";
 import DashboardCardByCus from "../Card/DashboardCardByCus";
 
 // //Date fucntinalities

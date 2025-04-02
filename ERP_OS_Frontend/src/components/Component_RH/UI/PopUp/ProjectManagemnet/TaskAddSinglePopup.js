@@ -4,26 +4,26 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { addSingleProjectTasks } from "../../../../redux/rtk/features/projectManagement/project/projectTask/projectTask";
+import { addSingleProjectTasks } from "../../../../../redux/rtk/features/projectManagement/project/projectTask/projectTask";
 import { useSelector } from "react-redux";
 import {
 	loadAllProject,
 	loadSingleProject,
-} from "../../../../redux/rtk/features/projectManagement/project/project/project";
-import { loadAllTaskPriority } from "../../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
+} from "../../../../../redux/rtk/features/projectManagement/project/project/project";
+import { loadAllTaskPriority } from "../../../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
 import {
 	loadAllTaskStatus,
 	loadAllTaskStatusByProjectId,
-} from "../../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
+} from "../../../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
 import BigDrawer from "../../../Drawer/BigDrawer";
 import AddTaskPriority from "../../../project/taskPriority/AddtaskPriority";
 import AddMilestone from "../../../project/milestone/AddMilestone";
 import {
 	loadAllMilestone,
 	loadAllMilestoneByProjectId,
-} from "../../../../redux/rtk/features/projectManagement/project/milestone/milestone";
+} from "../../../../../redux/rtk/features/projectManagement/project/milestone/milestone";
 import AddProjectTeam from "../../../project/team/AddProjectTeam";
-import { loadAllProjectTeamByProjectId } from "../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
+import { loadAllProjectTeamByProjectId } from "../../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
 
 // import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
 // import { addEducation } from "../../education/educationApis";

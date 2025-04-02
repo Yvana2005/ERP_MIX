@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addEmploymentStatus,
 	loadAllEmploymentStatus,
-} from "../../redux/rtk/features/employemntStatus/employmentStatusSlice";
+} from "../../../redux/rtk/features/employemntStatus/employmentStatusSlice";
 
 import { HexColorPicker } from "react-colorful";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";

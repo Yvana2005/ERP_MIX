@@ -13,15 +13,15 @@ import {
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadProduct } from "../../redux/actions/product/getAllProductAction";
-import { addPurchase } from "../../redux/actions/purchase/addPurchaseAction";
-import { loadSuppliers } from "../../redux/actions/supplier/getSuppliersAction";
+import { loadProduct } from "../../../redux/actions/product/getAllProductAction";
+import { addPurchase } from "../../../redux/actions/purchase/addPurchaseAction";
+import { loadSuppliers } from "../../../redux/actions/supplier/getSuppliersAction";
 import Products from "./Products";
 
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { loadSupplier } from "../../redux/actions/supplier/detailSupplierAction";
+import { loadSupplier } from "../../../redux/actions/supplier/detailSupplierAction";
 
 const { Title } = Typography;
 

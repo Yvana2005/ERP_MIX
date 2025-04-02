@@ -5,8 +5,8 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import { loadSingleDepartment } from "./departmentApis";

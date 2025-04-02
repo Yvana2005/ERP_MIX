@@ -7,15 +7,15 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate, useParams } from "react-router-dom";
-import PageTitle from "../../page-header/PageHeader";
-import { updateTaskStatus } from "../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
-import Loader from "../../loader/loader";
+import PageTitle from "../../../page-header/PageHeader";
+import { updateTaskStatus } from "../../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
+import Loader from "../../../loader/loader";
 import {
 	clearTaskPriority,
 	loadAllTaskPriority,
 	loadSingleTaskPriority,
 	updateTaskPriority,
-} from "../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
+} from "../../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
 
 const UpdateTaskPriority = () => {
 	const [loader, setLoader] = useState(false);

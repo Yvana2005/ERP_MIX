@@ -14,11 +14,11 @@ const Login = () => {
 
   useEffect(() => {
     const isLogged = localStorage.getItem("isLogged");
-    const userRole = localStorage.getItem("role");
+    const userRole = localStorage.getItem("roleId");
 
     if (isLogged) {
       // Redirection basée sur le rôle de l'utilisateur
-      if (userRole === "Professionnel" || userRole === "Particulier") {
+      if (userRole === 3 || userRole === 4) {
         window.location.href = "/pos";
       } else {
         window.location.href = "/dashboard";
@@ -66,7 +66,7 @@ const Login = () => {
         <Col span={24}>
           <Card bordered={true} className={styles.card}>
             <Title level={3} className="m-3 text-center">
-              BIENVENUE A SAI I LAMA
+              BIENVENUE 
             </Title>
             <div className={styles.logoContainer}>
               <img

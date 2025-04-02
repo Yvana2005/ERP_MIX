@@ -1,7 +1,7 @@
 import { Card, Col, Row } from "antd";
 import React from "react";
 import { Navigate } from "react-router-dom";
-import checkTokenExp from "../../../utils/checkTokenExp";
+import checkTokenExp from "../../../../utils/checkTokenExp";
 
 import PublicHolidayBar from "./PublicHolidayBar";
 import DemoLine from "./Demoline";
@@ -13,7 +13,7 @@ const Dashboard = () => {
 	const isLogged = Boolean(localStorage.getItem("isLogged"));
 
 	if (!isLogged) {
-		return <Navigate to={"/admin/auth/login"} replace={true} />;
+		return <Navigate to={"/auth/login"} replace={true} />;
 	}
 
 	//Looging Out if token is expried

@@ -9,9 +9,9 @@ import {
 	addSingleTaskStatus,
 	loadAllTaskStatus,
 	loadAllTaskStatusByProjectId,
-} from "../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
+} from "../../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
 import { useParams } from "react-router-dom";
-import { loadAllProject } from "../../../redux/rtk/features/projectManagement/project/project/project";
+import { loadAllProject } from "../../../../redux/rtk/features/projectManagement/project/project/project";
 
 const AddTaskStatus = ({ isFixed, projectId }) => {
 	const [loader, setLoader] = useState(false);

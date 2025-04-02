@@ -1,12 +1,12 @@
 import { Button, Modal } from "antd";
 import { useState } from "react";
 import BtnEditSvg from "../Button/btnEditSvg";
-import Loader from "../../loader/loader";
+import Loader from "../../../loader/loader";
 import EmployeeDesignation from "../EmployeeDesignation";
 import DesignationAddSinglePopup from "./DesignationAddSinglePopup";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { loadAllDesignation } from "../../../redux/rtk/features/designation/designationSlice";
+import { loadAllDesignation } from "../../../../redux/rtk/features/designation/designationSlice";
 
 const DesignationEditPopup = ({ data }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);

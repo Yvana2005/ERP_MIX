@@ -1,12 +1,12 @@
 import { Navigate, useParams } from "react-router-dom";
-import PageTitle from "../../page-header/PageHeader";
+import PageTitle from "../../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Button, Card, Table } from "antd";
 import {
 	deleteMilestone,
 	loadAllMilestoneByProjectId,
-} from "../../../redux/rtk/features/projectManagement/project/milestone/milestone";
+} from "../../../../redux/rtk/features/projectManagement/project/milestone/milestone";
 import AddMilestone from "./AddMilestone";
 import dayjs from "dayjs";
 import UpdateBtn from "../../Buttons/UpdateBtn";

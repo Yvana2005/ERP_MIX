@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import BtnEditSvg from "../Button/btnEditSvg";
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";
-import { updateEmploymentStatus } from "../../../redux/rtk/features/employemntStatus/employmentStatusSlice";
+import { updateEmploymentStatus } from "../../../../redux/rtk/features/employemntStatus/employmentStatusSlice";
 
 const EmploymentStatusEditPopup = ({ data }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);

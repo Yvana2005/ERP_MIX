@@ -1,7 +1,7 @@
 import { Modal } from "antd";
 import { useState } from "react";
 import BtnEditSvg from "../Button/btnEditSvg";
-import Loader from "../../loader/loader";
+import Loader from "../../../loader/loader";
 import EmployeeSalary from "../EmployeeSalary";
 import SalaryAddSinglePopup from "./SalaryAddPopup";
 

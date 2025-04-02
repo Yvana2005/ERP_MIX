@@ -12,11 +12,11 @@ import {
 } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import getTotalProduct from "../../api/getAllApis/getTotalProduct";
-import { loadProduct } from "../../redux/actions/product/getAllProductAction";
-import { loadPosProduct } from "../../redux/actions/product/getPosProductAction";
-import { loadSingleProductCategory } from "../../redux/actions/productCategory/detailProductCategoryAction";
-import { loadAllProductCategory } from "../../redux/actions/productCategory/getProductCategoryAction";
+import getTotalProduct from "../../../api/getAllApis/getTotalProduct";
+import { loadProduct } from "../../../redux/actions/product/getAllProductAction";
+import { loadPosProduct } from "../../../redux/actions/product/getPosProductAction";
+import { loadSingleProductCategory } from "../../../redux/actions/productCategory/detailProductCategoryAction";
+import { loadAllProductCategory } from "../../../redux/actions/productCategory/getProductCategoryAction";
 import "./sale.css";
 
 export default function ProductsForSale({ handleSelectedProds }) {

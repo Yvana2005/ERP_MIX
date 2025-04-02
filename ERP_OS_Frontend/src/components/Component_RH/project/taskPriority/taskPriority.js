@@ -1,12 +1,12 @@
 import { Navigate } from "react-router-dom";
-import PageTitle from "../../page-header/PageHeader";
+import PageTitle from "../../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Button, Card, Table } from "antd";
 import {
 	deleteTaskPriority,
 	loadAllTaskPriority,
-} from "../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
+} from "../../../../redux/rtk/features/projectManagement/project/taskPriority/taskPriority";
 import AddTaskPriority from "./AddtaskPriority";
 import UpdateBtn from "../../Buttons/UpdateBtn";
 import { DeleteFilled } from "@ant-design/icons";

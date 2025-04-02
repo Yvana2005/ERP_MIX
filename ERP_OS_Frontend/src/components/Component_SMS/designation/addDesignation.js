@@ -2,7 +2,7 @@ import { Button, Card, Col, Form, Input, Row, Typography } from "antd";
 
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addDesignation } from "../../redux/actions/designation/addDesignationAciton";
+import { addDesignation } from "../../../redux/actions/designation/addDesignationAciton";
 import UploadMany from "../Card/UploadMany";
 import styles from "./AddDesignation.module.css";
 

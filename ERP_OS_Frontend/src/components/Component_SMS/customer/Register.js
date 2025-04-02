@@ -10,13 +10,13 @@ import {
   Radio
 } from "antd";
 import { toast } from "react-toastify";
-import { addCustomer } from "../../redux/actions/customer/addCustomerAciton";
+import { addCustomer } from "../../../redux/actions/customer/addCustomerAciton";
 import { useDispatch } from "react-redux";
-import Main from "../layouts/Main";
+import Main from "../../layouts/Main";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../user/Login.module.css";
+import styles from "../../user/Login.module.css";
 import { useState } from "react";
-import logo from "../../assets/images/sai-i-lama-logo.png";
+import logo from "../../../assets/images/sai-i-lama-logo.png";
 
 const Register = () => {
   const [loading, setLoading] = useState(false);
@@ -94,7 +94,7 @@ const Register = () => {
       <Col span={24}>
         <Card bordered={true} className={styles.card1}>
           <Title level={3} className="m-3 text-center">
-            BIENVENUE A SAI I LAMA
+          BIENVENUE
           </Title>
           <div className={styles.logoContainer}>
             <img

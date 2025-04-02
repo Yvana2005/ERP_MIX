@@ -4,9 +4,9 @@ import React, { forwardRef, Fragment, useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
-import getSetting from "../../api/getSettings";
-import logo from "../../assets/images/sai-i-lama-logo.png";
-import number2words from "../../utils/numberToWords";
+import getSetting from "../../../api/getSettings";
+import logo from "../../../assets/images/sai-i-lama-logo.png";
+import number2words from "../../../utils/numberToWords";
 import "./style.css";
 
 const PrintToPdf = forwardRef(({ data, invoiceData }, ref) => {

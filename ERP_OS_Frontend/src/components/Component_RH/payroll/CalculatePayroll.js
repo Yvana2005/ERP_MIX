@@ -6,14 +6,14 @@ import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { useEffect } from "react";
 import dayjs from "dayjs";
 import { useState } from "react";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addPayslip,
   loadAllPayslip,
   updatePayslip,
   clearPayroll
-} from "../../redux/rtk/features/payroll/payrollSlice";
+} from "../../../redux/rtk/features/payroll/payrollSlice";
 import { useNavigate } from "react-router-dom";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 import ViewBtn from "../Buttons/ViewBtn";

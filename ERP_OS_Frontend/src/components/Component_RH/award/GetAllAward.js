@@ -7,9 +7,9 @@ import { CsvLinkBtn } from "../UI/CsvLinkBtn";
 import { CSVLink } from "react-csv";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllAward } from "../../redux/rtk/features/award/awardSlice";
-import PageTitle from "../page-header/PageHeader";
-import Loader from "../loader/loader";
+import { loadAllAward } from "../../../redux/rtk/features/award/awardSlice";
+import PageTitle from "../../page-header/PageHeader";
+import Loader from "../../loader/loader";
 
 function GetAllAward() {
   const [columnsToShow, setColumnsToShow] = useState([]);

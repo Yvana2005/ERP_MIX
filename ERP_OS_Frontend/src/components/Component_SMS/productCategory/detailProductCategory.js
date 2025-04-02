@@ -5,10 +5,10 @@ import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { DeleteProductCategory } from "../../redux/actions/productCategory/deleteProductCategoryAction";
-import { loadSingleProductCategory } from "../../redux/actions/productCategory/detailProductCategoryAction";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import { DeleteProductCategory } from "../../../redux/actions/productCategory/deleteProductCategoryAction";
+import { loadSingleProductCategory } from "../../../redux/actions/productCategory/detailProductCategoryAction";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import GenerateBarcodePopUp from "../product/generateBarcodePopUp";
 
 //PopUp

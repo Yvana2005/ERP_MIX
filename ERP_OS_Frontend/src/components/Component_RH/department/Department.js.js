@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import AddDepartment from "./AddDepartment";
 
 const Department = (props) => {

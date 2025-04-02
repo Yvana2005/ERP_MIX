@@ -9,7 +9,7 @@ import EducaitonEditSinglePopup from "./PopUp/EducaitonEditSinglePopup";
 import { deleteEducation } from "../education/educationApis";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loadSingleStaff } from "../../redux/rtk/features/user/userSlice";
+import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
 
 const EmployeeTimeline = ({ list, edit, setLoading }) => {
 	//call deleteEducation api here and set response to dItem state

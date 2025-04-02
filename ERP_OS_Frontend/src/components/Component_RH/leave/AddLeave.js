@@ -9,9 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	loadAllShift,
 	loadSingleShift,
-} from "../../redux/rtk/features/shift/shiftSlice";
-import { addLeaveApplication } from "../../redux/rtk/features/leave/leaveSlice";
-import getUserFromToken from "../../utils/getUserFromToken";
+} from "../../../redux/rtk/features/shift/shiftSlice";
+import { addLeaveApplication } from "../../../redux/rtk/features/leave/leaveSlice";
+import getUserFromToken from "../../../utils/getUserFromToken";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 const AddLeave = ({ drawer }) => {

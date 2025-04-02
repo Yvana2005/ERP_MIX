@@ -17,7 +17,7 @@ function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              DIGIT-TECH-INNOV SARL
+              Digit-Tech-Innov Solutions & Services
             </a>{" "}
             ©{year}
           </p>

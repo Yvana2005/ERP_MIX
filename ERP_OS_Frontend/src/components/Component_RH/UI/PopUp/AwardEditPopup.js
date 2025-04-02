@@ -6,7 +6,7 @@ import BtnEditSvg from "../Button/btnEditSvg";
 import {
 	loadAllAward,
 	updateAward,
-} from "../../../redux/rtk/features/award/awardSlice";
+} from "../../../../redux/rtk/features/award/awardSlice";
 import { useDispatch } from "react-redux";
 
 const AwardEditPopup = ({ data }) => {

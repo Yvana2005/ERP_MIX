@@ -3,7 +3,7 @@ import { useState } from "react";
 import BtnEditSvg from "../Button/btnEditSvg";
 import EmployeeTimeline from "../EmployeeTimeline";
 import EducaitonAddSinglePopup from "./EducaitonAddSinglePopup";
-import Loader from "../../loader/loader";
+import Loader from "../../../loader/loader";
 const EducaitonEditPopup = ({ data }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [loading, setLoading] = useState(false);

@@ -15,8 +15,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import { useDispatch, useSelector } from "react-redux";
-import getUserFromToken from "../../utils/getUserFromToken";
-import { addSingleProjectTeam } from "../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
+import getUserFromToken from "../../../utils/getUserFromToken";
+import { addSingleProjectTeam } from "../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
 
 const AddProjectTeam = ({ drawer }) => {
 	const [loader, setLoader] = useState(false);

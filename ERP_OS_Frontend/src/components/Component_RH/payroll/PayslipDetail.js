@@ -8,17 +8,17 @@ import React, {
 	useState,
 } from "react";
 import { useReactToPrint } from "react-to-print";
-import getSetting from "../../api/getSettings";
+import getSetting from "../../../api/getSettings";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
 	clearPayroll,
 	loadSinglePayslip,
-} from "../../redux/rtk/features/payroll/payrollSlice";
+} from "../../../redux/rtk/features/payroll/payrollSlice";
 import { useParams } from "react-router-dom";
 import PrintIconSVG from "../Icons/PrintIconSVG";
 import tw from "tailwind-styled-components";
-import Loader from "../loader/loader";
+import Loader from "../../loader/loader";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 const PrintToPdf = forwardRef(({ data, invoiceData }, ref) => {

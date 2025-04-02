@@ -2,7 +2,7 @@ import { Avatar, List } from "antd";
 import dayjs from "dayjs";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllPublicHoliday } from "../../../redux/rtk/features/publicHoliday/publicHolidaySlice";
+import { loadAllPublicHoliday } from "../../../../redux/rtk/features/publicHoliday/publicHolidaySlice";
 
 const PublicHolidayBar = () => {
 	const { list, loading } = useSelector((state) => state?.publicHoliday);

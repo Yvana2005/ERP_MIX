@@ -59,10 +59,10 @@ const login = async (req, res) => {
     if (user && bcrypt.compareSync(password, user.password)) {
       // Obtenez les permissions basées sur le rôle de l'utilisateur ou du client
       let permissions = [];
-      if (user.role) {
+      if (user.roleId) {
         const role = await prisma.role.findUnique({
           where: {
-            name: user.role
+            id: user.roleId
           },
           include: {
             rolePermission: {
@@ -77,7 +77,7 @@ const login = async (req, res) => {
 
       // Création du token JWT
       const token = jwt.sign(
-        { sub: user.id, permissions, role: user.role, userType: userType }, // Ajoutez `userType` pour indiquer le type d'entité
+        { sub: user.id, permissions, role: user.roleId, userType: userType }, // Ajoutez `userType` pour indiquer le type d'entité
         secret,
         { expiresIn: "24h"}
       );
@@ -115,8 +115,8 @@ const register = async (req, res) => {
     }
 
     // Convertir les dates et vérifier la validité
-    const join_date = req.body.join_date
-      ? new Date(req.body.join_date).toISOString().split("T")[0]
+    const join_date = req.body.joinDate
+      ? new Date(req.body.joinDate).toISOString().split("T")[0]
       : null;
 
 
@@ -411,7 +411,7 @@ const updateSingleUser = async (req, res) => {
     // admin can change all fields
     if (req.auth.permissions.includes("updateUser")) {
       const hash = await bcrypt.hash(req.body.password, saltRounds);
-      const join_date = new Date(req.body.join_date)
+      const join_date = new Date(req.body.joinDate)
         .toISOString()
         .split("T")[0];
       

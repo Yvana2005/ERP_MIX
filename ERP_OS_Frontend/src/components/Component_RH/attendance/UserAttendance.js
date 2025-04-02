@@ -5,15 +5,15 @@ import { Card, Table, Tag } from "antd";
 import { CsvLinkBtn } from "../UI/CsvLinkBtn";
 import { CSVLink } from "react-csv";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	loadAttendanceByUserId,
 	clearAttendanceList,
-} from "../../redux/rtk/features/attendance/attendanceSlice";
+} from "../../../redux/rtk/features/attendance/attendanceSlice";
 
 import { useParams } from "react-router-dom";
-import Loader from "../loader/loader";
+import Loader from "../../loader/loader";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 function CustomTable({ list, loading }) {

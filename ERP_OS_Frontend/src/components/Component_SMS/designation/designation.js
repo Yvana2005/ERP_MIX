@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 import AddDesignation from "./addDesignation";
 import GetAllDesignation from "./getAllDesignation";
 

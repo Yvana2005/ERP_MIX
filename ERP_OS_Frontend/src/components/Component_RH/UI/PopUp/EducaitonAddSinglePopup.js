@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
+import { loadSingleStaff } from "../../../../redux/rtk/features/user/userSlice";
 import { addEducation, updateEducation } from "../../education/educationApis";
 import BtnEditSvg from "../Button/btnEditSvg";
 

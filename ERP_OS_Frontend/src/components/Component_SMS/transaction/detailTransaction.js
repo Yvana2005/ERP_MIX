@@ -3,14 +3,14 @@ import { Button, Card, Popover, Typography } from "antd";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 
 import { toast } from "react-toastify";
 import "./transaction.css";
 
 import moment from "moment";
-import { loadTransaction } from "../../redux/actions/transaction/detailTransactionAction";
+import { loadTransaction } from "../../../redux/actions/transaction/detailTransactionAction";
 
 //PopUp
 

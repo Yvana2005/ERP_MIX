@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
+import { loadSingleStaff } from "../../../../redux/rtk/features/user/userSlice";
 import { addDesHistory } from "../../designationHistory/designationHistoryApis";
-import { loadAllDesignation } from "../../../redux/rtk/features/designation/designationSlice";
+import { loadAllDesignation } from "../../../../redux/rtk/features/designation/designationSlice";
 
 const DesignationAddSinglePopup = ({ list, setLoading }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);

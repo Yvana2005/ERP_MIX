@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { CsvLinkBtn } from "../UI/CsvLinkBtn";
@@ -16,9 +16,9 @@ import dayjs from "dayjs";
 import {
   deleteAward,
   loadSingleAward
-} from "../../redux/rtk/features/award/awardSlice";
+} from "../../../redux/rtk/features/award/awardSlice";
 import AwardEditPopup from "../UI/PopUp/AwardEditPopup";
-import BtnLoader from "../loader/BtnLoader";
+import BtnLoader from "../../loader/BtnLoader";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 
 //PopUp
@@ -144,7 +144,7 @@ const DetailAward = () => {
   const isLogged = Boolean(localStorage.getItem("isLogged"));
 
   if (!isLogged) {
-    return <Navigate to={"/admin/auth/login"} replace={true} />;
+    return <Navigate to={"/auth/login"} replace={true} />;
   }
 
   return (

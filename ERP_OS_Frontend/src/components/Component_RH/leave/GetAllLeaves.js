@@ -12,7 +12,7 @@ import {
   countLeaveApplication,
   loadAllLeaveApplication,
   loadLeaveApplicationByStatus
-} from "../../redux/rtk/features/leave/leaveSlice";
+} from "../../../redux/rtk/features/leave/leaveSlice";
 import dayjs from "dayjs";
 import BtnViewSvg from "../UI/Button/btnViewSvg";
 import ViewBtn from "../Buttons/ViewBtn";

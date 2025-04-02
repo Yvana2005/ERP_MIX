@@ -9,7 +9,7 @@ const {
   makePayment,
   deletePayslip,
 } = require("./payroll.controller");
-const authorize = require("../../../utils/authorize"); // authentication middleware
+const authorize = require("../../../../utils/authorize"); // authentication middleware
 
 const payrollRoutes = express.Router();
 

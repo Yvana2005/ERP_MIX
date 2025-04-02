@@ -6,8 +6,8 @@ import {
 	addSingleProjectTeam,
 	loadSingleProjectTeam,
 	updateProjectTeam,
-} from "../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
-import { loadAllStaff } from "../../../redux/rtk/features/user/userSlice";
+} from "../../../../redux/rtk/features/projectManagement/project/projectTeam/projectTeam";
+import { loadAllStaff } from "../../../../redux/rtk/features/user/userSlice";
 
 const AddProjectTeamMember = ({ id, projectId, teamName }) => {
 	const [loader, setLoader] = useState(false);

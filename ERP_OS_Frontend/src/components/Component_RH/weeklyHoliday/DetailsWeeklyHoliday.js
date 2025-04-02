@@ -3,22 +3,22 @@ import { Button, Card, Popover, Table } from "antd";
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import Loader from "../loader/loader";
-import PageTitle from "../page-header/PageHeader";
+import Loader from "../../loader/loader";
+import PageTitle from "../../page-header/PageHeader";
 import BtnDeleteSvg from "../UI/Button/btnDeleteSvg";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { CsvLinkBtn } from "../UI/CsvLinkBtn";
 import { CSVLink } from "react-csv";
 import ViewBtn from "../Buttons/ViewBtn";
 import dayjs from "dayjs";
-import BtnLoader from "../loader/BtnLoader";
+import BtnLoader from "../../loader/BtnLoader";
 
 import LeavePolicyEdit from "../UI/PopUp/LeavePolicyEditPopup";
 import {
 	clearWeeklyHoliday,
 	deleteWeeklyHoliday,
 	loadSingleWeeklyHoliday,
-} from "../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
+} from "../../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
 import WeeklyHolidayEdit from "../UI/PopUp/WeeklyHolidayEditPopup";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 

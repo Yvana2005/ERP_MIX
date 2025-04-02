@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import Loader from "../loader/loader";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 import { useReactToPrint } from "react-to-print";
-import getSetting from "../../api/getSettings";
+import getSetting from "../../../api/getSettings";
 import "./style.css";
 
 const PrintToPdf = forwardRef(({ data }, ref) => {

@@ -1,7 +1,7 @@
 import { Card, List } from "antd";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllAnnouncement } from "../../redux/rtk/features/announcement/announcementSlice";
+import { loadAllAnnouncement } from "../../../redux/rtk/features/announcement/announcementSlice";
 import AnnouncementDelete from "./AnnouncementDelete";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 

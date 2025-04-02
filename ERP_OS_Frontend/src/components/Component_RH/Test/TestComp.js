@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ordered, restocked } from "../../redux/rtk/features/cart/cartSlice";
+import { ordered, restocked } from "../../../redux/rtk/features/cart/cartSlice";
 
 export default function TestComp() {
     const numOfCakes = useSelector((state) => state.account.numOfCakes);

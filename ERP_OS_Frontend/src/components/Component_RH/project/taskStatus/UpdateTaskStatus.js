@@ -7,14 +7,14 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate, useParams } from "react-router-dom";
-import PageTitle from "../../page-header/PageHeader";
+import PageTitle from "../../../page-header/PageHeader";
 import {
 	clearTaskStatus,
 	loadAllTaskStatus,
 	loadSingleTaskStatus,
 	updateTaskStatus,
-} from "../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
-import Loader from "../../loader/loader";
+} from "../../../../redux/rtk/features/projectManagement/project/taskStatus/taskStatus";
+import Loader from "../../../loader/loader";
 
 const UpdateTaskStatus = () => {
 	const [loader, setLoader] = useState(false);

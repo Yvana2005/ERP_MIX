@@ -1,7 +1,7 @@
 import { Card, Col, Row } from "antd";
 import React from "react";
 import { Navigate } from "react-router-dom";
-import checkTokenExp from "../../../utils/checkTokenExp";
+import checkTokenExp from "../../../../utils/checkTokenExp";
 
 import DemoBar from "./DemoBar";
 import DemoLine from "./Demoline";

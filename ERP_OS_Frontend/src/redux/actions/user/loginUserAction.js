@@ -26,8 +26,8 @@ export const addUser = (values) => {
       //dispatching data
       dispatch(addUserAction(data));
       localStorage.setItem("access-token", data.token);
-      localStorage.setItem("role", data.role);
-      localStorage.setItem("user", data.username);
+      localStorage.setItem("role", data.roleId);
+      localStorage.setItem("user", data.userName);
       localStorage.setItem("id", data.id);
       localStorage.setItem("isLogged", true);
       toast.success("Connexion effectuée avec succès");

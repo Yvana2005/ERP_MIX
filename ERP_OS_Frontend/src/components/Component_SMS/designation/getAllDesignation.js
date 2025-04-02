@@ -6,7 +6,7 @@ import { Button, Dropdown, Menu, Table } from "antd";
 import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
-import { loadAllDesignation } from "../../redux/actions/designation/getDesignationAction";
+import { loadAllDesignation } from "../../../redux/actions/designation/getDesignationAction";
 
 function CustomTable({ list, total }) {
   const dispatch = useDispatch();

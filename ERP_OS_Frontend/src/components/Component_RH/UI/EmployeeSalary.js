@@ -2,7 +2,7 @@ import React from "react";
 import tw from "tailwind-styled-components";
 import DesignationTimelineSvg from "./DesignationTimelineSVG";
 import dayjs from "dayjs";
-import { loadSingleStaff } from "../../redux/rtk/features/user/userSlice";
+import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import BtnDeleteSvg from "./Button/btnDeleteSvg";

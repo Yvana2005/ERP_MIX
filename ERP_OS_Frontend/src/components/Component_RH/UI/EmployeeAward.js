@@ -1,12 +1,12 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 import dayjs from "dayjs";
-import { loadSingleStaff } from "../../redux/rtk/features/user/userSlice";
+import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import BtnDeleteSvg from "./Button/btnDeleteSvg";
 import SalaryTimelineSvg from "./SalaryTimelineSVG";
-import { deleteAwardHistory } from "../../redux/rtk/features/awardHistory/awardHistorySlice";
+import { deleteAwardHistory } from "../../../redux/rtk/features/awardHistory/awardHistorySlice";
 import AwardEditSinglePopup from "./PopUp/AwardEditSinglePopup";
 import AwardTimelineSvg from "./AwardTimelineSVG";
 

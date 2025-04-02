@@ -15,15 +15,15 @@ import React, { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import { useDispatch, useSelector } from "react-redux";
-import getUserFromToken from "../../../utils/getUserFromToken";
+import getUserFromToken from "../../../../utils/getUserFromToken";
 import {
 	addSingleMilestone,
 	loadAllMilestone,
 	loadAllMilestoneByProjectId,
-} from "../../../redux/rtk/features/projectManagement/project/milestone/milestone";
+} from "../../../../redux/rtk/features/projectManagement/project/milestone/milestone";
 import project, {
 	loadAllProject,
-} from "../../../redux/rtk/features/projectManagement/project/project/project";
+} from "../../../../redux/rtk/features/projectManagement/project/project/project";
 import { useParams } from "react-router-dom";
 
 const AddMilestone = ({ isFixed, projectId }) => {

@@ -1,4 +1,4 @@
-import PageTitle from "../page-header/PageHeader";
+import PageTitle from "../../page-header/PageHeader";
 
 import { Navigate } from "react-router-dom";
 import AddPurch from "./addPurch";

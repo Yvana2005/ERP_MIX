@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addSinglePublicHoliday,
 	loadAllPublicHoliday,
-} from "../../redux/rtk/features/publicHoliday/publicHolidaySlice";
+} from "../../../redux/rtk/features/publicHoliday/publicHolidaySlice";
 import dayjs from "dayjs";
 import UserPrivateComponent from "../PrivateRoutes/UserPrivateComponent";
 

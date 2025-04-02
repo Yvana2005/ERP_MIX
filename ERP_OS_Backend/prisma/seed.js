@@ -57,12 +57,13 @@ const permissions = [
   "updateRolePermission",
   "deleteRolePermission",
 
-  // "createUser",
+  "create-user",
   "viewUser",
   "updateUser",
   "deleteUser",
   "professionalUser",
   "viewDashboard",
+  "readAll-dashboard",
 
   "viewPermission",
 
@@ -299,14 +300,14 @@ const department = [
 ];
 
 const designation = [
-  { name: "Praticien" },
-  { name: "Commercial" },
-  { name: "HR Manager" },
+  { name: "Vendeur" },
+  { name: "Gardien" },
+  { name: "Thérapeute" },
 ];
 
 const employmentStatus = [
-  { name: "Interne", colourValue: "#00FF00", description: "Intern" },
-  { name: "Permanent", colourValue: "#FF0000", description: "Permenent" },
+  { name: "Mi-Temps", colourValue: "#00FF00", description: "Mi-temps" },
+  { name: "Constant", colourValue: "#FF0000", description: "Permenent" },
 ];
 
 const professionalPermissions = [
@@ -336,28 +337,80 @@ const publicHoliday = [
 
 const award = [
   {
-    name: "Employé du Mois",
-    description: "Employé qui a obtenu de bons résultats au cours du mois"
+    name: "Employé Le plus Vendeur",
+    description: "Employé qui a le plus vendu au cours du mois"
   },
   {
-    name: "Employé de L'année",
-    description: "Employé qui a obtenu de bons résultats au cours de l’année"
+    name: "Employé le plus apprécié",
+    description: "Employé qui a obtenu de bons avis des client/hote au cours du mois"
   }
 ];
 
 const priority = [
   {
-    name: "Low",
+    name: "Faible",
   },
   {
-    name: "Moin Important",
+    name: "Moyen",
   },
   {
-    name: "Important",
+    name: "Fort",
   },
 ];
 
 async function main() {
+  await prisma.department.createMany({
+    data: department,
+  });
+  await prisma.designation.createMany({
+    data: designation,
+  });
+  await prisma.employmentStatus.createMany({
+    data: employmentStatus,
+  });
+  
+  await prisma.publicHoliday.createMany({
+    data: publicHoliday,
+  });
+
+  await prisma.award.createMany({
+    data: award,
+  });
+
+  await prisma.priority.createMany({
+    data: priority,
+  });
+
+  await prisma.role.createMany({
+    data: roles.map((role) => {
+      return {
+        name: role,
+      };
+    }),
+  });
+  // await prisma.permission.createMany({
+  //   data: permissions.map((permission) => {
+  //     return {
+  //       name: permission,
+  //     };
+  //   }),
+  // });
+  // for (let i = 1; i <= permissions.length; i++) {
+  //   await prisma.rolePermission.create({
+  //     data: {
+  //       role: {
+  //         connect: {
+  //           id: 1,
+  //         },
+  //       },
+  //       permission: {
+  //         connect: {
+  //           id: i,
+  //         },
+  //       },
+  //     },
+  //   });
+  // }
   const adminHash = await bcrypt.hash("admin", saltRounds);
   const staffHash = await bcrypt.hash("staff", saltRounds);
 
@@ -369,11 +422,12 @@ async function main() {
   if (!adminUser) {
     await prisma.user.create({
       data: {
-        username: "admin",
+        userName: "admin",
         email: "admin@gmail.com",
         password: adminHash,
-        role: "admin",
-        id_no: "saï-0000",
+        employmentStatusId: 1,
+        departmentId: 1,
+        roleId: 1,
         gender:"Homme"
       },
     });
@@ -387,11 +441,12 @@ async function main() {
   if (!staffUser) {
     await prisma.user.create({
       data: {
-        username: "staff",
+        userName: "staff",
         email: "staff@gmail.com",
         password: staffHash,
-        role: "staff",
-        id_no: "saï-0001",
+        employmentStatusId: 1,
+        departmentId: 1,
+        roleId: 2,
         gender:"Homme"
       },
     });
@@ -527,27 +582,7 @@ async function main() {
     });
   }
 
-  await prisma.department.createMany({
-    data: department,
-  });
-  await prisma.designation.createMany({
-    data: designation,
-  });
-  await prisma.employmentStatus.createMany({
-    data: employmentStatus,
-  });
   
-  await prisma.publicHoliday.createMany({
-    data: publicHoliday,
-  });
-
-  await prisma.award.createMany({
-    data: award,
-  });
-
-  await prisma.priority.createMany({
-    data: priority,
-  });
 
 }
 

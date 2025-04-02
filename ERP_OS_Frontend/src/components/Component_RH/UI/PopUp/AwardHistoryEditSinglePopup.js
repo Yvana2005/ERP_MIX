@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { loadSingleStaff } from "../../../redux/rtk/features/user/userSlice";
+import { loadSingleStaff } from "../../../../redux/rtk/features/user/userSlice";
 import BtnEditSvg from "../Button/btnEditSvg";
-import { updateAwardHistory } from "../../../redux/rtk/features/designation/awardHistorySlice";
+import { updateAwardHistory } from "../../../../redux/rtk/features/designation/awardHistorySlice";
 
 const AwardHistoryEditSinglePopup = ({ data, setLoading }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
