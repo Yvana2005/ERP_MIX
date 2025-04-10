@@ -1,6 +1,6 @@
 const prisma = require("../../../utils/prisma");
 
-const getDashboardData = async (req, res) => {
+const getDashboardDataRH = async (req, res) => {
   try {
     // calculate total number of users
     const totalUsers = await prisma.user.count();
@@ -118,5 +118,5 @@ const getDashboardData = async (req, res) => {
 };
 
 module.exports = {
-  getDashboardData,
+  getDashboardDataRH,
 };

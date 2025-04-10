@@ -43,8 +43,8 @@ function CustomTable({ list }) {
       id: 3,
 	  align: "center",
       title: "Nom d'utilisateur",
-      dataIndex: "userName",
-      key: "userName"
+      dataIndex: "username",
+      key: "username"
     },
 
     // {
@@ -98,7 +98,7 @@ function CustomTable({ list }) {
       key: "action",
       render: (id) => (
         <div className="flex justify-start">
-          <UserPrivateComponent permission={"readSingle-user"}>
+          <UserPrivateComponent permission={"viewUser"}>
             <ViewBtn path={`/admin/hr/staffs/${id}/`} />
           </UserPrivateComponent>
           <UserPrivateComponent permission={"readSingle-attendance"}>
@@ -125,14 +125,14 @@ function CustomTable({ list }) {
   const addKeys = (arr) => arr.map((i) => ({ ...i, key: i.id }));
 
   return (
-    <div className="ant-card p-4 rounded mt-5">
-      <div className="flex my-2 justify-between">
+    <div>
+      <div className="d-flex my-2">
         <div className="w-50">
           <h4 className="text-2xl mb-2">Liste des employés</h4>
         </div>
         {list && (
-          <div className="flex justify-end mr-4">
-            <div className="mt-0.5">
+          <div className="text-center d-flex justify-content-end w-50">
+            <div className="me-2">
               <CsvLinkBtn>
                 <CSVLink
                   data={list}
@@ -147,7 +147,7 @@ function CustomTable({ list }) {
 
             <div>
               <Segmented
-                className="text-center rounded text-red-500"
+                className="text-center rounded danger"
                 size="middle"
                 options={[
                   {
@@ -209,7 +209,7 @@ const GetAllCust = (props) => {
   // }, [deletedId, list]);
 
   return (
-    <UserPrivateComponent permission={"readAll-user"}>
+    <UserPrivateComponent permission={"viewUser"}>
       <div className="card card-custom">
         <div className="card-body">
           <CustomTable list={list} />

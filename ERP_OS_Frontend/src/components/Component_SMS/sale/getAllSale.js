@@ -43,7 +43,6 @@ function CustomTable({ list, total, startdate, enddate, count, user }) {
   const isParticulier = role === "Particulier";
 
 
-
   const currentRole = isProfessional
     ? "Professionnel"
     : isParticulier
@@ -195,9 +194,9 @@ function CustomTable({ list, total, startdate, enddate, count, user }) {
         if (
           record.creatorType === "user" &&
           record.userCreator &&
-          record.userCreator.username
+          record.userCreator.userName
         ) {
-          return record.userCreator.username; // Affiche le nom de l'utilisateur
+          return record.userCreator.userName; // Affiche le nom de l'utilisateur
         } else if (
           record.creatorType === "customer" &&
           record.customerCreator &&

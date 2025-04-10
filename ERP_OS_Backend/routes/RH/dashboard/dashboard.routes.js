@@ -1,9 +1,9 @@
 const express = require("express");
-const { getDashboardData } = require("./dashboard.controllers");
+const { getDashboardDataRH } = require("./dashboard.controllers");
 const authorize = require("../../../utils/authorize"); // authentication middleware
 
-const dashboardRoutes = express.Router();
+const dashboardRHRoutes = express.Router();
 
-dashboardRoutes.get("/", authorize("ReadDashboardHR"), getDashboardData);
+dashboardRHRoutes.get("/", authorize("ReadDashboardHR"), getDashboardDataRH);
 
-module.exports = dashboardRoutes;
+module.exports = dashboardRHRoutes;

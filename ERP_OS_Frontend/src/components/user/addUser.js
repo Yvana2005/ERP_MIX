@@ -25,7 +25,8 @@ import {
   import { getDepartments } from "../Component_RH/department/departmentApis";
   import { loadAllEmploymentStatus } from "../../redux/rtk/features/employemntStatus/employmentStatusSlice";
   // import { loadAllShift } from "../../redux/rtk/features/shift/shiftSlice";
-  import { addStaff } from "../../redux/actions/user/addStaffAciton";
+  //import { addStaff } from "../../redux/actions/user/addStaffAciton";
+  import { addStaff } from "../../redux/rtk/features/user/userSlice";
   // import { loadAllWeeklyHoliday } from "../../redux/rtk/features/weeklyHoliday/weeklyHolidaySlice";
   // import { loadAllLeavePolicy } from "../../redux/rtk/features/leavePolicy/leavePolicySlice";
   import UserPrivateComponent from "../Component_RH/PrivateRoutes/UserPrivateComponent";
@@ -183,7 +184,7 @@ import {
 				  <Form.Item
 					style={{ marginBottom: "10px" }}
 					label="Nom d'utilisateur"
-					name="userName"
+					name="username"
 					rules={[
 					  {
 						required: true,
@@ -516,7 +517,7 @@ import {
 					  }
 					]}
 					label="Role"
-					name={"roleId"}
+					name={"role"}
 					style={{ marginBottom: "10px" }}
 				  >
 					<Select
@@ -531,7 +532,7 @@ import {
 					>
 					  {list &&
 						list.map((role) => (
-						  <Option key={role.id} value={role.id}>
+						  <Option key={role.name}>
 							{role.name}
 						  </Option>
 						))}

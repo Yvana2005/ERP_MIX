@@ -6,7 +6,7 @@ const getDashboardData = async (req, res) => {
   try {
     //==================================Ventes vs bénéfices===============================================
     // get all sale invoice by group
-    const totalUsers = await prisma.user.count();
+   
     const allSaleInvoice = await prisma.saleInvoice.groupBy({
       orderBy: {
         date: "asc"
@@ -294,6 +294,14 @@ const getDashboardData = async (req, res) => {
     const sale_totalMP = saleInfoMP.reduce((total, product) => {
       return total + (product.purchase_price * product.quantity);
     }, 0);
+
+    //count of all users
+    const TotalUser = await prisma.user.aggregate({
+      _count: {
+        id: true
+      },
+      
+    });
     // concat 2 object
     const cardInfo = {
       purchase_count: purchaseInfo._count.id,
@@ -302,8 +310,8 @@ const getDashboardData = async (req, res) => {
       sale_total: Number(saleInfo._sum.total_amount),
       sale_profit: Number(saleInfo._sum.profit),
       sale_countMP: saleInfoMP.length,
-      sale_totalMP: sale_totalMP
-     
+      sale_totalMP: sale_totalMP,
+      totalUsers: TotalUser._count.id
     };
 
     // user éffectuant le plus de vente
@@ -330,33 +338,6 @@ const getDashboardData = async (req, res) => {
       }
     });
 
-    const todayOnLeave = await prisma.leaveApplication.count({
-      where: {
-        AND: [
-          {
-            acceptLeaveFrom: {
-              lte: new Date(
-                `${today.getFullYear()}-${today.getMonth() + 1}-${
-                  today.getDate() + 1
-                }`
-              ),
-            },
-          },
-          {
-            acceptLeaveTo: {
-              gte: new Date(
-                `${today.getFullYear()}-${
-                  today.getMonth() + 1
-                }-${today.getDate()}`
-              ),
-            },
-          },
-          {
-            status: "ACCEPTED",
-          },
-        ],
-      },
-    });
     // format response data for data visualization chart in antd
     const formattedData8 = await Promise.all(
       allGenerateSaleInvoiceByGroup.map(async (item) => {
@@ -426,18 +407,19 @@ const getDashboardData = async (req, res) => {
     ].sort((a, b) => a.value - b.value);
 
     res.json({
-      totalUsers,
+      
       saleProfitCount,
       SupplierVSCustomer,
       customerSaleProfit,
       cardInfo,
       userSaleProfit,
-      top4Products,
-      todayOnLeave
+      top4Products
+      
     });
   } catch (error) {
-    res.status(400).json(error.message);
+    res.status(500).json(error.message);
     console.log(error.message);
+    //return res.status(500).json({ message: error.message });
   }
 };
 

@@ -107,7 +107,7 @@ const DetailsSup = () => {
               <div className="mt-3 mb-3">
                 <p>
                   <Typography.Text className="font-semibold">
-                    Numero de telephone : {supplier.phone}
+                    Numéro de téléphone : {supplier.phone}
                   </Typography.Text>{" "}
                 </p>
 

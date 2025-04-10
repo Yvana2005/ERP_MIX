@@ -4,6 +4,7 @@ import "./style.css";
 const NewDashboardCard = ({ information }) => {
   return (
     <Fragment>
+      
       <div>
         <div className="row">
           <div className="col-xl-3 col-sm-6 col-12">
@@ -82,7 +83,7 @@ const NewDashboardCard = ({ information }) => {
                       <span
                         className="strong dark"
                         style={{ fontSize: "14px", fontWeight: "" }}>
-                        Total Employes {" "}
+                        Total Employés {" "}
                       </span>
                     </div>
                     <div className="media-body text-right">

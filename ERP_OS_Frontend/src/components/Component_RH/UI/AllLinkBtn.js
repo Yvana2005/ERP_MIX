@@ -31,7 +31,7 @@ justify-between
 `;
 
 export const BtnView = tw.button`
-bg-blue-500 
+bg-blue
 hover:bg-blue-700 
 text-white 
 font-bold

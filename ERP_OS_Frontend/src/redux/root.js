@@ -1,7 +1,7 @@
 import supplierReducer from "./reducers/supplierReducer";
 import productReducer from "./reducers/productReducer";
 import purchaseReducer from "./reducers/purchaseReducer";
-import userReducer from "./reducers/userReducer";
+import userReducer1 from "./reducers/userReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware, combineReducers } from "redux";
@@ -17,7 +17,7 @@ import logsReducer from "./reducers/auditLogsReducer";
 
 import dashboardReducer1 from "./rtk/features/dashboard/dashboardSlice";
 import designationReducer from "./rtk/features/designation/designationSlice";
-import userReducer1 from "./rtk/features/user/userSlice";
+import userReducer from "./rtk/features/user/userSlice";
 import payrollSlice from "./rtk/features/payroll/payrollSlice";
 import paymentSlice from "./rtk/features/payment/paymentSlice";
 import shiftSlice from "./rtk/features/shift/shiftSlice";
@@ -47,7 +47,7 @@ const store = createStore(
 		purchases: purchaseReducer,
 		customers: customerReducer,
 		sales: saleReducer,
-		users: userReducer,
+		users1: userReducer1,
 		supplierPayments: supplierPaymentReducer,
 		accounts: accountReducer,
 		dashboard: dashboardReducer,
@@ -56,7 +56,7 @@ const store = createStore(
 		//designations: designationReducer,
 		logs: logsReducer,
 
-		users1: userReducer1,
+		users: userReducer,
 		dashboard1: dashboardReducer1,
 		designations: designationReducer,
 		payroll: payrollSlice,

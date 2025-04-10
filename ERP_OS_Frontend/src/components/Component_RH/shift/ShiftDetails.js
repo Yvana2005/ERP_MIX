@@ -44,8 +44,8 @@ const CustomTable = ({ list }) => {
 		{
 			id: 6,
 			title: "User Name",
-			dataIndex: "userName",
-			key: "userName",
+			dataIndex: "username",
+			key: "username",
 		},
 		{
 			id: 7,

@@ -44,7 +44,7 @@ const AuditLogPrintContent = forwardRef(({ data }, ref) => {
                 data.map((log, index) => (
                   <tr key={log.id}>
                     <td>{log.id}</td>
-                    <td>{log.user?.userName || "Utilisateur Inconnu"}</td>
+                    <td>{log.user?.username || "Utilisateur Inconnu"}</td>
                     <td>{log.action}</td>
                     <td>{moment(log.timestamp).format("DD/MM/YY HH:mm")}</td>
                     <td>{log.details}</td>

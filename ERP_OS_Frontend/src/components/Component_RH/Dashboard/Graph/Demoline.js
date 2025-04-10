@@ -17,9 +17,9 @@ import AttendancePopup from "../..//UI/PopUp/AttendancePopup";
 // let enddate = dayjs(new Date()).endOf("month").format("YYYY-MM-DD");
 
 const DemoLine = () => {
-	const data = useSelector((state) => state.dashboard.list?.workHoursByDate);
+	const data = useSelector((state) => state.dashboard1.list?.workHoursByDate);
 
-	const cardInformation = useSelector((state) => state.dashboard.list);
+	const cardInformation = useSelector((state) => state.dashboard1.list);
 	const [startdate, setStartdate] = useState(moment().startOf("month"));
     const [enddate, setEnddate] = useState(moment().endOf("month"));
 
@@ -80,7 +80,7 @@ const DemoLine = () => {
 
 	return (
 		<Fragment>
-			<UserPrivateComponent permission={"readAll-dashboard"}>
+			<UserPrivateComponent permission={"ReadDashboardHR"}>
 				<Row gutter={[30, 30]} justify={"space-between"}>
 					<Col sm={12} md={12} lg={12} span={24} className='mb-auto'>
 						{/* <RangePicker
@@ -107,6 +107,7 @@ const DemoLine = () => {
 				<NewDashboardCard information={cardInformation} />
 
 				<Card title='HEURES DE TRAVAIL'>
+				     {console.log("Dashboard data", data)}
 					{data ? <Column {...config} /> : <Loader />}
 				</Card>
 			</UserPrivateComponent>

@@ -108,7 +108,7 @@ const getSingleAward = async (req, res) => {
                 id: true,
                 firstName: true,
                 lastName: true,
-                userName: true,
+                username: true,
               },
             },
           },

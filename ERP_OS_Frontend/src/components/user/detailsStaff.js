@@ -13,21 +13,19 @@ import {
 } from "@ant-design/icons";
 import { Col, Row, Alert } from "antd";
 import dayjs from "dayjs";
+
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import tw from "tailwind-styled-components";
-import {
-  clearUser,
-  deleteStaff,
-  loadSingleStaff
-} from "../../redux/rtk/features/user/userSlice";
 
+// import { deleteStaff } from "../../redux/actions/user/deleteStaffAction";
+import {clearUser, loadSingleStaff, deleteStaff} from "../../redux/rtk/features/user/userSlice"
 import Loader from "../loader/loader";
 import PageTitle from "../page-header/PageHeader";
 import BtnDeleteSvg from "../Component_RH/UI/Button/btnDeleteSvg";
-
+import "./user.css";
 import EmployeeDesignation from "../Component_RH/UI/EmployeeDesignation";
 import EmployeeTimeline from "../Component_RH/UI/EmployeeTimeline";
 import DesignationEditPopup from "../Component_RH/UI/PopUp/DesignationEditPopup";
@@ -45,6 +43,7 @@ import AwardHistoryEditPopup from "../Component_RH/UI/PopUp/AwardHistoryEditPopu
 import UserPrivateComponent from "../Component_RH/PrivateRoutes/UserPrivateComponent";
 import { loadAllDesignation } from "../../redux/rtk/features/designation/designationSlice";
 import PrintUserSheet from "./userPrint";
+
 
 //PopUp
 
@@ -64,6 +63,7 @@ const DetailStaff = () => {
   const onDelete = async () => {
     
     try {
+      if (!user) return;
       const confirmDelete = window.confirm(
         `Voulez-vous vraiment supprimer l'EMPLOYÉ : ${user.firstName} ?`
       );
@@ -86,15 +86,19 @@ const DetailStaff = () => {
 
   
   useEffect(() => {
-    dispatch(loadSingleStaff(id));
-    return () => {
-      dispatch(clearUser());
+    if (id) {
+      dispatch(loadSingleStaff(id));
     };
-  }, [id]);
+    return () => {
+      //dispatch(clearUser());
+    };
+  }, [dispatch, id]);
 
   useEffect(() => {
     dispatch(loadAllDesignation());
   }, [dispatch]);
+
+  console.log(user);
 
   const isLogged = Boolean(localStorage.getItem("isLogged"));
 
@@ -104,8 +108,8 @@ const DetailStaff = () => {
 
   return (
     <div>
-      <UserPrivateComponent permission={"readSingle-user"}>
-        <PageTitle title=" Retour  " />
+      <UserPrivateComponent permission={"viewUser"}>
+        <PageTitle title=" Retour " />
 
         {user ? (
           <div className="mr-top">
@@ -119,65 +123,37 @@ const DetailStaff = () => {
 										alt='profile'
 										className='rounded-full h-40 w-40 m-5'
 									/> */}
-                  <div class="flex justify-center py-8 px-4 mt-4 ml-4">
-                    <div class="flex flex-col items-around">
+                  <div class="flex justify-center py-8 px-4 mt-2 ml-4 items-start">
+                    <div class="flex flex-col ">
                       <h1 class="text-2xl font-bold txt-color-2 mb-1">
                         {(user?.firstName + " " + user?.lastName).toUpperCase()}
                       </h1>
-                      {/* <h2 class="text-base font-medium txt-color-secondary mb-1">
-                        {user?.designationHistory[0]?.designation?.name ||
-                          "No Designation"}
-                      </h2>
-                      <h3 class="text-base font-medium txt-color-secondary">
-                        {user?.department?.name || "No Department"}
-                      </h3> */}
-                      <li className="flex items-center">
+                    </div>  
+                      <div className="flex flex-col mt-2 mr-4">
                         <h1 className="txt-color-2 font-hight">Matricule :</h1>
-                        <h1 class="txt-color-secondary ml-2">
+                        <h1 class="txt-color-secondary">
                           {user?.employeeId || "No Employee ID"}
                         </h1>
-                      </li>
-                    </div>
+                      </div>
+                    
                   </div>
                 </div>
-
-                {/* <div className="flex justify-center py-8 px-4 mt-4">
-                  <div className="flex flex-col items-around">
-                    <h1 className="text-2xl font-bold txt-color-2 mb-1">
-                      Horloge d'entrée et de sortie
-                    </h1>
-
-                    <h3 className="text-base font-medium txt-color-secondary">
-                      À l'heure :{" "}
-                      <span className="text-base font-medium txt-color-2">
-                        {dayjs(user?.attendance.inTime).format("hh:mm A")}
-                      </span>
-                    </h3>
-
-                    <h3 className="text-base font-medium txt-color-secondary">
-                      Temps d'arrêt :{" "}
-                      <span className="text-base font-medium txt-color-2">
-                        {dayjs(user?.attendance.outTime).format("hh:mm A")}
-                      </span>
-                    </h3>
-                  </div>
-                </div> */}
 
                 {/* Action Buttons */}
 
                 <div className="">
                   <div className="flex justify-center py-8 px-4 mt-10 mr-4">
-                    <UserPrivateComponent permission="update-user">
+                    <UserPrivateComponent permission="updateUser">
                       <button className="mr-2 mt-2">
                         {user && <ProfileEditPopup data={user} />}
                       </button>
                     </UserPrivateComponent>
-                    <UserPrivateComponent permission="delete-user">
-                      <button onClick={onDelete}>
+                    <UserPrivateComponent permission="deleteUser">
+                      <button className="mr-2 mt-2" onClick={onDelete}>
                         <BtnDeleteSvg size={30} />
                       </button>
                     </UserPrivateComponent>
-                    <UserPrivateComponent permission="delete-user">
+                    <UserPrivateComponent permission="deleteUser">
                     <PrintUserSheet data={user} />
                     </UserPrivateComponent>
                   </div>
@@ -191,7 +167,7 @@ const DetailStaff = () => {
                 sm: 16,
                 md: 24,
                 lg: 32,
-                xl: 32
+                xl: 24
               }}
             >
               <Col
@@ -200,10 +176,10 @@ const DetailStaff = () => {
                 md={12}
                 lg={11}
                 xl={11}
-                className="new-card rounded h-auto m-2"
+                className="new-card rounded h-auto m-1"
               >
                 <ProfileCardText className="text-start">
-                  Statut de l'employé
+                  <h2>Statut de l'employé</h2>
                 </ProfileCardText>
 
                 <Hr />
@@ -270,7 +246,7 @@ const DetailStaff = () => {
                       />
                       <span className="txt-color-2 font-medium">Role :</span>
                       <p className="txt-color-secondary ml-2">
-                        {user?.role?.name || "Aucun Role"}
+                        {user?.role || "Aucun Role"}
                       </p>
                     </li>
                     <li className="flex items-center">
@@ -440,11 +416,11 @@ const DetailStaff = () => {
                   </UserPrivateComponent>
                 </div>
                 <Hr />
-                <div className="flex justify-start ml-10">
+                <div className="flex justify-start m-2">
                   {user?.designationHistory.length !== 0 ? (
                     <EmployeeDesignation list={user?.designationHistory} />
                   ) : (
-                    <div className="mb-10">
+                    <div className="text-center mb-10">
                       <p className="text-center mt-3 mb-3">
                         Aucun historique de désignation trouvé
                       </p>

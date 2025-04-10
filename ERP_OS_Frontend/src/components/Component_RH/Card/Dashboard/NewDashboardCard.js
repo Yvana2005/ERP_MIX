@@ -12,6 +12,7 @@ import { Card, Col, Row, Statistic } from "antd";
 const NewDashboardCard = ({ information }) => {
 	return (
 		<Fragment>
+			{console.log("Dashboard data", information)}
 			<section className='mt-5 mb-5'>
 				<div className='site-statistic-demo-card '>
 					<Row gutter={[16, 16]} justify={"space-between"}>

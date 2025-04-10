@@ -19,6 +19,7 @@ import { useParams } from "react-router-dom";
 import PrintIconSVG from "../Component_RH/Icons/PrintIconSVG";
 import tw from "tailwind-styled-components";
 import Loader from "../loader/loader";
+import "./style.css";
 import UserPrivateComponent from "../Component_RH/PrivateRoutes/UserPrivateComponent";
 
 const UserPrintSheet = forwardRef(({ data }, ref) => {
@@ -58,7 +59,7 @@ const UserPrintSheet = forwardRef(({ data }, ref) => {
     : "_________"} </Col>
             <Col span={12}><Text strong>Statut :</Text> {data?.employmentStatus?.name}</Col>
             <Col span={12}><Text strong>Date d'embauche :</Text> {dayjs(data?.joinDate).format("DD-MM-YYYY")}</Col>
-            <Col span={12}><Text strong>Rôle :</Text> {data?.role?.name}</Col>
+            <Col span={12}><Text strong>Rôle :</Text> {data?.role}</Col>
             <Col span={12}><Text strong>Salaire :</Text> {data?.salaryHistory?.length > 0 
     ? data.salaryHistory[data.salaryHistory.length - 1].salary 
     : "_________"}  Fcfa</Col>
@@ -94,8 +95,8 @@ const PrintUserSheet = ({ data }) => {
 
 	return (
 		<div>
-			<UserPrivateComponent permission={"delete-user"}>
-                <div>
+			<UserPrivateComponent permission={"deleteUser"}>
+        <div>
            <div className="hidden">
              <UserPrintSheet ref={componentRef} data={data} />
            </div>

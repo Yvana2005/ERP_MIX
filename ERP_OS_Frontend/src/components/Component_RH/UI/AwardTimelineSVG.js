@@ -3,7 +3,7 @@ import React from "react";
 const AwardTimelineSvg = ({}) => {
 	return (
 		<div>
-			<div class='bg-teal-600 w-6 h-6 flex items-center justify-center rounded-full -ml-3'>
+			<div class=' bg-purple bg-teal-600 w-6 h-6 flex items-center justify-center rounded-full -ml-3'>
 				<svg
 					version='1.0'
 					id='Layer_1'

@@ -33,7 +33,7 @@ import {
 	QuestionCircleOutlined
 } from "@ant-design/icons";
 import { Divider, Menu, Tooltip } from "antd";
-import { BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill }
+import { BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, bsGraphDown, BsGraphUpArrow }
   from 'react-icons/bs'
 import React from "react";
 
@@ -109,35 +109,57 @@ const Test = (color) => {
   const getMenuItems = () => {
     switch (selectedModule) {
       case "MSC": // Module Supply Chain
-        return menu.slice(3, 8).concat(menu.slice(10, 11)); // Afficher les 4 premiers éléments
+        return menu.slice(4, 9); // Afficher les 4 premiers éléments
+      case "MV": // Module Vente
+        return menu.slice(9, 12).concat(menu.slice(12, 13)); 
       case "MR": // Module RH
-        return menu.slice(12, 24); // Afficher de Dashboard à Projet
+        return menu.slice(14, 29); // Afficher de Dashboard à Projet
       case "Global": // Module Supply Chain
-        return menu.slice(0, 3);
+        return menu.slice(0, 4);
       default:
         return menu.slice(3);
     }
   };
 
   const menu = [
-    {
+    !isProRole &&{
       label: (
         <NavLink to="/dashboardsms">
           <span>SMS</span>
         </NavLink>
       ),
       key: "MSC",
-      icon: <BsGrid1X2Fill />,
+      icon: <BsGraphUpArrow />,
     },
-    {
+    !isProRole &&{
+      label: (
+        <NavLink to="/dashboardsms">
+          <span>VENTES</span>
+        </NavLink>
+      ),
+      key: "MV",
+      icon: <BsFillArchiveFill />,
+    },
+    isProRole &&{
+      label: (
+        <NavLink to="/pos">
+          <span>VENTES</span>
+        </NavLink>
+      ),
+      key: "MV",
+      icon: <BsFillArchiveFill />,
+    },
+    !isProRole &&{
       label: (
         <NavLink to="/admin/dashboardrh">
           <span>RH</span>
         </NavLink>
       ),
       key: "MR",
-      icon: <BsFillGrid3X3GapFill />,
+      icon: <BsPeopleFill />,
     },
+    
+    
     !isProRole &&
       hasPermission("viewDashboard") && {
         label: (
@@ -148,46 +170,7 @@ const Test = (color) => {
         key: "MSC",
         icon: <HomeOutlined />
       },
-    !isProRole &&
-      (hasPermission("createSaleInvoice") ||
-        hasPermission("viewSaleInvoice") ||
-        hasPermission("updateSaleInvoice") ||
-        hasPermission("deleteSaleInvoice")) && {
-        label: "VENTE",
-        key: "saleSection",
-        icon: <MinusSquareOutlined />,
-        children: [
-          
-          hasPermission("viewSaleInvoice") && {
-            label: (
-              <NavLink to="/salelist">
-                <span>Liste de vente</span>
-              </NavLink>
-            ),
-            key: "MSC",
-            icon: <UnorderedListOutlined />
-          },
-          {
-            label: (
-              <NavLink to="/sale">
-                <span>Centre Thérapeutique</span>
-              </NavLink>
-            ),
-            key: "MSC",
-            icon: <CheckOutlined />
-          },
-          hasPermission("createSaleInvoice") && {
-            label: (
-              <NavLink to="/pos">
-                <span>Boutique</span>
-              </NavLink>
-            ),
-            key: "MSC",
-            icon: <ShoppingCartOutlined />
-          }
-          
-        ]
-      },
+    
     !isProRole &&
       (hasPermission("createProduct") ||
         hasPermission("viewProduct") ||
@@ -394,7 +377,7 @@ const Test = (color) => {
               </NavLink>
             ),
             key: "MSC",
-            icon: <SettingOutlined />
+            icon: <SettingOutlined />,
           }
         ]
       },
@@ -416,18 +399,71 @@ const Test = (color) => {
             <span>Liste des Achats</span>
           </NavLink>
         ),
-        key: "MSC",
+        key: "MV",
         icon: <UnorderedListOutlined />
       },
-    {
-      label: (
-        <NavLink to={pdfFile} target="_blank">
-          AIDE
-        </NavLink>
-      ),
-      key: "MSC",
-      icon: <QuestionCircleOutlined />
-    },
+
+      !isProRole &&
+      hasPermission("viewDashboard") && {
+        label: (
+          <NavLink to="/dashboardsms">
+            <span>TABLEAU DE BORD</span>
+          </NavLink>
+        ),
+        key: "MV",
+        icon: <HomeOutlined />
+      },
+    
+    !isProRole &&
+      (hasPermission("createSaleInvoice") ||
+        hasPermission("viewSaleInvoice") ||
+        hasPermission("updateSaleInvoice") ||
+        hasPermission("deleteSaleInvoice")) && {
+        label: "VENTE",
+        key: "saleSection",
+        icon: <MinusSquareOutlined />,
+        children: [
+          
+          hasPermission("viewSaleInvoice") && {
+            label: (
+              <NavLink to="/salelist">
+                <span>Liste de vente</span>
+              </NavLink>
+            ),
+            key: "MV",
+            icon: <UnorderedListOutlined />
+          },
+          {
+            label: (
+              <NavLink to="/sale">
+                <span>Centre Thérapeutique</span>
+              </NavLink>
+            ),
+            key: "MV",
+            icon: <CheckOutlined />
+          },
+          hasPermission("createSaleInvoice") && {
+            label: (
+              <NavLink to="/pos">
+                <span>Boutique</span>
+              </NavLink>
+            ),
+            key: "MV",
+            icon: <ShoppingCartOutlined />
+          }
+          
+        ]
+      },
+      {
+        label: (
+          <NavLink to={pdfFile} target="_blank">
+            AIDE
+          </NavLink>
+        ),
+        key: "MV",
+        icon: <QuestionCircleOutlined />,
+      },
+  
 
       hasPermission("ReadDashboardHR") && 
     {
@@ -459,7 +495,7 @@ const Test = (color) => {
           key: "MR",
 					icon: <UsergroupAddOutlined />,
 				},
-				hasPermission("readAll-user") && {
+				hasPermission("create-user") && {
 					label: (
 					<Tooltip title="Liste des employés" >
 						<NavLink to='/admin/hr/staffs'>
@@ -472,16 +508,16 @@ const Test = (color) => {
           key: "MR",
 					icon: <UsergroupAddOutlined />,
 				},
-				hasPermission("readAll-role") && {
+				hasPermission("create-user") && {
 					label: (
-						<NavLink to='/admin/role'>
+						<NavLink to='/role'>
 							<span>Role & Permissions</span>
 						</NavLink>
 					),
           key: "MR",
 					icon: <UserSwitchOutlined />,
 				},
-				hasPermission("readAll-designation") && {
+				hasPermission("readAll-department") && {
 					label: (
 						<NavLink to='/admin/designation/'>
 							<span>Poste</span>
@@ -499,6 +535,7 @@ const Test = (color) => {
           key: "MR",
 					icon: <UserSwitchOutlined />,
 				},
+        
 			],
 		},
 
@@ -735,24 +772,24 @@ const Test = (color) => {
 			],
 		},
 
-		hasPermission("readAll-setting") && {
-			label: "PARAMÈTRES",
-			key: "settings",
-			icon: <SettingOutlined />,
-			children: [
-				hasPermission("readAll-setting") && {
-					label: (
-						<Tooltip title="Paramètres de l'entreprise">
-						<NavLink to='/admin/company-setting'>
-							<span>Paramètres de l'entreprise</span>
-						</NavLink>
-						</Tooltip>
-					),
-          key: "MR",
-					icon: <SettingOutlined />,
-				},
-			],
-		},
+		// hasPermission("readAll-setting") && {
+		// 	label: "PARAMÈTRES",
+		// 	key: "settings",
+		// 	icon: <SettingOutlined />,
+		// 	children: [
+		// 		hasPermission("readAll-setting") && {
+		// 			label: (
+		// 				<Tooltip title="Paramètres de l'entreprise">
+		// 				<NavLink to='/admin/company-setting'>
+		// 					<span>Paramètres de l'entreprise</span>
+		// 				</NavLink>
+		// 				</Tooltip>
+		// 			),
+    //       key: "MR",
+		// 			icon: <SettingOutlined />,
+		// 		},
+		// 	],
+		// },
 		{
 			label: (
 			  <NavLink to={pdfFile} target="_blank">

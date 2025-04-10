@@ -41,7 +41,7 @@ function CustomTable({ list, loading }) {
 			title: "Action",
 			key: "action",
 			render: ({ id }) => (
-				<UserPrivateComponent permission={"readSingle-designation"}>
+				<UserPrivateComponent permission={"viewDesignation"}>
 					<ViewBtn path={`/admin/designation/${id}`} />
 				</UserPrivateComponent>
 			),

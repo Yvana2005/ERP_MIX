@@ -11,6 +11,7 @@ import NewDashboardCard from "./NewDashboardCard";
 import NotificationIcon from "../../Component_SMS/notification/NotificationIcon";
 import NotificationSystem from "../../Component_SMS/notification/NewCommandeNotification";
 import DemoBarC from "./DemoBarC";
+import UserPrivateComponent from "../../Component_RH/PrivateRoutes/UserPrivateComponent";
 
 const DemoLine = () => {
   const [list, setList] = useState([]);
@@ -120,6 +121,7 @@ const DemoLine = () => {
 
   return (
     <Fragment>
+      <UserPrivateComponent permission={"readAll-dashboard"}>
       <div
         className="row d-flex"
         style={{ maxWidth: "100%", marginBottom: "10px" }}
@@ -146,6 +148,7 @@ const DemoLine = () => {
         <Row gutter={[30, 30]}>
           <Col sm={24} md={24} lg={16} span={24}>
             <Card title="Ventes vs bénéfices">
+            
               {data ? <Column {...config} /> : <Loader />}
             </Card>
           </Col>
@@ -157,6 +160,7 @@ const DemoLine = () => {
           </Col>
         </Row>
       </div>
+      </UserPrivateComponent>
     </Fragment>
   );
 };

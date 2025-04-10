@@ -7,7 +7,7 @@ const AttendBtn = ({ path }) => {
 		<div>
 			<Link to={path}>
 				<Tooltip title='Présence'>
-					<button className='bg-violet-600 hover:bg-violet-700 text-white font-bold  px-2 rounded mr-2'>
+					<button className='bg-violet hover:bg-violet-700 text-white font-bold  px-2 rounded mr-2'>
 						<i class='bi bi-calendar2-check-fill'></i>
 					</button>
 				</Tooltip>

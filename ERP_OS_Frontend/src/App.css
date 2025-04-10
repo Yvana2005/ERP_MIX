@@ -12,6 +12,9 @@
   --input-border: none;
   --dark-btn-bg: #1890ff;
   --dark-btn-border: #1890ff;
+  --text-color-2: #7858a6;
+  --text-color-secondary: #864879;
+	--text-color-hr: #864879;
   --ant-picker-next-prev-text: rgba(255, 255, 255, 0.25);
   --date-range-bg: #2e2d35;
 }
@@ -29,6 +32,9 @@
   --input-border: 1px solid #d9d9d9;
   --dark-btn-bg: #1b2942;
   --dark-btn-border: #1b2942;
+  --text-color-2: #37306b;
+  --text-color-secondary: #146c94;
+	--text-color-hr: #e2e2e2;
   --ant-picker-next-prev-text: rgba(0, 0, 0, 0.25);
   --date-range-bg: #e6f7ff;
 }
@@ -485,4 +491,91 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--text);
   -webkit-box-shadow: 0 0 0px 1000px var(--bg) inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+/* .topButton {
+  background-color: rgb(179, 48, 8);
+  border-radius: 10px;
+  display: grid;
+  width: 80%;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  grid-template-columns: 10% 90%;
+  height: 50%;
+  margin-top: 12px;
+}
+.topButton > .card_icon{
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.topButton > h3{
+  color: white;
+  padding-top: 10px;
+}
+
+.topButton2 {
+  background-color: rgb(47, 128, 0);
+  border-radius: 10px;
+  display: grid;
+  width: 70%;
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+  grid-template-columns: 10% 90%;
+  height: 50%;
+  margin-top: 12px;
+}
+.topButton2 > .card_icon{
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.topButton2 > h3{
+  color: white;
+  padding-top: 10px;
+}
+
+.topButton3 {
+  background-color: rgb(219, 174, 26);
+  border-radius: 10px;
+  display: grid;
+  width: 70%;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 2px;
+  grid-template-columns: 10% 90%;
+  height: 50%;
+  margin-top: 12px;
+  margin-left: 40px;
+}
+.topButton3 > .card_icon{
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.topButton3 > h3{
+  color: white;
+  padding-top: 10px;
+} */
+.txt-color {
+	color: var(--text) !important;
+}
+.txt-color-2 {
+	color: var(--text-color-2) !important;
+}
+
+.new-card {
+	background-color: var(--bg-secondary) !important;
+}
+.new-column-card {
+	background-color: var(--bg-column) !important;
+}
+
+.ant-row {
+	color: var(--text) !important;
+}
+.new-hr {
+	border-top: 1px solid var(--text-color-hr) !important;
 }

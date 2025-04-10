@@ -13,7 +13,7 @@ export const loadDashboardData = createAsyncThunk(
 		try {
 			
 			const { data } = await axios.get(
-			  `dashboardRH?startdate=${startdate}&enddate=${enddate}`
+			  `dashboard?startdate=${startdate}&enddate=${enddate}`
 			);
 			return data;
 		  } catch (error) {
@@ -22,7 +22,7 @@ export const loadDashboardData = createAsyncThunk(
 	}
 );
 
-const dashboardSlice = createSlice({
+const dashboardSlice1 = createSlice({
 	name: "dashboard",
 	initialState,
 	extraReducers: (builder) => {
@@ -44,4 +44,4 @@ const dashboardSlice = createSlice({
 	},
 });
 
-export default dashboardSlice.reducer;
+export default dashboardSlice1.reducer;

@@ -55,17 +55,31 @@ export const deleteStaff = createAsyncThunk("user/deleteStaff", async (id) => {
 	}
 });
 
+// export const loadSingleStaff = createAsyncThunk(
+// 	"user/loadSingleStaff",
+// 	async (id) => {
+// 		try {
+// 			const data = await axios.get(`user/${id}`);
+// 			return data;
+// 		} catch (error) {
+// 			console.log(error.message);
+// 		}
+// 	}
+// );
+
 export const loadSingleStaff = createAsyncThunk(
 	"user/loadSingleStaff",
-	async (id) => {
-		try {
-			const data = await axios.get(`user/${id}`);
-			return data;
-		} catch (error) {
-			console.log(error.message);
-		}
+	async (id, { rejectWithValue }) => {
+	  try {
+		const response = await axios.get(`user/${id}`);
+		return response.data; // ✅ Retourne directement les données utiles
+	  } catch (error) {
+		console.log(error.message);
+		return rejectWithValue(error.response?.data || error.message); // ✅ Pour gérer les erreurs proprement
+	  }
 	}
-);
+  );
+  
 
 export const loadAllStaff = createAsyncThunk(
 	"user/loadAllStaff",
@@ -93,8 +107,8 @@ export const addUser = createAsyncThunk("user/addUser", async (values) => {
 			},
 		});
 		localStorage.setItem("access-token", data.token);
-		localStorage.setItem("role", data.roleId);
-		localStorage.setItem("user", data.userName);
+		localStorage.setItem("role", data.role);
+		localStorage.setItem("user", data.username);
 		localStorage.setItem("id", data.id);
 		localStorage.setItem("isLogged", true);
 		toast.success(" Login Successfully Done");
@@ -224,15 +238,17 @@ const userSlice = createSlice({
 		});
 
 		builder.addCase(loadSingleStaff.fulfilled, (state, action) => {
+			state.user = action.payload;
 			state.loading = false;
-
-			state.user = action.payload.data;
+			//state.user = action.payload.message;
 		});
 
 		builder.addCase(loadSingleStaff.rejected, (state, action) => {
 			state.loading = false;
 			console.log(action.payload);
-			state.error = action.payload.message;
+		    state.user = state.user || null;
+			
+			state.error = action.payload?.message || action.error.message || "Erreur inconnue";
 		});
 
 		// 5) ====== builders for deleteStaff ======

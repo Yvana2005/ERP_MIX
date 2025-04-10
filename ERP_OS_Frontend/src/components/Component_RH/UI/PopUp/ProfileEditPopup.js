@@ -46,7 +46,7 @@ const ProfileEditPopup = ({ data }) => {
 
 	const [initialValues, setInitialValues] = useState({});
 
-	const [roleId, setRoleId] = useState("");
+	//const [roleId, setRoleId] = useState("");
 	const [departmentId, setDepartmentId] = useState("");
 	// const [shiftId, setShiftId] = useState("");
 	// const [leavePolicyId, setLeavePolicyId] = useState("");
@@ -69,7 +69,7 @@ const ProfileEditPopup = ({ data }) => {
 		setInitialValues({
 			firstName: user.firstName ? user.firstName : "",
 			lastName: user.lastName ? user.lastName : "",
-			userName: user.userName ? user.userName : "",
+			username: user.username ? user.username : "",
 			email: user.email ? user.email : "",
 			phone: user.phone ? user.phone : "",
 			street: user.street ? user.street : "",
@@ -85,7 +85,7 @@ const ProfileEditPopup = ({ data }) => {
 			employeeId: user.employeeId ? user.employeeId : "",
 			// bloodGroup: user.bloodGroup ? user.bloodGroup : "",
 			image: user.image ? user.image : "",
-			roleId: user.roleId ? user.roleId : "",
+			role: user.role ? user.role : "",
 			departmentId: user.departmentId ? user.departmentId : "",
 			// shiftId: user.shiftId ? user.shiftId : "",
 			// leavePolicyId: user.leavePolicyId ? user.leavePolicyId : "",
@@ -108,7 +108,7 @@ const ProfileEditPopup = ({ data }) => {
 					id: id,
 					values: {
 						...values,
-						roleId: roleId ? roleId : data.roleId,
+						//roleId: roleId ? roleId : data.roleId,
 						departmentId: departmentId ? departmentId : data.departmentId,
 						// shiftId: shiftId ? shiftId : data.shiftId,
 						// leavePolicyId: leavePolicyId ? leavePolicyId : data.leavePolicyId,
@@ -216,7 +216,7 @@ const ProfileEditPopup = ({ data }) => {
 					<Form.Item
 						style={{ marginBottom: "10px" }}
 						label='Username'
-						name='userName'
+						name='username'
 						rules={[
 							{
 								required: true,
@@ -475,12 +475,15 @@ const ProfileEditPopup = ({ data }) => {
 							},
 						]}
 						label='Role'
-						name={"roleId"}
+						name={"role"}
 						style={{ marginBottom: "10px" }}>
 						<Select
-							onChange={(value) => setRoleId(value)}
-							defaultValue={initialValues.roleId}
 							loading={!list}
+							optionFilterProp="children"
+							showSearch
+							filterOption={(input, option) =>
+							  option.children.toLowerCase().includes(input.toLowerCase())
+							}
 							size='middle'
 							mode='single'
 							allowClear
@@ -490,7 +493,7 @@ const ProfileEditPopup = ({ data }) => {
 							placeholder='Please select Role'>
 							{list &&
 								list.map((role) => (
-									<Option key={role.id} value={role.id}>
+									<Option key={role.name} value={role.name}>
 										{role.name}
 									</Option>
 								))}

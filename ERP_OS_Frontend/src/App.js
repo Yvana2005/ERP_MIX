@@ -237,14 +237,14 @@ function App() {
             {/* <Route path="/hr/staffs" exact element={<UserList />} />
             <Route path="/hr/staffs/:id" exact element={<DetailStaff />} />
             <Route path="/hr/staffs/:id/update" element={<UpdateStaff />} /> */}
-            <Route element={<UserPrivateRoute permission={"create-user"} />}>
+            <Route element={<UserPrivateRoute permission={"updateUser"} />}>
 							<Route path='/admin/hr/staffs/new' exact element={<UserList />} />
 						</Route>
-						<Route element={<UserPrivateRoute permission={"readAll-user"} />}>
+						<Route element={<UserPrivateRoute permission={"viewUser"} />}>
 							<Route path='/admin/hr/staffs' exact element={<GetAllUsers />} />
 						</Route>
 						<Route
-							element={<UserPrivateRoute permission={"readSingle-user"} />}>
+							element={<UserPrivateRoute permission={"viewUser"} />}>
 							<Route
 								path='/admin/hr/staffs/:id'
 								exact
@@ -285,7 +285,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
 
             <Route
-							element={<UserPrivateRoute permission={"readAll-designation"} />}>
+							element={<UserPrivateRoute permission={"viewDesignation"} />}>
 							<Route
 								path='/admin/designation'
 								exact
@@ -295,7 +295,7 @@ function App() {
 
 						<Route
 							element={
-								<UserPrivateRoute permission={"readSingle-designation"} />
+								<UserPrivateRoute permission={"viewDesignation"} />
 							}>
 							<Route
 								path='/admin/designation/:id'
@@ -303,7 +303,7 @@ function App() {
 							/>
 						</Route>
 						<Route
-							element={<UserPrivateRoute permission={"update-designation"} />}>
+							element={<UserPrivateRoute permission={"updateDesignation"} />}>
 							<Route
 								path='/admin/designation/:id/update'
 								element={<UpdateDesignation />}

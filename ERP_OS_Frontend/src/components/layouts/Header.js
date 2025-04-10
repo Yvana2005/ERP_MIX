@@ -1,15 +1,16 @@
 import {
   MenuFoldOutlined,
   MenuOutlined,
+  DownOutlined,
   MenuUnfoldOutlined
 } from "@ant-design/icons";
 import React, { useEffect, useState, useContext } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-import { Button, Col, Row, Typography } from "antd";
+import { Button, Col, Row, Typography,  Dropdown, Menu } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import 
-{ BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill  }
+{ BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsGraphUpArrow  }
  from 'react-icons/bs';
  import { ModuleContext } from './ModuleContext';
 import { Link } from "react-router-dom";
@@ -56,7 +57,7 @@ function Header({ onPress, collapsed, handleCollapsed }) {
   return (
     <>
       <Row gutter={[24, 0]}>
-        <Col span={24} md={4}>
+        <Col xs={24} md={3}>
           <div className={styles.sidebarTogglerPC}>
             {isLogged &&
               React.createElement(
@@ -68,32 +69,33 @@ function Header({ onPress, collapsed, handleCollapsed }) {
               )}
           </div>
         </Col>
-
-        <Col span={24} md={5}>
-           {isLogged && (
+        {isLogged && role !== "Professionnel" && role !== "Particulier" && (
+          <>
+        <Col xs={24} md={5}>
+           
           <a href="/dashboardsms"><div className='topButton' onClick={() => handleModuleClick('MSC')}>
-                  <BsGrid1X2Fill className='card_icon'/>
+                  <BsGraphUpArrow className='card_icon'/>  SMS
                   <h3 style={{fontSize : "120%"}}>SMS</h3>
             </div></a>
-           )}
+          
         </Col>
-          {/* {isLogged && (
-        <Col span={24} md={5}>
-          <a href="/dashboardvente" ><div className='topButton2' onClick={() => handleModuleClick('MV')}>
-                  <BsFillArchiveFill className='card_icon'/>
-                  <h3 style={{fontSize : "120%"}}>MODULE DES VENTES</h3>
+          
+        <Col xs={24} md={5}>
+          <a href="/dashboardsms" ><div className='topButton2' onClick={() => handleModuleClick('MV')}>
+                  <BsFillArchiveFill className='card_icon'/> VENTES
+                  <h3 style={{fontSize : "120%"}}>VENTES</h3>
             </div></a>
         </Col>
-          )} */}
-         {isLogged && (
-        <Col span={24} md={5}>
+          
+        <Col xs={24} md={5}>
           <a href="/admin/dashboardrh"><div className='topButton3' onClick={() => handleModuleClick('MR')}>
-                  <BsFillGrid3X3GapFill className='card_icon'/>
+                  <BsPeopleFill className='card_icon'/> RH
                   <h3 style={{fontSize : "120%"}}>RH</h3>
             </div></a>
         </Col>
-         )}
-        <Col span={24} md={20} className={styles.headerControl}>
+        </>
+        )}
+        <Col xs={24} md={6} className={styles.headerControl}>
           <DarkModeSwitch
             style={{ margin: "1rem" }}
             checked={isDarkMode}

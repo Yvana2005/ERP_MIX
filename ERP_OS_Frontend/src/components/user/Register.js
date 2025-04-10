@@ -64,7 +64,7 @@ const Register = () => {
 							<Form.Item
 								style={{ marginBottom: "10px" }}
 								label='Nom d’utilisateur'
-								name='userName'
+								name='username'
 								rules={[
 									{
 										required: true,

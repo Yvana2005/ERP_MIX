@@ -12,8 +12,10 @@ export const loadDashboardData = ({ startdate, enddate }) => {
   //dispatching with an call back function and returning that
   return async (dispatch) => {
     try {
+      
       const { data } = await axios.get(
-        `dashboard?startdate=${startdate}&enddate=${enddate}`
+        `dashboard?startdate=${startdate}&enddate=${enddate}`,
+        
       );
       //dispatching data
       dispatch(getDashboardData(data));

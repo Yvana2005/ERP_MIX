@@ -71,6 +71,7 @@ const permissions = [
   "viewDesignation",
   "updateDesignation",
   "deleteDesignation",
+  "readAll-designation",
 
   "createProductCategory",
   "viewProductCategory",
@@ -252,7 +253,7 @@ const permissions = [
   "viewSetting",
 ];
 
-const roles = ["admin", "staff", "Professionnel","Particulier"];
+const roles = ["admin", "staff", "Professionnel", "Particulier"];
 
 const accounts = [
   { name: "Asset", type: "Asset" },
@@ -300,9 +301,9 @@ const department = [
 ];
 
 const designation = [
-  { name: "Vendeur" },
-  { name: "Gardien" },
-  { name: "Thérapeute" },
+  { name: "Praticien" },
+  { name: "Commercial" },
+  { name: "Hr Manager" },
 ];
 
 const employmentStatus = [
@@ -381,13 +382,13 @@ async function main() {
     data: priority,
   });
 
-  await prisma.role.createMany({
-    data: roles.map((role) => {
-      return {
-        name: role,
-      };
-    }),
-  });
+  // await prisma.role.createMany({
+  //   data: roles.map((role) => {
+  //     return {
+  //       name: role,
+  //     };
+  //   }),
+  // });
   // await prisma.permission.createMany({
   //   data: permissions.map((permission) => {
   //     return {
@@ -411,9 +412,10 @@ async function main() {
   //     },
   //   });
   // }
+  
   const adminHash = await bcrypt.hash("admin", saltRounds);
   const staffHash = await bcrypt.hash("staff", saltRounds);
-
+  
   // Check if admin user exists
   const adminUser = await prisma.user.findUnique({
     where: { email: "admin@gmail.com" }
@@ -422,12 +424,14 @@ async function main() {
   if (!adminUser) {
     await prisma.user.create({
       data: {
-        userName: "admin",
+        username: "admin",
+        firstName: "admin",
+        lastName: "admin",
         email: "admin@gmail.com",
         password: adminHash,
         employmentStatusId: 1,
         departmentId: 1,
-        roleId: 1,
+        role: "admin",
         gender:"Homme"
       },
     });
@@ -441,18 +445,20 @@ async function main() {
   if (!staffUser) {
     await prisma.user.create({
       data: {
-        userName: "staff",
+        username: "staff",
+        firstName: "staff",
+        lastName: "staff",
         email: "staff@gmail.com",
         password: staffHash,
         employmentStatusId: 1,
         departmentId: 1,
-        roleId: 2,
+        role: "staff",
         gender:"Homme"
       },
     });
   }
 
-  // Check and insert permissions
+ // Check and insert permissions
   for (const permission of permissions) {
     const existingPermission = await prisma.permission.findUnique({
       where: { name: permission }
@@ -475,6 +481,7 @@ async function main() {
       });
     }
   }
+  
 
   // Assign permissions to the admin role
   const adminRole = await prisma.role.findUnique({ where: { name: "admin" } });

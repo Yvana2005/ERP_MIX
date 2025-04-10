@@ -100,7 +100,7 @@ const DetailCust = () => {
               </div>
               <div className="card-body m-2">
                 <p>
-                  <Typography.Text strong>Numero de telephone :</Typography.Text>{" "}
+                  <Typography.Text strong>Numéro de téléphone :</Typography.Text>{" "}
                   {customer.phone}
                 </p>
 

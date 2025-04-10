@@ -11,7 +11,7 @@ model user {
   id                Int       @id @default(autoincrement())
   firstName         String?
   lastName          String?
-  userName          String?    @unique
+  username          String    @unique
   password          String
   email             String?   @unique
   phone             String?   @unique
@@ -38,12 +38,11 @@ model user {
   Birthday          DateTime?
   gender            String?
   status             Boolean              @default(true)
+  role               String?
   employmentStatusId Int?
   departmentId       Int?
-  roleId             Int?
   employmentStatus   employmentStatus? @relation(fields: [employmentStatusId], references: [id])
   department         department?       @relation(fields: [departmentId], references: [id])
-  role               role?             @relation(fields: [roleId], references: [id]) 
   attendance         attendance[]
   leaveApplication   leaveApplication[]
   payslip            payslip[]
@@ -262,7 +261,6 @@ model role {
   name           String           @unique
   status         Boolean          @default(true)
   rolePermission rolePermission[]
-  user           user[]
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
 }
@@ -390,7 +388,7 @@ model salaryHistory {
 
 model designation {
   id   Int    @id @default(autoincrement())
-  name String @unique
+  name String 
 
   designationHistory designationHistory[]
 
@@ -408,7 +406,7 @@ model department {
 
 model employmentStatus {
   id          Int     @id @default(autoincrement())
-  name        String  @unique
+  name        String  
   colourValue String
   description String?
 
@@ -433,7 +431,7 @@ model designationHistory {
 
 model award {
   id           Int            @id @default(autoincrement())
-  name         String         @unique
+  name         String        
   description  String?
   image        String?
   status       Boolean        @default(true)
@@ -600,7 +598,7 @@ model taskStatus {
 
 model priority {
   id     Int     @id @default(autoincrement())
-  name   String  @unique
+  name   String  
   status Boolean @default(true)
   task   task[]
 }

@@ -59,10 +59,10 @@ const login = async (req, res) => {
     if (user && bcrypt.compareSync(password, user.password)) {
       // Obtenez les permissions basées sur le rôle de l'utilisateur ou du client
       let permissions = [];
-      if (user.roleId) {
+      if (user.role) {
         const role = await prisma.role.findUnique({
           where: {
-            id: user.roleId
+            name: user.role
           },
           include: {
             rolePermission: {
@@ -77,7 +77,7 @@ const login = async (req, res) => {
 
       // Création du token JWT
       const token = jwt.sign(
-        { sub: user.id, permissions, role: user.roleId, userType: userType }, // Ajoutez `userType` pour indiquer le type d'entité
+        { sub: user.id, permissions, role: user.role, userType: userType }, // Ajoutez `userType` pour indiquer le type d'entité
         secret,
         { expiresIn: "24h"}
       );
@@ -104,10 +104,10 @@ const register = async (req, res) => {
   try {
     // Vérifier les champs obligatoires
     if (
-      !req.body.userName ||
+      !req.body.username ||
       !req.body.password ||
       !req.body.email ||
-      !req.body.roleId
+      !req.body.role
     ) {
       return res
         .status(400)
@@ -134,7 +134,7 @@ const register = async (req, res) => {
       data: {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        userName: req.body.userName,
+        username: req.body.username,
         password: hash,
         email: req.body.email,
         phone: req.body.phone,
@@ -164,7 +164,7 @@ const register = async (req, res) => {
         image: req.body.image,
         employmentStatusId: req.body.employmentStatusId,
         departmentId: req.body.departmentId,
-        roleId: req.body.roleId,
+        role: req.body.role,
         designationHistory: {
           create: {
             designationId: req.body.designationId,
@@ -246,7 +246,6 @@ const getAllUser = async (req, res) => {
           educations: true,
           employmentStatus: true,
           department: true,
-          role: true,
           awardHistory: true
         }
       });
@@ -268,7 +267,17 @@ const getAllUser = async (req, res) => {
           status: false
         },
         include: {
-          saleInvoice: true
+          designationHistory: {
+            include: {
+              designation: true
+            }
+          },
+          saleInvoice: true,
+          salaryHistory: true,
+          educations: true,
+          employmentStatus: true,
+          department: true,
+          awardHistory: true
         }
       });
       res.json(
@@ -299,7 +308,6 @@ const getAllUser = async (req, res) => {
           educations: true,
           employmentStatus: true,
           department: true,
-          role: true,
           awardHistory: true
         }
       });
@@ -334,7 +342,6 @@ const getSingleUser = async (req, res) => {
       educations: true,
       employmentStatus: true,
       department: true,
-      role: true,
       awardHistory: {
         include: {
           award: true
@@ -422,7 +429,7 @@ const updateSingleUser = async (req, res) => {
         data: {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          userName: req.body.userName,
+          username: req.body.username,
           password: hash,
           email: req.body.email,
           phone: req.body.phone,
@@ -450,7 +457,7 @@ const updateSingleUser = async (req, res) => {
           image: req.body.image,
           employmentStatusId: req.body.employmentStatusId,
           departmentId: req.body.departmentId,
-          roleId: req.body.roleId
+          role: req.body.role
         }
       });
       const { password, ...userWithoutPassword } = updateUser;

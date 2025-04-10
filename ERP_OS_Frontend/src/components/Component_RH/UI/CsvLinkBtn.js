@@ -9,7 +9,7 @@ bg-gray-700
   px-3 
   rounded 
 
-  mr-2
+  mr-3
 
 `;
 

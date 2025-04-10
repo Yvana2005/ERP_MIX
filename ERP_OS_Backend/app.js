@@ -32,7 +32,7 @@ const smsRouter = require("./routes/sms/sms.routes");
 const getAuditLogs = require("./routes/AuditLog/auditlog.routes");
 const { lotProductRoute } = require("./routes/Distribution/inventory/lotProduct/lotProduct.routes");
 const dashboardRHRoutes = require("./routes/RH/dashboard/dashboard.routes");
-const dashboardSMSRoutes = require("./routes/Distribution/dashboard/dashboard.routes");
+
 //const emailRoutes = require("./routes/Distribution/dashboard/email.routes");
 /* variables */
 // express app instance
@@ -143,7 +143,6 @@ app.use("/v1/sms", smsRouter);
 app.use("/v1/audit-logs", getAuditLogs);
 app.use("/v1/lot-product", lotProductRoute);
 app.use("/v1/dashboardRH", dashboardRHRoutes);
-app.use("/v1/dashboardSMS", dashboardSMSRoutes);
 app.use("/v1/designation", require("./routes/RH/hr/designation/designation.routes"));
 app.use("/v1/email", require("./routes/RH/email/email.routes"));
 app.use("/v1/department", require("./routes/RH/hr/department/department.routes"));

@@ -14,11 +14,11 @@ const Login = () => {
 
   useEffect(() => {
     const isLogged = localStorage.getItem("isLogged");
-    const userRole = localStorage.getItem("roleId");
+    const userRole = localStorage.getItem("role");
 
     if (isLogged) {
       // Redirection basée sur le rôle de l'utilisateur
-      if (userRole === 3 || userRole === 4) {
+      if (userRole === "Professionnel" || userRole === "Particulier") {
         window.location.href = "/pos";
       } else {
         window.location.href = "/dashboard";

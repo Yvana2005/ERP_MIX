@@ -14,7 +14,7 @@ const generateFileName = (bytes = 32) =>
 const path = require("path");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "routes/files/uploads/");
+    cb(null, "routes/RH/files/uploads/");
   },
   filename: function (req, file, cb) {
     const extension = path.extname(file.originalname);

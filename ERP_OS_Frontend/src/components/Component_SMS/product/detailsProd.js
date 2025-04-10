@@ -73,7 +73,7 @@ const DetailsProd = () => {
       key: "expirationDate"
     }
   ];
-
+  
   useEffect(() => {
     if (product) {
       form.setFieldsValue({
@@ -102,7 +102,7 @@ const DetailsProd = () => {
         url: `product/${id}`,
         data: {
           ...values,
-          quantity: totalQuantity // Send the total quantity to the API
+          quantity: totalQuantity // Send the total quantity to the API //{dayjs(i.inTime).format("DD-MM-YY, HH:mm")}
         }
       });
       return "success";

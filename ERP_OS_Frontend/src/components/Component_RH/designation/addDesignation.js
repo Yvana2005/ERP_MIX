@@ -41,7 +41,7 @@ const AddDesignation = () => {
 
 	return (
 		<Fragment>
-			<UserPrivateComponent permission={"create-designation"}>
+			<UserPrivateComponent permission={"createDesignation"}>
 				<Row className='mr-top' justify='space-between' gutter={[0, 30]}>
 					<Col
 						xs={24}
@@ -71,7 +71,7 @@ const AddDesignation = () => {
 								autoComplete='off'>
 								<Form.Item
 									style={{ marginBottom: "20px" }}
-									label='Name'
+									label='Nom'
 									name='name'
 									rules={[
 										{

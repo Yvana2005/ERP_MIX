@@ -20,7 +20,7 @@ const generateFileName = (bytes = 32) =>
 // store files upload folder in disk
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "routes/inventory/product/uploads/");
+    cb(null, "routes/Distribution/inventory/product/uploads/");
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = generateFileName();

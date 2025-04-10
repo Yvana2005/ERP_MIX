@@ -13,34 +13,34 @@ const authorize = require("../../../../utils/authorize"); // authentication midd
 const designationRoutes = express.Router();
 designationRoutes.get(
   "/employee",
-  authorize("readAll-designation"),
+  authorize("readAll-designationHistory"),
   allDesignationWiseEmployee
 );
 designationRoutes.get(
   "/employee/:id",
-  authorize("readSingle-designation"),
+  authorize("viewDesignation"),
   singleDesignationWiseEmployee
 );
 designationRoutes.post(
   "/",
-  authorize("create-designation"),
+  authorize("createDesignation"),
   createSingleDesignation
 );
-designationRoutes.get("/", authorize("readAll-designation"), getAllDesignation);
+designationRoutes.get("/", authorize("viewDesignation"), getAllDesignation);
 designationRoutes.get(
   "/:id",
-  authorize("readSingle-designation"),
+  authorize("viewDesignation"),
   getSingleDesignation
 );
 designationRoutes.put(
   "/:id",
-  authorize("update-designation"),
+  authorize("updateDesignation"),
   updateSingleDesignation
 );
 
 designationRoutes.delete(
   "/:id",
-  authorize("delete-designation"),
+  authorize("deleteDesignation"),
   deleteSingleDesignation
 );
 

@@ -52,13 +52,8 @@ const getAllDepartment = async (req, res) => {
             id: true,
             firstName: true,
             lastName: true,
-            userName: true,
-            role: {
-              select: {
-                name: true,
-                id: true,
-              },
-            },
+            username: true,
+            role: true,
             designationHistory: {
               orderBy: [
                 {
@@ -103,13 +98,8 @@ const getAllDepartment = async (req, res) => {
               id: true,
               firstName: true,
               lastName: true,
-              userName: true,
-              role: {
-                select: {
-                  name: true,
-                  id: true,
-                },
-              },
+              username: true,
+              role: true,
               designationHistory: {
                 orderBy: [
                   {
@@ -150,13 +140,8 @@ const getSingleDepartment = async (req, res) => {
             id: true,
             firstName: true,
             lastName: true,
-            userName: true,
-            role: {
-              select: {
-                name: true,
-                id: true,
-              },
-            },
+            username: true,
+            role: true,
             designationHistory: {
               orderBy: [
                 {
