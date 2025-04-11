@@ -152,7 +152,7 @@ import {
 			  >
 				<Col span={12} className="gutter-row form-color">
 				  <h2 className="text-center text-xl mt-3 mb-3 txt-color">
-					<b>informations de l'utilisateur</b>
+					<b>Informations de l'utilisateur</b>
 				  </h2>
 				  <Form.Item
 					style={{ marginBottom: "10px" }}
@@ -959,7 +959,7 @@ import {
 				  block
 				  type="primary"
 				  htmlType="submit"
-				  shape="round"
+				  //shape="round"
 				  loading={loader}
 				>
 				  Ajouter un nouveau personnel

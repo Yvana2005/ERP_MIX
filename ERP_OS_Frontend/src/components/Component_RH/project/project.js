@@ -132,12 +132,12 @@ const Project = (props) => {
 					<h4 className='text-2xl mb-2'>Liste des projets</h4>
 				</div>
 				{list && (
-					<div className='flex justify-end mr-4'>
+					<div className='flex justify-end mr-2'>
 						<div className='mt-0.5'>
 							<CsvLinkBtn>
 								<CSVLink
 									data={list}
-									className='btn btn-dark btn-sm'
+									className='btn btn-dark btn-sm mb-1'
 									style={{ marginTop: "5px" }}
 									filename='leave_applications'>
 									Télécharger CSV
@@ -145,11 +145,11 @@ const Project = (props) => {
 							</CsvLinkBtn>
 						</div>
 
-						<div className='ml-2 mt-0.5'>
-							<GreenLinkBtn>
-								<button onClick={onAllClick}>
-									<BtnAllSvg size={15} title={"ALL"} />
-								</button>
+						<div className='ml-2 mb-2'>
+							<GreenLinkBtn onClick={onAllClick}>
+								
+									<BtnAllSvg size={25} title={"ALL"} />
+								
 							</GreenLinkBtn>
 						</div>
 						<div>

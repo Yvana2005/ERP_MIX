@@ -94,7 +94,7 @@ const AddDesignation = () => {
 										block
 										htmlType='submit'
 										shape='round'
-										size='large'
+										// size='large'
 										loading={loader}>
 										Ajouter un poste
 									</Button>

@@ -7962,7 +7962,16 @@ input:focus~.bg-purple {
 .bg-blue .card-header {
     background-color: transparent
 }
-
+.bg-indigo{
+    background-color: #00796B;
+}
+.bg-green{
+    background-color: #00897B;
+}
+.text-red-500{
+    background-color: red;
+    color: red;
+}
 .alert-blue {
     border-color: #65B6F7 !important;
     background-color: #65B6F7 !important;

@@ -129,7 +129,7 @@ function CustomTable({ list, loading }) {
 	const addKeys = (arr) => arr.map((i) => ({ ...i, key: i.id }));
 
 	return (
-		<Card className='mt-5'>
+		<Card className='mt-2'>
 			<div className='text-center my-2 flex justify-between'>
 				<h5 className='department-list-title text-color-2 text-xl mb-2'>
 				Historique des présences

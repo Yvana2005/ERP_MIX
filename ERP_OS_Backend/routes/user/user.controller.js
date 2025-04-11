@@ -115,11 +115,11 @@ const register = async (req, res) => {
     }
 
     // Convertir les dates et vérifier la validité
-    const join_date = req.body.joinDate
-      ? new Date(req.body.joinDate).toISOString().split("T")[0]
-      : null;
+    // const join_date = req.body.joinDate
+    //   ? new Date(req.body.joinDate).toISOString().split("T")[0]
+    //   : null;
 
-
+    const join_date = new Date(req.body.joinDate);
     if (!join_date) {
       return res
         .status(400)
@@ -162,22 +162,23 @@ const register = async (req, res) => {
         employeeId: req.body.employeeId,
         bloodGroup: req.body.bloodGroup,
         image: req.body.image,
+        role: req.body.role,
         employmentStatusId: req.body.employmentStatusId,
         departmentId: req.body.departmentId,
-        role: req.body.role,
+       
         designationHistory: {
           create: {
             designationId: req.body.designationId,
-            startDate: new Date(req.body.designationStartDate),
-            endDate: new Date(req.body.designationEndDate),
+            startDate: req.body.designationStartDate ? new Date(req.body.designationStartDate) : null,
+            endDate: req.body.designationEndDate ? new Date(req.body.designationEndDate) : null,
             comment: req.body.designationComment
           }
         },
         salaryHistory: {
           create: {
             salary: req.body.salary,
-            startDate: new Date(req.body.salaryStartDate),
-            endDate: new Date(req.body.salaryEndDate),
+            startDate: req.body.salaryStartDate ? new Date(req.body.salaryStartDate) : null,
+            endDate: req.body.salaryEndDate ? new Date(req.body.salaryEndDate) : null,
             comment: req.body.salaryComment
           }
         },
@@ -190,8 +191,8 @@ const register = async (req, res) => {
               skill: e.skill,
               fieldOfStudy: e.fieldOfStudy,
               result: e.result,
-              startDate: new Date(e.studyStartDate),
-              endDate: new Date(e.studyEndDate)
+              startDate: e.studyStartDate ? new Date(e.studyStartDate) : null,
+              endDate: e.studyEndDate ? new Date(e.studyEndDate) : null,
             };
           })
         }
@@ -418,9 +419,12 @@ const updateSingleUser = async (req, res) => {
     // admin can change all fields
     if (req.auth.permissions.includes("updateUser")) {
       const hash = await bcrypt.hash(req.body.password, saltRounds);
-      const join_date = new Date(req.body.joinDate)
-        .toISOString()
-        .split("T")[0];
+      const join_date = new Date(req.body.joinDate);
+      if (!join_date) {
+      return res
+        .status(400)
+        .json({ message: "Les dates ne sont pas valides." });
+    }
       
       const updateUser = await prisma.user.update({
         where: {
@@ -561,7 +565,7 @@ const deleteSingleUser = async (req, res) => {
       return res.status(404).json({ message: "User non trouvé" });
     }
 
-    const deleteUser = await prisma.user.update({
+    const deleteUser = await prisma.user.delete({
       where: {
         id: Number(req.params.id)
       },

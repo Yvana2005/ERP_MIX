@@ -93,10 +93,10 @@ const DesignationAddSinglePopup = ({ list, setLoading }) => {
 					eventKey='department-form'
 					name='basic'
 					labelCol={{
-						span: 6,
+						span: 2,
 					}}
 					wrapperCol={{
-						span: 16,
+						span: 2,
 					}}
 					onFinish={onFinish}
 					onFinishFailed={onFinishFailed}

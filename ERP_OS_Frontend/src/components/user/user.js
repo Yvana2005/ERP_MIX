@@ -13,7 +13,7 @@ const UserList = (props) => {
     <div>
       <PageTitle title="Retour" subtitle={"EMPLOYEE"}/>
       <AddUser />
-      <GetAllUser />
+      {/* <GetAllUser /> */}
     </div>
   );
 };

@@ -13,7 +13,7 @@ export const DeleteProductCategory = (id) => {
 	return async (dispatch) => {
 		try {
 			await axios({
-				method: "patch",
+				method: "delete",
 				headers: {
 					Accept: "application/json",
 					"Content-Type": "application/json;charset=UTF-8",

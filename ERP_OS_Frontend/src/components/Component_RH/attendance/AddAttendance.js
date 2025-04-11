@@ -241,7 +241,7 @@ const Attendance = ({ drawer }) => {
 									}}>
 									<Button
 										onClick={() => setLoader(true)}
-										type='primary'
+										type="primary"
 										size='large'
 										disabled={
 											inTimeDate.time === null ||

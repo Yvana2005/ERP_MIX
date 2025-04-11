@@ -69,9 +69,9 @@ const DetailStaff = () => {
       );
       if (!confirmDelete) return;
       await dispatch(deleteStaff(id));
-      await dispatch(deletepayroll(id));
+      //await dispatch(deletepayroll(id));
       setVisible(false);
-      toast.warning(`L'EMPLOYÉ: ${user.firstName} ainsi que sa fiche de paie ont été supprimés. `);
+      toast.warning(`L'EMPLOYÉ: ${user.firstName} a été supprimés. `);
       return navigate("/admin/hr/staffs");
     } catch (error) {
       console.log(error.message);
@@ -124,16 +124,16 @@ const DetailStaff = () => {
 										className='rounded-full h-40 w-40 m-5'
 									/> */}
                   <div class="flex justify-center py-8 px-4 mt-2 ml-4 items-start">
-                    <div class="flex flex-col ">
-                      <h1 class="text-2xl font-bold txt-color-2 mb-1">
+                    <div class="flex flex-col mr-4">
+                      <h1 class="text-2xl font-bold txt-color-2 mb-2">
                         {(user?.firstName + " " + user?.lastName).toUpperCase()}
                       </h1>
                     </div>  
-                      <div className="flex flex-col mt-2 mr-4">
-                        <h1 className="txt-color-2 font-hight">Matricule :</h1>
-                        <h1 class="txt-color-secondary">
+                      <div className="flex flex-col mt-2 mr-8">
+                        <h3 className="txt-color-2 font-hight">Matricule : </h3>
+                        <h3 class="txt-color-secondary">
                           {user?.employeeId || "No Employee ID"}
-                        </h1>
+                        </h3>
                       </div>
                     
                   </div>
@@ -167,7 +167,7 @@ const DetailStaff = () => {
                 sm: 16,
                 md: 24,
                 lg: 32,
-                xl: 24
+                xl: 32
               }}
             >
               <Col
@@ -179,7 +179,7 @@ const DetailStaff = () => {
                 className="new-card rounded h-auto m-1"
               >
                 <ProfileCardText className="text-start">
-                  <h2>Statut de l'employé</h2>
+                  <h3 className="txt-color-2">Statut de l'employé</h3>
                 </ProfileCardText>
 
                 <Hr />
@@ -271,7 +271,7 @@ const DetailStaff = () => {
                 className="new-card rounded h-auto m-2"
               >
                 <ProfileCardText className="text-start">
-                  Informations personnelles
+                  <h3>Informations personnelles</h3>
                 </ProfileCardText>
 
                 <Hr/>
@@ -404,7 +404,7 @@ const DetailStaff = () => {
               >
                 <div className="flex justify-between">
                   <ProfileCardText className="text-start">
-                    Historique de la désignation
+                    <h3>Historique de la désignation</h3>
                   </ProfileCardText>
 
                   <UserPrivateComponent
@@ -416,7 +416,7 @@ const DetailStaff = () => {
                   </UserPrivateComponent>
                 </div>
                 <Hr />
-                <div className="flex justify-start m-2">
+                <div className="flex justify-start m-4 ">
                   {user?.designationHistory.length !== 0 ? (
                     <EmployeeDesignation list={user?.designationHistory} />
                   ) : (
@@ -444,7 +444,7 @@ const DetailStaff = () => {
               >
                 <div className="flex justify-between">
                   <ProfileCardText className="text-start">
-                    Histoire de l'éducation
+                    <h3>Histoire de l'éducation</h3>
                   </ProfileCardText>
                   <UserPrivateComponent permission={"update-education"}>
                     {user?.educations && (
@@ -453,7 +453,7 @@ const DetailStaff = () => {
                   </UserPrivateComponent>
                 </div>
                 <Hr />
-                <div className="flex justify-start ml-10">
+                <div className="flex justify-start m-4">
                   {user?.educations.length !== 0 ? (
                     <EmployeeTimeline list={user?.educations} />
                   ) : (
@@ -481,7 +481,7 @@ const DetailStaff = () => {
               >
                 <div className="flex justify-between">
                   <ProfileCardText className="text-start">
-                    Historique des salaires
+                    <h3>Historique des salaires</h3>
                   </ProfileCardText>
                   <UserPrivateComponent permission={"update-salaryHistory"}>
                     {user?.salaryHistory && (
@@ -490,7 +490,7 @@ const DetailStaff = () => {
                   </UserPrivateComponent>
                 </div>
                 <Hr />
-                <div className="flex justify-start ml-10">
+                <div className="flex justify-start m-4">
                   {user?.salaryHistory.length !== 0 ? (
                     <EmployeeSalary list={user?.salaryHistory} />
                   ) : (
@@ -518,7 +518,7 @@ const DetailStaff = () => {
               >
                 <div className="flex justify-between">
                   <ProfileCardText className="text-start">
-                    Historique des récompenses
+                    <h3>Historique des récompenses</h3>
                   </ProfileCardText>
 
                   <UserPrivateComponent permission={"update-awardHistory"}>
@@ -528,7 +528,7 @@ const DetailStaff = () => {
                   </UserPrivateComponent>
                 </div>
                 <Hr />
-                <div className="flex justify-start ml-10">
+                <div className="flex justify-start m-4">
                   {user?.awardHistory.length !== 0 ? (
                     <EmployeeAward list={user?.awardHistory} />
                   ) : (

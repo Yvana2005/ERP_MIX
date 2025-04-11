@@ -20,8 +20,8 @@ const DetailAccount = () => {
 		// 	setData(data);
 		// });
 		dispatch(loadSingleAccount(id));
-	}, []);
-
+	}, [id]);
+     console.log("account", data)
 	return (
 		<>
 			<PageTitle title={"Retour"} subtitle={`Détails du compte: ${data?.name}`}/>
@@ -54,7 +54,7 @@ const DetailAccount = () => {
 												<td>{item.amount}</td>
 												<td></td>
 												<td>{item.particulars}</td>
-												<td>{moment(item.date).format("DD MM YY HH:mm")}</td>
+												<td>{moment(item.date).format("DD-MM-YY HH:mm")}</td>
 											</tr>
 										);
 									})}
@@ -65,7 +65,7 @@ const DetailAccount = () => {
 												<td></td>
 												<td>{item.amount}</td>
 												<td>{item.particulars}</td>
-												<td>{moment(item.date).format("DD MM YY HH:mm")}</td>
+												<td>{moment(item.date).format("DD-MM-YY HH:mm")}</td>
 											</tr>
 										);
 									})}

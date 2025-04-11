@@ -1,7 +1,7 @@
 import tw from "tailwind-styled-components";
 
 export const CsvLinkBtn = tw.div`
-bg-gray-700
+bg-blue-700
  hover:bg-gray-500 
  text-white
   font-bold 

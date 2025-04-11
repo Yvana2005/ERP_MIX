@@ -17,7 +17,7 @@ const checkTokenExp = (token) => {
     }
   } catch (error) {
     console.log("error");
-    return (window.location.href = "/auth/logout");
+    //return (window.location.href = "/auth/logout");
   }
 };
 

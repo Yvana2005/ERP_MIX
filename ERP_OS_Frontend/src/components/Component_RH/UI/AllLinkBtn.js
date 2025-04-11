@@ -1,10 +1,10 @@
 import tw from "tailwind-styled-components";
 
 export const GreenLinkBtn = tw.div`
-bg-green-500
+bg-green
 flex
 justify-between
- hover:bg-emerald-500 
+ hover:bg-indigo
  text-white
   font-bold 
   py-1 
@@ -16,14 +16,14 @@ justify-between
 `;
 
 export const VioletLinkBtn = tw.div`
-bg-indigo-500
+bg-indigo
 flex
 justify-between
  hover:bg-indigo-500 
  text-white
   font-bold 
-  py-1 
-  px-3 
+  py-0 
+  px-2
   rounded 
 
   mr-2

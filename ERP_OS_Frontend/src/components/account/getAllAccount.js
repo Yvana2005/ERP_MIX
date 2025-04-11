@@ -31,6 +31,9 @@ function CustomTable({ list, total }) {
       dataIndex: "name",
       key: "name",
       sorter: (a, b) => a.name.localeCompare(b.name),
+      render: (name, { id }) => (
+        <Link to={`/account/${id}`}>{name}</Link>
+      ),
     },
   
     {
@@ -46,7 +49,7 @@ function CustomTable({ list, total }) {
       dataIndex: "date",
       key: "date",
       sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
-      render: (date) => moment(date).format("DD MM YY HH:mm"),
+      render: (date) => moment(date).format("DD-MM-YY HH:mm"),
     },
   ];
   useEffect(() => {

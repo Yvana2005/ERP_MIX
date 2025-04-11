@@ -70,7 +70,7 @@ const UpdateAccount = ({ account, id }) => {
 	return (
 		<>
 			<Button onClick={showModal} size='small'>
-			Moddifier le compte
+			Modifier le compte
 			</Button>
 			<Modal
 				open={open}
@@ -157,7 +157,7 @@ const UpdateAccount = ({ account, id }) => {
 							shape='round'
 							loading={loading}
 							onClick={() => setLoading(true)}>
-							Moddifier le compte
+							Modifier le compte
 						</Button>
 					</Form.Item>
 				</Form>

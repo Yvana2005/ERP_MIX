@@ -153,21 +153,25 @@ function CustomTable({ list, total, status, setStatus, loading }) {
 	}));
 
 	return (
-		<div className='mt-5'>
+		<div className='mt-1'>
 			{list && (
-				<div className='text-center my-2 flex justify-end'>
-					<CsvLinkBtn>
-						<CSVLink data={CSVlist} filename='purchase'>
+				<div className="card-title d-flex justify-content-end" style={{ marginTop:"10px" }}>
+					<div className="me-2">
+					{/* <CsvLinkBtn> */}
+						<CSVLink data={CSVlist}
+						style={{ margin: "5px" }}
+						className="btn btn-dark btn-sm mb-1" 
+						filename='purchase'>
 						Télécharger CSV
 						</CSVLink>
-					</CsvLinkBtn>
+					{/* </CsvLinkBtn> */}
 
-					
+				</div>	
 				</div>
 			)}
 
 			{list && (
-				<div style={{ marginBottom: "30px" }}>
+				<div style={{ marginBottom: "20px" }}>
 					<ColVisibilityDropdown
 						options={columns}
 						columns={columns}
@@ -265,10 +269,10 @@ const GetAllAttendance = (props) => {
 	}
 	return (
 		<>
-			<Card className='card card-custom mt-3 '>
+			<Card className='card card-custom mt-1 '>
 				<div className='card-body'>
 					<div className='flex justify-between'>
-						<TableHeraderh2>Liste de présence</TableHeraderh2>
+						<TableHeraderh2>Liste des présences</TableHeraderh2>
 						<div className='flex justify-end'>
 							<RangePicker
 								onCalendarChange={onCalendarChange}
@@ -278,14 +282,14 @@ const GetAllAttendance = (props) => {
 								// 	moment().endOf("month")
 								//   ]}
 								// format={"DD-MM-YYYY"}
-								className='range-picker mr-3'
+								className='range-picker mr-5'
 								style={{ maxWidth: "400px" }}
 							/>
-							<VioletLinkBtn>
-								<button onClick={onClickSearch}>
-									<BtnSearchSvg size={25} title={"SEARCH"} loading={loading} />
+							{/* <VioletLinkBtn> */}
+								<button onClick={onClickSearch} style={{ background: "#00796B !important", borderLeftColor: "#00796B !important"  }}>
+									<BtnSearchSvg size={35} title={"SEARCH"} loading={loading} />
 								</button>
-							</VioletLinkBtn>
+							{/* </VioletLinkBtn> */}
 							
 						</div>
 						{/* <div className="text-end">

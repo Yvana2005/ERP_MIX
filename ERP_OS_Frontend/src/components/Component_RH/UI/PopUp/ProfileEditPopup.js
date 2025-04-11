@@ -628,7 +628,7 @@ const ProfileEditPopup = ({ data }) => {
 							block
 							onClick={() => setLoader(true)}
 							type='primary'
-							shape='round'
+							//shape='round'
 							htmlType='submit'
 							loading={loader}>
 							Mettre à jour l'employé

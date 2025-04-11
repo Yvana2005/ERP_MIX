@@ -59,9 +59,9 @@ function CustomTable({ list, loading }) {
 	const addKeys = (arr) => arr.map((i) => ({ ...i, key: i.id }));
 
 	return (
-		<div className='mt-4'>
+		<div className='mt-1'>
 			<div className='text-center my-2 flex justify-between'>
-				<h5 className='text-xl ml-4'> Liste des Designations </h5>
+				<h4 className='text-xl ml-2'> Liste des Designations </h4>
 				{list && (
 					<div>
 						<CsvLinkBtn>
@@ -77,7 +77,7 @@ function CustomTable({ list, loading }) {
 			</div>
 
 			{list && (
-				<div style={{ marginBottom: "30px" }} className='ml-4 mt-3'>
+				<div style={{ marginBottom: "30px" }} className='ml-1 mt-1'>
 					<ColVisibilityDropdown
 						options={columns}
 						columns={columns}

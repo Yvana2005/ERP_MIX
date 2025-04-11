@@ -336,7 +336,7 @@ const Test = (color) => {
     //         icon: <UserSwitchOutlined />
     //       }
     //     ]
-    //   },
+    //   /account},
     !isProRole &&
       (hasPermission("updateSetting") || hasPermission("viewSetting")) && {
         label: "PARAMÈTRES",
@@ -368,7 +368,16 @@ const Test = (color) => {
               </NavLink>
             ),
             key: "MSC",
-            icon: <FolderAddOutlined />
+            icon: <ShopOutlined />
+          },
+          {
+            label: (
+              <NavLink to="/account">
+                <span>Compte</span>
+              </NavLink>
+            ),
+            key: "MSC",
+            icon: <WalletOutlined />
           },
           {
             label: (
@@ -465,7 +474,7 @@ const Test = (color) => {
       },
   
 
-      hasPermission("ReadDashboardHR") && 
+      hasPermission("viewDashboard") && 
     {
 			label: (
 				<NavLink to='/admin/dashboardrh'>

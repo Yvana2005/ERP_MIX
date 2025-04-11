@@ -31,7 +31,7 @@ const EmployeeTimeline = ({ list, edit, setLoading }) => {
 
 	return (
 		<div>
-			<main class='container mx-auto w-full flex justify-center mt-5'>
+			<main class='container mx-5 w-full flex justify-center mt-3 '>
 				<ol class='border-l-2 border-slate-600'>
 					{list &&
 						list?.map((item) => {
@@ -39,7 +39,7 @@ const EmployeeTimeline = ({ list, edit, setLoading }) => {
 								<li key={item.id}>
 									<div class='md:flex flex-start'>
 										<TimeLineSvg />
-										<div class='block p-6  max-w-md ml-6 mb-5 '>
+										<div class='block p-10  max-w-md ml-6 mb-5 '>
 											<div class='flex justify-between mb-4'>
 												<Heading>Dernier Diplome :
 												<Heading>{item?.degree || "No Degree"}</Heading>
