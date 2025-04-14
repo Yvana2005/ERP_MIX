@@ -25,8 +25,8 @@ const PrintToPdf = forwardRef(({ data, invoiceData }, ref) => {
 	const { Title } = Typography;
 	return (
 		<Fragment>
-			<div ref={ref} className='wrapper'>
-				<Col className='container mx-auto px-4 my-20'>
+			<div ref={ref} className=''>
+				<Col className='container mx-auto px-4 my-5'>
 					<Row justify='center'>
 						<PrintIconSVG />
 					</Row>
@@ -191,7 +191,7 @@ const DetailPayslip = () => {
 		<div>
 			<UserPrivateComponent permission={"readSingle-payroll"}>
 				<div className=''>
-					<div className='flex justify-end mr-10'>
+					<div className='flex justify-end mb-10'>
 						{invoiceData && (
 							<Button type='primary' size='large' onClick={handlePrint}>
 							Imprimer la fiche de paie
@@ -216,7 +216,7 @@ const DetailPayslip = () => {
 const TitleText = tw.span`
 text-sm
 font-semibold
-text-slate-700
+text-slate-300
 
 `;
 

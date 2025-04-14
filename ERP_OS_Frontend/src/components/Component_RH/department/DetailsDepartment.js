@@ -50,7 +50,7 @@ const CustomTable = ({ list }) => {
       title: "Role",
       dataIndex: "role",
       key: "role",
-      render: (role) => role?.name
+      //render: (role) => role?.name
     },
 
     {
@@ -68,7 +68,7 @@ const CustomTable = ({ list }) => {
       dataIndex: "id",
       key: "action",
       render: (id) => (
-        <UserPrivateComponent permission={"readSingle-user"}>
+        <UserPrivateComponent permission={"viewUser"}>
           <ViewBtn path={`/admin/hr/staffs/${id}/`} />
         </UserPrivateComponent>
       )
@@ -93,12 +93,14 @@ const CustomTable = ({ list }) => {
         </h5>
 
         {list && (
-          <div>
+          <div className="card-title d-flex justify-content-end" style={{ marginTop:"10px" }}>
+            <div className="me-2">
             <CsvLinkBtn>
-              <CSVLink data={list} filename="département_utilisateur">
+              <CSVLink data={list} style={{ margin: "5px" }} className="btn btn-dark btn-sm mb-1" filename="département_utilisateur">
                 Télécharger CSV
               </CSVLink>
             </CsvLinkBtn>
+            </div>
           </div>
         )}
       </div>
@@ -217,7 +219,7 @@ const DetailDepartment = () => {
                   </h3>
                   <UserPrivateComponent permission={"update-department"}>
                     <div className="flex justify-end">
-                      <DepartmentEditPopup data={department} />
+                      <DepartmentEditPopup size={30} data={department} />
                       <Popover
                         className="m-2"
                         // content={

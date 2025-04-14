@@ -85,7 +85,7 @@ const DetailDesignation = () => {
 	const isLogged = Boolean(localStorage.getItem("isLogged"));
 
 	if (!isLogged) {
-		return <Navigate to={"/admin/auth/login"} replace={true} />;
+		return <Navigate to={"/auth/login"} replace={true} />;
 	}
 
 	return (
@@ -93,7 +93,7 @@ const DetailDesignation = () => {
 			<PageTitle title=' Retour ' subtitle=' ' />
 
 			<div className='mr-top'>
-				<UserPrivateComponent permission={"readSingle-designation"}>
+				<UserPrivateComponent permission={"viewDesignation"}>
 					{designation ? (
 						<Fragment key={designation.id}>
 							<Card bordered={false} style={{}}>
@@ -107,7 +107,7 @@ const DetailDesignation = () => {
 										</h5>
 									</div>
 									<div className='text-end w-50'>
-										<UserPrivateComponent permission={"update-designation"}>
+										<UserPrivateComponent permission={"updateDesignation"}>
 											<Link
 												className='mr-3 d-inline-block'
 												to={`/admin/designation/${designation.designationId}/update`}
@@ -118,7 +118,7 @@ const DetailDesignation = () => {
 													icon={<EditOutlined />}></Button>
 											</Link>
 										</UserPrivateComponent>
-										<UserPrivateComponent permission={"delete-designation"}>
+										<UserPrivateComponent permission={"deleteDesignation"}>
 											<Popover
 												>
 												<Button

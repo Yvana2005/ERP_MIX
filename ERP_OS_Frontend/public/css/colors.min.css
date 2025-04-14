@@ -7964,13 +7964,38 @@ input:focus~.bg-purple {
 }
 .bg-indigo{
     background-color: #00796B;
+    border-color: #00796B;
 }
 .bg-green{
     background-color: #00897B;
+    border-color: #00897B;
+}
+.bg-cyan{
+    background-color: #00B5B8;
+    border-color: #00B5B8;
+}
+.bg-amber{
+    background-color: #D50000;
+    border-color: #D50000;
+}
+.bg-teal-500{
+    background-color: #14BC89;
+    border-color: #14BC89;
+}
+.bg-purple-500{
+    background-color: #4A148C;
+    border-color: #4A148C;
+    font-weight: 500 !important;
 }
 .text-red-500{
-    background-color: red;
+    /* background-color: red; */
     color: red;
+}
+.text-yellow{
+    color:#FF0;
+}
+.text-green{
+    color:#0F8E67;
 }
 .alert-blue {
     border-color: #65B6F7 !important;

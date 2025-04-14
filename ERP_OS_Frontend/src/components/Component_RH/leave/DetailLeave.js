@@ -1,4 +1,4 @@
-import { Button, Card, Popover } from "antd";
+import { Button, Card, Popover, Col } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import Loader from "../../loader/loader";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,15 +49,21 @@ const DetailLeave = () => {
 			<PageTitle title='Retour' />
 			{/* <UserPrivateComponent permission={"create-leaveApplication"}> */}
 				<Card className='mt-4'>
-					<div className='text-center mb-4'>
+					<div className='text-center mb-1'>
 						{" "}
 						<h2 className='text-2xl font-semibold text-gray-600'>
 						Demande de congé #{leave?.id}{" "}
 						</h2>
 					</div>
 					{leave ? (
-						<div className='flex justify-center '>
-							<ul className='list-inside list-none border-2 border-inherit rounded px-5 py-5 '>
+						<div className='mr-top' justify='center'>
+							<Col 
+							 xs={24}
+							 sm={24}
+							 md={24}
+							 lg={11}
+							 xl={11}
+							 className=' border rounded column-design'>
 								<ListItem>
 								Nom :{" "}
 									<TextInside>
@@ -69,7 +75,15 @@ const DetailLeave = () => {
 									</TextInside>
 								</ListItem>
 								<ListItem>
-								Type de congé : <TextInside>{leave.leaveType}</TextInside>
+								Type de congé : <TextInside>{leave.leaveType === "PAID" ? (
+											<span className='text-yellow'>
+												PAYÉ
+											</span>
+										) : (
+											<span className='text-red-500'>
+												IMPAYÉ
+											</span>
+										)}</TextInside>
 								</ListItem>
 								<ListItem>
 								Partir du :{" "}
@@ -101,11 +115,11 @@ const DetailLeave = () => {
 								Statut du congé :{" "}
 									<TextInside>
 										{leave.status === "PENDING" ? (
-											<span className='text-yellow-500'>
+											<span className='text-yellow'>
 												EN ATTENTE
 											</span>
 										) : leave.status === "ACCEPTED" ? (
-											<span className='text-green-500'>
+											<span className='text-green'>
 												{leave.status.toUpperCase()}
 											</span>
 										) : (
@@ -136,7 +150,7 @@ const DetailLeave = () => {
 
 								<ListItem>
 								Congé accepté par :{" "}
-									<TextInside className='text-green-500'>
+									<TextInside className='text-green'>
 										{(leave.acceptLeaveBy?.firstName || "EN") +
 											" " +
 											(leave.acceptLeaveBy?.lastName || "REVUE")}
@@ -166,7 +180,7 @@ const DetailLeave = () => {
 								</ListItem>
 								<ListItem>
 								Supprimer : {" "}
-								<UserPrivateComponent permission={"delete-leaveApplication"}>
+								<UserPrivateComponent permission={"readAll-leaveApplication"}>
 											<Popover
 												>
 												<Button
@@ -178,7 +192,7 @@ const DetailLeave = () => {
 											</Popover>
 								</UserPrivateComponent>
 								</ListItem>
-							</ul>
+							</Col>
 						</div>
 					) : (
 						<Loader />
@@ -211,11 +225,11 @@ font-semibold
 py-2
 px-4
 bg-gray-100
-mb-1.5
+mb-0.5
 rounded
 w-96
 flex
-justify-start
+justify-center
 `;
 
 const TextInside = tw.p`

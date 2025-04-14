@@ -338,7 +338,7 @@ const Test = (color) => {
     //     ]
     //   /account},
     !isProRole &&
-      (hasPermission("updateSetting") || hasPermission("viewSetting")) && {
+      (hasPermission("createCustomer") || hasPermission("viewSetting")) && {
         label: "PARAMÈTRES",
         key: "settings",
         icon: <SettingOutlined />,

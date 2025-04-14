@@ -7,7 +7,7 @@ const MilestoneBtn = ({ path }) => {
 		<div>
 			<Tooltip title='Milestone'>
 				<Link to={path}>
-					<button className='bg-cyan-500 hover:bg-cyan-700 text-white font-bold  px-2 rounded mr-2'>
+					<button className='bg-cyan hover:bg-cyan-700 text-white font-bold  px-2 rounded mr-2'>
 						<i class='bi bi-signpost-2-fill'></i>
 					</button>
 				</Link>

@@ -4,7 +4,7 @@ import { CsvLinkBtn } from "../UI/CsvLinkBtn";
 import { CSVLink } from "react-csv";
 import ColVisibilityDropdown from "../Shared/ColVisibilityDropdown";
 import { useEffect } from "react";
-import { DollarCircleFilled, EyeFilled } from "@ant-design/icons";
+import { DollarCircleFilled, EyeFilled, SearchOutlined } from "@ant-design/icons";
 
 import dayjs from "dayjs";
 import { useState } from "react";
@@ -134,24 +134,24 @@ function CustomTable({ list, loading, month, year, paymentStatus }) {
             <Link to={`/admin/payroll/${id}`}>
               <Tooltip title="Voir">
                 <Button
-                  icon={<EyeFilled />}
+                  
                   type="primary"
-                  size="middle"
+                  
                   className="mr-2"
-                ></Button>
+                ><EyeFilled size={30} /></Button>
               </Tooltip>
             </Link>
 
-            <UserPrivateComponent permission="create-transaction">
+            <UserPrivateComponent permission="create-payroll">
               <Tooltip title="Paiement">
                 <Button
                   loading={loadingButton[id]}
-                  icon={<DollarCircleFilled />}
+                 
                   type="primary"
                   size="middle"
                   onClick={onPayment}
                   disabled={paymentStatus === "PAID"}
-                ></Button>
+                ><DollarCircleFilled size={40} /></Button>
               </Tooltip>
             </UserPrivateComponent>
           </div>
@@ -188,7 +188,7 @@ function CustomTable({ list, loading, month, year, paymentStatus }) {
             <CsvLinkBtn>
               <CSVLink
                 data={list}
-                className="btn btn-dark btn-sm mb-1"
+                className="btn btn-dark btn-sm "
                 filename="payslips"
               >
                 Télécharger CSV

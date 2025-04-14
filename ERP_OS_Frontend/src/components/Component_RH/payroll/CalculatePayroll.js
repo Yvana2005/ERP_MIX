@@ -186,7 +186,7 @@ function CustomTable({ list, loading }) {
       key: "action",
       render: (id) => (
         <div className="flex justify-start">
-          <UserPrivateComponent permission={"readSingle-user"}>
+          <UserPrivateComponent permission={"viewUser"}>
             <ViewBtn path={`/admin/hr/staffs/${id}/`} />
           </UserPrivateComponent>
           

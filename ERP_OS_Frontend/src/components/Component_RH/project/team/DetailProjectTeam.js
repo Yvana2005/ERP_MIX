@@ -17,7 +17,7 @@ const columns = [
 	},
 	{
 		id: 2,
-		title: "Name",
+		title: "Nom",
 		key: "username",
 		render: ({ user }) => user.firstName + " " + user.lastName,
 	},
@@ -52,13 +52,13 @@ const DetailProjectTeam = () => {
 	}, []);
 
 	if (!isLogged) {
-		return <Navigate to={"/admin/auth/login"} replace={true} />;
+		return <Navigate to={"/auth/login"} replace={true} />;
 	}
 	return (
 		<>
 			{ProjectTeam ? (
 				<div>
-					<PageTitle title='Back' />
+					<PageTitle title='Retour' />
 					{ProjectTeam && (
 						<AddProjectTeamMember
 							id={id}
@@ -67,25 +67,25 @@ const DetailProjectTeam = () => {
 						/>
 					)}
 					<Card className='mb-4'>
-						<div className='flex justify-between mb-8'>
-							<h1 className='text-lg '>
+						<div className='flex justify-between mb-3'>
+							<h4 className='text-lg '>
 								{" "}
 								<span className='font-semibold'>Project :</span>{" "}
 								{ProjectTeam.project.name}
-							</h1>
-							<h1 className='text-lg'>
+							</h4>
+							<h4 className='text-lg'>
 								{" "}
 								<span className='font-semibold'>Équipe: </span>
 								{ProjectTeam.projectTeamName}
-							</h1>
-							<h1 className='text-lg '>
+							</h4>
+							<h4 className='text-lg '>
 								<span className='font-semibold'>Chef de projet : </span>
 								{(
 									ProjectTeam.project.projectManager.firstName +
 									" " +
 									ProjectTeam.project.projectManager.lastName
 								).toUpperCase()}
-							</h1>
+							</h4>
 						</div>
 						<Table
 							scroll={{ x: true }}
