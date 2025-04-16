@@ -27,7 +27,7 @@ projectTeamRoutes.put(
   authorize("update-projectTeam"),
   updateProjectTeam
 );
-projectTeamRoutes.patch(
+projectTeamRoutes.delete(
   "/:id",
   authorize("delete-projectTeam"),
   deleteProjectTeam

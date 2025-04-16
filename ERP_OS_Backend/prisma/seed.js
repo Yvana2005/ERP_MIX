@@ -320,6 +320,23 @@ const particularPermissions = [
   "viewCustomer", "createSaleInvoice","updateCustomer"
 ];
 
+const staffPermissions = [
+  "createProduct", "viewProduct", "viewCustomer", "createSupplier", "viewSupplier", "viewSaleInvoice", 
+  "createSaleInvoice", "chekSaleInvoice", "createPurchaseInvoice", "viewPurchaseInvoice", 
+  "createPaymentPurchaseInvoice", "viewPaymentPurchaseInvoice"," createPaymentSaleInvoice", 
+ "viewPaymentSaleInvoice", "viewDashboard", "createDesignation", "viewDesignation", 
+ "createProductCategory", "viewProductCategory", "createReturnPurchaseInvoice", 
+ "viewReturnPurchaseInvoice", "createReturnSaleInvoice", "viewReturnSaleInvoice", 
+ "create-assignedTask", "readAll-assignedTask", "readAll-award", "readSingle-award",
+ "readSingle-awardHistory", "readAll-weeklyHoliday", "readAll-publicHoliday", 
+ "readAll-project", "readSingle-project","create-task", "readAll-task", "readSingle-task", 
+ "readAll-projectTeam", "readSingle-projectTeam", "readAll-taskStatus", "readSingle-taskStatus",
+  "create-priority", "readAll-priority", "readSingle-priority", "ViewAttendance", 
+  "getSingleAttendance", "readSingle-attendance", "create-attendance", "readAll-department", 
+  "readAll-announcement", "create-announcement", "CreateAttendance", "ViewSalaryHistory", 
+  "create-leaveApplication", "readSingle-leaveApplication"
+];
+
 const year = new Date().getFullYear();
 const publicHoliday = [
   {
@@ -554,6 +571,31 @@ async function main() {
        }
      }
    }
+
+   // Assign specific permissions to the staff role
+  const staffRole = await prisma.role.findUnique({ where: { name: "staff" } });
+  if (staffRole) {
+    for (const permission of staffPermissions) {
+      const permissionId = (await prisma.permission.findUnique({ where: { name: permission } })).id;
+      const existingRolePermission = await prisma.rolePermission.findUnique({
+        where: {
+          role_id_permission_id: {
+            role_id: staffRole.id,
+            permission_id: permissionId
+          }
+        }
+      });
+      if (!existingRolePermission) {
+        await prisma.rolePermission.create({
+          data: {
+            role_id: staffRole.id,
+            permission_id: permissionId
+          }
+        });
+      }
+    }
+  }
+
 
   // Check and insert accounts
   for (const account of accounts) {

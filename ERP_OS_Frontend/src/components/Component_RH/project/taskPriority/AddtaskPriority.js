@@ -26,7 +26,10 @@ const AddTaskPriority = (props) => {
 
 		setLoader(true);
 		const resp = await dispatch(addSingleTaskPriority(taskPriorityData));
-
+        console.log("Données chargées pour le projet :", resp.payload);
+		if (!Array.isArray(resp.payload)) {
+			console.error("Les données retournées ne sont pas un tableau :", resp.payload);
+		}
 		if (resp.payload.message === "success") {
 			setLoader(false);
 			form.resetFields();

@@ -130,9 +130,9 @@ const AttendancePopup = () => {
 					<Col span={12}>
 						<p className='text-base font-semibold text-color-2'>{`Heure ${inOut} date & heure:`}</p>
 						{/* show current time */}
-						<h1>Date: {date}</h1>
+						<h4>Date: {date}</h4>
 						{/* show current date */}
-						<h1>Heure {time}</h1>
+						<h4>Heure {time}</h4>
 					</Col>
 					<Col
 						span={24}

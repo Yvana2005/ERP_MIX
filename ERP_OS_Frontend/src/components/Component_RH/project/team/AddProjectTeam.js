@@ -38,24 +38,43 @@ const AddProjectTeam = ({ projectId }) => {
 	const onFinish = async (values) => {
 		const singleProjectTeam = {
 			...values,
-			projectId: values.projectId ? values.projectId : parseInt(projectId),
+			//projectId: values.projectId ? values.projectId : parseInt(projectId),
+			projectId: values.projectId || (projectId ? parseInt(projectId) : null),
+
 		};
 
 		console.log("singleProjectTeam", singleProjectTeam);
 
 		setLoader(true);
 		const resp = await dispatch(addSingleProjectTeam(singleProjectTeam));
+        console.log("Données chargées pour le projet :", resp.payload);
+		if (!Array.isArray(resp.payload)) {
+			console.error("Les données retournées ne sont pas un tableau :", resp.payload);
+		}
 
 		if (resp.payload.message === "success") {
 			setLoader(false);
 			form.resetFields();
-			dispatch(loadAllProjectTeamByProjectId(projectId));
-		} else {
-			setLoader(false);
-		}
+		  
+			if (projectId) {
+			  dispatch(loadAllProjectTeamByProjectId(projectId));
+			} else if (values.projectId) {
+			  dispatch(loadAllProjectTeamByProjectId(values.projectId));
+			} else {
+			  console.warn("Impossible de charger la team car aucun projectId défini.");
+			}
+		  }
+		  
 	};
 
 	console.log("project", projectId);
+	console.log("Liste des projets :", projectList);
+    console.log("Liste des utilisateurs :", usersList);
+
+// Assurez-vous que ce sont bien des tableaux
+if (!Array.isArray(projectList) || !Array.isArray(usersList)) {
+  console.error("Les données des projets ou des utilisateurs ne sont pas valides.");
+}
 
 	const onFinishFailed = (errorInfo) => {
 		toast.warning("Failed at adding Project Team");
