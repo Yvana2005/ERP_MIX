@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Login.module.css";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/actions/user/loginUserAction";
-import logo from "../../assets/images/sai-i-lama-logo.png";
+import logo from "../../assets/images/logo-jira.svg";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const Login = () => {
       if (userRole === "Professionnel" || userRole === "Particulier") {
         window.location.href = "/pos";
       } else {
-        window.location.href = "/dashboard";
+        window.location.href = "/home";
       }
     }
   }, []);
@@ -46,7 +46,7 @@ const Login = () => {
       if (userRole === "Professionnel" || userRole === "Particulier") {
         window.location.href = "/pos";
       } else {
-        window.location.href = "/dashboard";
+        window.location.href = "/home";
       }
     } else {
       toast.error("Email ou mot de passe incorrect !");

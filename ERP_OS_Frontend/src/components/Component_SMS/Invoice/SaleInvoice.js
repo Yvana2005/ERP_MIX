@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import getSetting from "../../../api/getSettings";
-import logo from "../../../assets/images/sai-i-lama-logo.png";
+import logo from "../../../assets/images/logo-jira.svg";
 import number2words from "../../../utils/numberToWords";
 import "./style.css";
 

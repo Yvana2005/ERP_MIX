@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import { useReactToPrint } from "react-to-print";
-import logo from "../../../assets/images/sai-i-lama-logo.png";
+import logo from "../../../assets/images/logo-jira.svg";
 import getSetting from "../../../api/getSettings";
 import "./style.css";
 

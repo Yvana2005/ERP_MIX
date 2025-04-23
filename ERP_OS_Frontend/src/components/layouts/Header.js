@@ -10,7 +10,7 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { Button, Col, Row, Typography,  Dropdown, Menu } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import 
-{ BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsGraphUpArrow  }
+{ BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill,BsHeartPulse, BsPeopleFill, BsGraphUpArrow  }
  from 'react-icons/bs';
  import { ModuleContext } from './ModuleContext';
 import { Link } from "react-router-dom";
@@ -42,6 +42,8 @@ function Header({ onPress, collapsed, handleCollapsed }) {
     setDarkMode(checked);
   };
 
+  const [activeModule, setActiveModule] = useState(null);
+
 
   useEffect(() => {
     let themeClass = isDarkMode ? "dark-theme" : "light-theme";
@@ -71,31 +73,38 @@ function Header({ onPress, collapsed, handleCollapsed }) {
         </Col>
         {isLogged && role !== "Professionnel" && role !== "Particulier" && (
           <>
-        <Col xs={24} md={5}>
+        <Col xs={24} md={4}>
            
-          <a href="/dashboardsms"><div className='topButton' onClick={() => handleModuleClick('MSC')}>
-                  <BsGraphUpArrow className='card_icon'/>  SMS
-                  <h3 style={{fontSize : "120%"}}>SMS</h3>
+          <a href="/dashboardsms"><div className={`topButton ${selectedModule === "MSC" ? "active-button" : ""}`} onClick={() => handleModuleClick('MSC')}>
+                  <BsGraphUpArrow className='card_icon'/> SMS 
+                  {/* <h3 style={{fontSize : "120%"}}>SMS</h3> style={{color:"#b029b0"}}*/}
             </div></a>
           
         </Col>
           
-        <Col xs={24} md={5}>
-          <a href="/dashboardsms" ><div className='topButton2' onClick={() => handleModuleClick('MV')}>
+        <Col xs={24} md={4}>
+          <a href="/dashboardsms" ><div className={`topButton ${selectedModule === "MV" ? "active-button" : ""}`} onClick={() => handleModuleClick('MV')}>
                   <BsFillArchiveFill className='card_icon'/> VENTES
-                  <h3 style={{fontSize : "120%"}}>VENTES</h3>
+                  {/* <h3 style={{fontSize : "120%"}}>VENTES</h3> style={{color:"#b029b0"}} */}
             </div></a>
         </Col>
           
-        <Col xs={24} md={5}>
-          <a href="/admin/dashboardrh"><div className='topButton3' onClick={() => handleModuleClick('MR')}>
+        <Col xs={24} md={4}>
+          <a href="/admin/dashboardrh"><div className={`topButton ${selectedModule === "MR" ? "active-button" : ""}`} onClick={() => handleModuleClick('MR')}>
                   <BsPeopleFill className='card_icon'/> RH
-                  <h3 style={{fontSize : "120%"}}>RH</h3>
+                  {/* <h3 style={{fontSize : "120%"}}>RH</h3> #1890ff*/}
+            </div></a>
+        </Col>
+
+        <Col xs={24} md={4}>
+          <a href="/admin/dashboardrh"><div className='topButton' onClick={() => handleModuleClick('MR')}>
+                  <BsHeartPulse className='card_icon'/> SOINS
+                  {/* <h3 style={{fontSize : "120%"}}>RH</h3> #1890ff*/}
             </div></a>
         </Col>
         </>
         )}
-        <Col xs={24} md={6} className={styles.headerControl}>
+        <Col xs={24} md={5} className={styles.headerControl}>
           <DarkModeSwitch
             style={{ margin: "1rem" }}
             checked={isDarkMode}

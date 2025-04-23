@@ -189,8 +189,9 @@ function KanbanBoard2() {
 													</h2>
 													<div className='flex justify-end'>
 														<TaskAddSinglePopup
-															className='bg-blue-500 text-white px-2 py-1 rounded-lg hover:bg-blue-600'
+															
 															// onClick={() => handleAddTask(column.id)}
+															 style={{ width: "100px" }}
 															projectId={projectId}
 															taskStatusId={column.id}>
 															Ajouter une tâche

@@ -37,6 +37,31 @@ export const addSingleProjectTeam = createAsyncThunk(
 );
 
 // DELETE_projectTeam
+// export const deleteProjectTeam = createAsyncThunk(
+// 	"projectTeam/deleteProjectTeam ",
+// 	async (id, { rejectWithValue }) => {
+// 		try {
+// 			const resp = await axios({
+// 				method: "delete",
+// 				headers: {
+// 					Accept: "application/json",
+// 					"Content-Type": "application/json;charset=UTF-8",
+// 				},
+// 				url: `project-team/${id}`,
+// 			});
+
+// 			toast.success("Project Team Deleted");
+// 			return {
+// 				data: resp.data.id,
+// 				message: "success",
+// 			};
+// 		} catch (error) {
+// 			toast.error("Error in deleting Project Team try again");
+// 			return rejectWithValue({ message: error.response?.data?.message || "Server Error" });
+// 		}
+// 	}
+// );
+
 export const deleteProjectTeam = createAsyncThunk(
 	"projectTeam/deleteProjectTeam ",
 	async (id) => {
@@ -273,11 +298,16 @@ const ProjectTeamSlice = createSlice({
 
 		builder.addCase(deleteProjectTeam.fulfilled, (state, action) => {
 			state.loading = false;
+			// if (action.payload?.data) {
+			// 	state.ProjectTeam = state.ProjectTeam.filter(
+			// 		(team) => team.id !== action.payload.data
+			// 	);
+			// }
 		});
 
 		builder.addCase(deleteProjectTeam.rejected, (state, action) => {
 			state.loading = false;
-			state.error = action.payload.message;
+			state.error = action.error?.message || "Erreur lors de la suppression";
 		});
 	},
 });

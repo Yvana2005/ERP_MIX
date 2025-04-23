@@ -33,13 +33,13 @@ import {
 	QuestionCircleOutlined
 } from "@ant-design/icons";
 import { Divider, Menu, Tooltip } from "antd";
-import { BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, bsGraphDown, BsGraphUpArrow }
+import { BsGrid1X2Fill, BsCart4, BsHeartPulse, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, bsGraphDown, BsGraphUpArrow }
   from 'react-icons/bs'
 import React from "react";
 
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../../assets/images/sai-i-lama-logo.png";
+import logo from "../../assets/images/logo-jira.svg";
 import NotificationIcon from "../Component_SMS/notification/NotificationIcon";
 import { loadProduct } from "../../redux/actions/product/getAllProductAction";
 import { loadAllSale } from "../../redux/actions/sale/getSaleAction";
@@ -109,13 +109,14 @@ const Test = (color) => {
   const getMenuItems = () => {
     switch (selectedModule) {
       case "MSC": // Module Supply Chain
-        return menu.slice(4, 9); // Afficher les 4 premiers éléments
+        return menu.slice(5, 10); // Afficher les 4 premiers éléments
       case "MV": // Module Vente
-        return menu.slice(9, 12).concat(menu.slice(12, 13)); 
+        return menu.slice(10, 13).concat(menu.slice(13, 14)); 
       case "MR": // Module RH
-        return menu.slice(14, 29); // Afficher de Dashboard à Projet
+        return menu.slice(15, 30); // Afficher de Dashboard à Projet
+        //RAJOUTER SOIN EN BAS
       case "Global": // Module Supply Chain
-        return menu.slice(0, 4);
+        return menu.slice(0, 5);
       default:
         return menu.slice(3);
     }
@@ -138,7 +139,7 @@ const Test = (color) => {
         </NavLink>
       ),
       key: "MV",
-      icon: <BsFillArchiveFill />,
+      icon: <BsCart4 />,
     },
     isProRole &&{
       label: (
@@ -147,7 +148,7 @@ const Test = (color) => {
         </NavLink>
       ),
       key: "MV",
-      icon: <BsFillArchiveFill />,
+      icon: <BsCart4 />,
     },
     !isProRole &&{
       label: (
@@ -157,6 +158,15 @@ const Test = (color) => {
       ),
       key: "MR",
       icon: <BsPeopleFill />,
+    },
+    !isProRole &&{
+      label: (
+        <NavLink to="/">
+          <span>SOINS</span>
+        </NavLink>
+      ),
+      key: "MR",
+      icon: <BsHeartPulse />,
     },
     
     
@@ -372,7 +382,7 @@ const Test = (color) => {
           },
           {
             label: (
-              <NavLink to="/account">
+              <NavLink to="/home">
                 <span>Compte</span>
               </NavLink>
             ),

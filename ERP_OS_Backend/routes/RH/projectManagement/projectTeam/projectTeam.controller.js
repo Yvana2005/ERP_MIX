@@ -204,7 +204,7 @@ const updateProjectTeam = async (req, res) => {
 //delete projectTeam controller
 const deleteProjectTeam = async (req, res) => {
   try {
-    const projectTeam = await prisma.projectTeam.update({
+    const projectTeam = await prisma.projectTeam.delete({
       where: {
         id: parseInt(req.params.id),
       },

@@ -70,9 +70,13 @@ const ProjectTeam = () => {
 		console.log(id);
 		setDeleteLoader(true);
 		const resp = await dispatch(deleteProjectTeam(id));
-		if (resp.payload.message === "success") {
+		if (resp.payload && resp.payload.message === "success") {
 			setDeleteLoader(false);
 			dispatch(loadAllProjectTeam());
+		  } else {
+			setDeleteLoader(false);
+			// tu peux afficher une alerte ici aussi
+			console.error("Échec de la suppression :", resp);
 		}
 	};
 

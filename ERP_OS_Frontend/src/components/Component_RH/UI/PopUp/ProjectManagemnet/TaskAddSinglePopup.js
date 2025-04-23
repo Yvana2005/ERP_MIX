@@ -40,6 +40,10 @@ const TaskAddSinglePopup = ({ projectId, taskStatusId }) => {
 	const projectTeamList = useSelector((state) => state.projectTeam.list);
 	const milestoneList = useSelector((state) => state.milestone.list);
 	const [teamUserList, setTeamUserList] = useState([]);
+	// const teamUserList = useSelector((state) => state.user.list);
+	// const { list: usersList, loading: userListLoading } = useSelector(
+	// 	(state) => state.users
+	// );
 
 	const { id } = useParams("id");
 
@@ -59,6 +63,7 @@ const TaskAddSinglePopup = ({ projectId, taskStatusId }) => {
 		dispatch(loadAllMilestoneByProjectId(projectId));
 		dispatch(loadAllProjectTeamByProjectId(projectId));
 		dispatch(loadAllTaskPriority());
+		dispatch(loadAllMilestone());
 	}, []);
 
 	const onFinish = async (values) => {
@@ -111,11 +116,12 @@ const TaskAddSinglePopup = ({ projectId, taskStatusId }) => {
 		<div>
 			<div className='text-center'>
 				<button
-					className='flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100'
+					className='flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 hover:bg-indigo-500 hover:text-indigo-100'
 					type='primary'
+					style={{ width:"20px"}}
 					onClick={showModal}>
 					<svg
-						class='w-10 h-10'
+						class='w-6 h-6'
 						fill='none'
 						viewBox='0 0 24 24'
 						stroke='currentColor'>
@@ -181,7 +187,7 @@ const TaskAddSinglePopup = ({ projectId, taskStatusId }) => {
 										placeholder='Select Milestone'
 										mode='single'
 										style={{ width: "160px" }}>
-										{milestoneList.map((item) => (
+										{milestoneList?.map((item) => (
 											<Select.Option key={item.id} value={item.id}>
 												{item.name}
 											</Select.Option>

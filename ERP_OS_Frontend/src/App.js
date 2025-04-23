@@ -34,6 +34,7 @@ import DetailSale from "./components/Component_SMS/sale/detailSale";
 import Sale from "./components/Component_SMS/sale/sale";
 
 import Page404 from "./components/404/404Page";
+import Home from "./components/Global_Dashboard/Graph/home";
 import Dashboard from "./components/Global_Dashboard/Graph/Dashboard";
 import DashboardSMS from "./components/Component_SMS/Dashboard/Graph/Dashboard";
 import DashboardRH from "./components/Component_RH/Dashboard/Graph/Dashboard";
@@ -161,6 +162,7 @@ function App() {
             <Route path="/admin/dashboardrh" element={<DashboardRH />}></Route>
             <Route path="/" element={<Dashboard />} />
             <Route path="*" element={<Page404 />} />
+            <Route path="/home" element={<Home />}></Route>
 
             <Route path="/supplier" exact element={<Suppliers />} />
             <Route path="/supplier/:id" element={<DetailsSup />} />

@@ -25,7 +25,7 @@
   --text: #000000;
   --text-inverse: #ffffff;
   --body-bg: #f8f8ff;
-  --sidenav-bg: #b029b0;
+  --sidenav-bg: #042594;
   --table-cell-row-hover: #fafafa;
   --form-item-label: rgba(0, 0, 0, 0.85);
   --table-head: rgb(44, 44, 44);
@@ -581,4 +581,43 @@ select:-webkit-autofill:focus {
 }
 .text-red-500{
   color: red;
+}
+
+.topButton {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #ffffff;
+	border: 2px solid #1890ff;
+	border-radius: 16px;
+	padding: 30px;
+	width: 40px;
+	height: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+	cursor: pointer;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	text-align: center;
+}
+
+.topButton .card_icon {
+	font-size: 75px;
+  width: 100%;
+	color: #1890ff;
+	/* margin-bottom: 10px; */
+}
+
+.topButton:hover {
+	transform: scale(0.8);
+	background-color: #fafbfc;
+  color:#011364;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.active-button {
+  background-color: #011364;
+  color: white;
+  border-color: #011364;
 }

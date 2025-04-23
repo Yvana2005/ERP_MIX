@@ -34,8 +34,8 @@ const AddTaskPriority = (props) => {
 			setLoader(false);
 			form.resetFields();
 			dispatch(loadAllTaskPriority());
-			props.list = list;
-			props.loading = loading;
+			// props.list = list;
+			// props.loading = loading;
 		} else {
 			setLoader(false);
 		}

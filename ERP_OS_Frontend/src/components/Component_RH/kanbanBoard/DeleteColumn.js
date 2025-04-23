@@ -25,7 +25,7 @@ const DeleteColumn = ({ id, projectId }) => {
 	const content = (
 		<div>
 			<Button
-				className='text-sm text-red-500 ml-2'
+				className='text-sm text-red-500'
 				onClick={onDelete}>
 					Supprimer
 			</Button>
@@ -40,8 +40,8 @@ const DeleteColumn = ({ id, projectId }) => {
 			trigger={"click"}>
 			<button
 				type='primary'
-				className=' px-2 mb-1 text-indigo-500 rounded hover:text-indigo-300'>
-				<i class='bi bi-three-dots-vertical' style={{ fontSize: "19px" }}></i>
+				className=' mb-1 text-indigo-500 rounded hover:text-indigo-300'>
+				<i class='bi bi-three-dots-vertical' style={{ fontSize: "20px" }}></i>
 			</button>
 		</Popover>
 	);

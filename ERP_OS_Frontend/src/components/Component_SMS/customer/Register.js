@@ -16,7 +16,7 @@ import Main from "../../layouts/Main";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../user/Login.module.css";
 import { useState } from "react";
-import logo from "../../../assets/images/sai-i-lama-logo.png";
+import logo from "../../../assets/images/logo-jira.svg";
 
 const Register = () => {
   const [loading, setLoading] = useState(false);
